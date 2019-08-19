@@ -1,0 +1,87 @@
+%#################################################################
+\chapter{Considerações Preliminares}\label{consideracoesPreliminares}
+%#################################################################
+
+Este trabalho abordou o projeto de conclusão de curso expondo seu planejamento metodológico, a fundamentação teórica, um mapeamento multivocal de literatura e a proposta de uma \ac{DSL} textual para modelagem conceitual de \acp{BD}.
+
+Como principais resultados obtidos está a investigação conduzida para compreender o estado da arte e da prática no uso de \acp{DSL} para modelagem de \acp{BD}, bem como a criação de uma \ac{DSL} textual utilizando o \textit{framework} Xtext, ferramenta \textit{open source} que permitiu a integração do protótipo a um \ac{RCP} Eclipse. 
+
+Outro ponto que merece destaque foi o esforço dos pesquisadores envolvidos neste estudo para a realização de dois artigos, sendo um abordando o \ac{SLM} e submetido ao \textit{ER - International Conference on Conceptual Modeling} (ER'2019), e outro abrangendo toda o \ac{MLM}, o qual foi submetido ao Simpósio Brasileiro de Bancos de Dados (SBBD'2019). Ambos os trabalhos estão em fase de avaliação.
+
+Pretende-se que ao final do trabalho esta proposta não apenas realize modelagem, mas também a transformação dos modelos \ac{ER} gerados em \textit{scripts} \ac{SQL} para diferentes tecnologias \acp{SGBD}, \textit{e.g.} PostgreSQL, MySQL e SQL Server.
+
+%#################################################################
+\section{Trabalhos Futuros}
+%#################################################################
+
+Na fase atual desta pesquisa pode-se dizer que foram obtidos avanços, porém ainda é necessário realizar a finalização de diversos aspectos da proposta. 
+Os principais pontos que devem ser investigados e desenvolvidos dizem respeito à transformação completa dos modelos conceituais para modelos lógicos, bem como a geração de \textit{scripts} \ac{SQL} que representem o modelo físico.
+
+Pretende-se resolver estas questões com o andamento do trabalho e, com isto feito, realizar uma avaliação experimental da proposta. 
+É importante salientar que a \ac{DSL} será avaliada preliminarmente ainda no começo do \ac{TCC} II, visando assim obter o refinamento da gramática da linguagem criada.
+
+%#################################################################
+\section{Cronograma}
+%#################################################################
+
+Para o restante da execução da pesquisa, o desenvolvimento deste trabalho se dará conforme as atividades descritas na \autoref{tbl:cronograma}.
+
+
+\begin{landscape}
+\definecolor{midgray}{gray}{.5}
+\begin{table}[!htb]
+    \caption{Cronograma do Trabalho de Conclusão de Curso.}
+    \label{tbl:cronograma}
+	\centering
+		\begin{tabular}{l|c|c|c|c|c|c|c|c|c}
+		\bottomrule
+		\rowcolor[HTML]{C0C0C0}
+		\textbf{ATIVIDADE}&\multicolumn{5}{c|}{\large\textbf{2019/1}}&\multicolumn{4}{c}{\large\textbf{2019/2}}\\
+		\hline
+		\rowcolor[HTML]{C0C0C0}
+		&\textbf{MAR}&\textbf{ABR}&\textbf{MAI}&\textbf{JUN}&\textbf{JUL}&\textbf{AGO}&\textbf{SET}&\textbf{OUT}&\textbf{NOV}\\
+		\hline
+		Elaboração da proposta de TCC &\cellcolor{Blue}&&&&&&&&\\
+		\hline
+		Pesquisa bibliográfica da fundamentação teórica &\cellcolor{Blue}&\cellcolor{Blue}&\cellcolor{Blue}&&&&&&\\
+		\hline
+		Planejamento e execução do MLM &\cellcolor{Blue}&\cellcolor{Blue}&\cellcolor{Blue}&&&&&&\\
+		\hline	
+		Análise de qualidade dos Resultados do MLM &&\cellcolor{Blue}&\cellcolor{Blue}&&&&&&\\
+		\hline			
+		Extração e análise dos dados do MLM &&\cellcolor{Blue}&\cellcolor{Blue}&&&&&&\\
+		\hline	
+		Implementação do protótipo &&&\cellcolor{Blue}&\cellcolor{Blue}&&&&&\\
+		\hline
+		Demonstração do protótipo &&&&\cellcolor{Blue}&&&&&\\
+		\hline
+		Escrita do TCC I &&\cellcolor{Blue}&\cellcolor{Blue}&\cellcolor{Blue}&&&&&\\
+		\hline
+		Aplicação das melhorias sugeridas pela banca de TCC1&&&&\cellcolor{midgray}&\cellcolor{midgray}&&&&\\
+		\hline
+		Planejamento da avaliação preliminar &&&&\cellcolor{midgray}&\cellcolor{midgray}&&&&\\
+		\hline
+		Execução da avaliação preliminar &&&&&\cellcolor{midgray}&&&&\\
+		\hline	
+		Análise da avaliação preliminar &&&&&\cellcolor{midgray}&\cellcolor{midgray}&&&\\
+		\hline	
+		Evolução do desenvolvimento &&&&&\cellcolor{midgray}&\cellcolor{midgray}&\cellcolor{midgray}&\cellcolor{midgray}&\\
+		\hline	
+		Planejamento da avaliação experimental &&&&&&\cellcolor{midgray}&\cellcolor{midgray}&&\\
+		\hline	
+		Execução da avaliação experimental &&&&&&&\cellcolor{midgray}&&\\
+		\hline	
+		Análise dos resultados da avaliação experimental &&&&&&&\cellcolor{midgray}&\cellcolor{midgray}&\\
+		\hline	
+		Escrita de artigos para submissão em eventos científicos
+		&&&&&\cellcolor{midgray}&\cellcolor{midgray}&\cellcolor{midgray}&\cellcolor{midgray}&\cellcolor{midgray}\\
+		\hline	
+		Escrita do TCC II 
+		&&&&&&\cellcolor{midgray}&\cellcolor{midgray}&\cellcolor{midgray}&\cellcolor{midgray}\\
+		\toprule	
+		\end{tabular}
+		\fonte{O autor.}
+\end{table}
+\end{landscape}
+
+

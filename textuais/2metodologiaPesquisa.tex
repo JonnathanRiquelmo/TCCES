@@ -1,0 +1,133 @@
+%#################################################################
+\chapter{Metodologia da Pesquisa}\label{metodologiaPesquisa}
+%#################################################################
+
+Este capítulo aborda a metodologia de pesquisa adotada para a execução deste estudo. 
+Na Seção \ref{sec:TiposPesquisa} são elencadas as classificações dos tipos de pesquisa. 
+Os desenhos de pesquisa do \ac{TCC} I e II utilizados para a execução da pesquisa são apresentados na Seção \ref{sec:DesenhoPesquisa} e, em seguida, na Seção \ref{sec:licMetodo} as lições do capítulo são pontuadas.
+
+%#################################################################
+\section{Classificação de Pesquisa} \label{sec:TiposPesquisa}
+%#################################################################
+
+Segundo \citeonline{Wazlawick:2017}, as monografias geralmente possuem um capítulo para a elucidação da metodologia. 
+Contudo, analisando-se semanticamente o termo, a metodologia seria o estudo dos métodos. 
+Apesar do uso corrente, linguisticamente seria mais correto afirmar que um trabalho científico individualmente tem um método de pesquisa, ou desenho de pesquisa, utilizando abordagens, técnicas e procedimentos diversos combinados.
+
+Em geral, para que um estudo possa ter maior confiança no que diz respeito ao rigor científico, é imprescindível que sejam identificadas as atividades e técnicas necessárias que possibilitem a se chegar no objetivo proposto \cite{Peffers:2007}. A \autoref{fig:ClassificacaoPesquisa} mostra a classificação desse estudo mediante sua natureza, abordagem, objetivos e procedimentos. 
+
+%\begin{figure}[!htb]
+%	\centering
+%	\caption{Classificação da Pesquisa}
+		%\includegraphics[width=\textwidth]{img/ClassificacaoPesquisa.png}
+%	\fonte{Adaptado de \citeonline{Prodanov:2013}.}
+%	\label{fig:ClassificacaoPesquisa}
+%\end{figure}
+
+
+\begin{figure}[!htb]
+\centering
+\caption{Classificação da Pesquisa.}
+\include{TiKz/ClassificacaoPesquisa}
+\fonte{Adaptado de \citeonline{Prodanov:2013}.}
+\label{fig:ClassificacaoPesquisa}
+\end{figure}
+
+Para \citeonline{Prodanov:2013}, nenhum tipo de pesquisa é autossuficiente, sendo então necessário a mescla de diferentes tipos, tendo um ou outro ponto mais acentuado, para a obtenção de resultados satisfatórios. 
+Os métodos escolhidos determinam os procedimentos que devem ser utilizados, tanto na coleta de dados e informações quanto na análise. 
+
+No que se refere a natureza uma pesquisa pode ser básica ou aplicada. 
+Este trabalho objetiva desenvolver uma \ac{DSL}, gerando uma ferramenta prática para solucionar algo específico e, sendo assim, pode ser categorizada como uma pesquisa de natureza aplicada.
+
+Do ponto de vista dos seus objetivos, uma pesquisa pode ser classificada como exploratória, descritiva ou explicativa. 
+Este estudo se encontra na fase preliminar e tem como finalidade oferecer mais informações sobre o assunto que investiga, logo, é uma pesquisa exploratória em sua fase de concepção. 
+
+A abordagem do problema pode classificar a pesquisa em quantitativa ou qualitativa. 
+Este trabalho aplicará conceitos de ambas as categorias.
+É previsto que seja realizada uma avaliação preliminar da gramática da \ac{DSL}, onde deverá ocorrer a interpretação dos acontecimentos e a atribuição de significados aos resultados sem requerer necessariamente o uso de métodos e técnicas estatísticas, caracterizando assim essa atividade como uma pesquisa qualitativa. 
+Por outro lado, na análise dos resultados da avaliação experimental da solução construída entende-se que será necessário considerar todos os elementos passíveis de serem quantificados, o que significará explicar em números as opiniões e dados para classificar os resultados. Desta forma, será fundamental o uso de recursos e de técnicas estatísticas, definindo assim essa atividade como uma pesquisa quantitativa.
+
+E por fim, com relação a seu procedimentos técnicos, uma pesquisa pode ser categorizada como pesquisa bibliográfica, documental, experimental, levantamento, também chamada de \textit{survey}, pesquisa operacional, estudo de caso, pesquisa \textit{ex-post-facto}, pesquisa-ação e pesquisa participante. 
+Este trabalho realiza uma pesquisa bibliográfica nas atividades executadas para o levantamento de sua base teórica e, além disso, também pretende executar uma pesquisa experimental na etapa de avaliação da ferramenta produzida.
+
+%#################################################################
+\section{Desenho de Pesquisa} \label{sec:DesenhoPesquisa}
+%#################################################################
+
+Para a condução deste estudo foi definido o desenho de pesquisa. 
+Nesta atividade, três fases foram determinantes: a fase decisória, a fase construtiva e a fase redacional.
+
+A fase decisória se refere a escolha do tema e a delimitação dos problemas de pesquisa. 
+A fase construtiva foi onde ocorreu o planejamento das atividades que devem ser realizadas. 
+A fase redacional se refere à escrita do projeto de trabalho e a futura análise de dados que serão colhidos e analisados no andamento do estudo. O desenho de pesquisa foi dividido em duas fases, sendo o \ac{TCC} I apresentado na \autoref{fig:ResearchDesign1} e o \ac{TCC} II na \autoref{fig:ResearchDesign2}.
+
+\begin{figure}[!htb]
+	\centering
+	\caption{Desenho de pesquisa.}
+		\includegraphics[width=1\textwidth]{img/DesenhoPesquisa1.png}
+	\fonte{O autor.}
+	\label{fig:ResearchDesign1}
+\end{figure}
+
+O projeto foi desenvolvido no \ac{TCC} I, possuindo atividades bem definidas. 
+Primeiramente aconteceu o processo de concepção, identificando o problema e a motivação que guiariam todo o estudo. 
+Após, foram definidos os objetivos que este trabalho procura atingir. 
+Então, houve a elaboração da estrutura geral do estudo em que percebeu-se que era necessário criar uma base teórica bem fundamentada. 
+Desta forma, foram caracterizadas as principais áreas que deveriam ser investigadas para o entendimento do domínio do problema. 
+Em paralelo, foi realizado um mapeamento multivocal de literatura com o objetivo de encontrar trabalhos similares a esta proposta. 
+
+Com a etapa teórica de concepção realizada, partiu-se então para o projeto inicial da proposta de \ac{DSL}, visando identificar seus requisitos essenciais e sua arquitetura básica. 
+Feito isto, deu-se início ao desenvolvimento da descrição de gramática da linguagem e sua implementação de fato. 
+Ao fim, um protótipo da ferramenta foi construída. 
+A demonstração de uso do protótipo está descrita no Capítulo \autoref{propostaDSL}. 
+Como última etapa do \ac{TCC} I, foi realizada a especificação do projeto para a apresentação da proposta.
+
+\begin{figure}[!htb]
+	\centering
+	\caption{Desenho de pesquisa (continuação).}
+		\includegraphics[width=1\textwidth]{img/DesenhoPesquisa2.png}
+	\fonte{O autor.}
+	\label{fig:ResearchDesign2}
+\end{figure}
+
+O \ac{TCC} II tem como entrada os resultados do \ac{TCC} I e inicia-se com uma avaliação preliminar da gramática criada para a \ac{DSL}. 
+Após, ocorre a evolução do desenvolvimento, com o aperfeiçoamento da gramática e a construção dos geradores para instruções de Linguagem de Consulta Estruturada, do inglês \ac{SQL}. 
+Com essas atividades realizadas, um \textit{plugin} será gerado e incorporado em um \ac{RCP}. 
+
+Com o desenvolvimento finalizado, é desejado que se execute uma avaliação da ferramenta. 
+Essa fase vai envolver o planejamento da avaliação para sua realização  e coleta de dados. 
+Finalmente, será realizada a análise dos resultados, a escrita do \ac{TCC} II e sua posterior defesa. A \autoref{fig:SinteseTCC} apresenta o resumo geral deste estudo.
+
+% Natureza: 
+%     - Pesquisa Aplicada (desenv. procurando gerar uma ferramenta prática para solucionar algo específico)
+% Objetivos:
+%     - Pesquisa Exploratória (na fase de concepção)
+%     - Descritivo (Na fase de avaliação?)
+% Procedimentos Técnicos:
+%     - Pesquisa Bibliográfica (subfase de base teórica + condução do MSL)
+% Abordagem do Problema:
+%     - Pesquisa Qualitativa (pela avaliação)
+
+\rowcolors{1}{gray!15}{white}
+\begin{table}[!htb]
+    \centering
+    \caption{Síntese do TCC.}
+    \begin{tabular}{m{4.5cm}|m{10cm}}
+        \bottomrule
+\textbf{Assunto} & Banco de Dados \\
+\textbf{Tópico} &  Projeto e Modelagem de Banco de Dados\\
+\textbf{Questão de Pesquisa} & Uma \ac{DSL} textual pode auxiliar, em nível conceitual de modelagem, o ensino de projeto e modelagem de banco de dados relacionais? \\
+\textbf{Objetivo Principal} & Propor a especificação e realizar a implementação de uma \ac{DSL} para o projeto e modelagem de banco de dados relacionais. \\ 
+        \toprule
+    \end{tabular}
+        \fonte{O autor.}
+        \label{fig:SinteseTCC}
+\end{table}
+
+%#################################################################
+\section{Lições do Capítulo} \label{sec:licMetodo}
+%#################################################################
+
+
+Este capítulo forneceu uma ideia do que é a metodologia de um modo geral e de que forma a pesquisa deste trabalho pode ser classificada. 
+Além disso, foi apresentado o desenho estabelecido para a pesquisa, sendo que o que aborda o \ac{TCC} I fornece o entendimento de quais processos foram executados até o momento, e o desenho de \ac{TCC} II aponta o que é  previsto para a sua continuação. 

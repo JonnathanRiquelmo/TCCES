@@ -1,0 +1,107 @@
+%#################################################################
+\chapter{Introdução}\label{introducao}
+%#################################################################
+
+É praticamente impossível administrar o mundo moderno sem software. 
+As infraestruturas de empresas nacionais e multinacionais são controladas por sistemas baseados em computadores e a maioria dos produtos elétricos inclui algum computador ou software de controle. 
+A fabricação e distribuição industrial é totalmente informatizada, assim como o sistema financeiro. 
+Entretenimento, incluindo a indústria criativa formada por jogos, música e cinema tem intensiva participação de software em suas atividades. 
+Portanto, a \ac{ES} é essencial para o funcionamento das sociedades nacionais e internacionais \cite{Sommerville:2011}.
+
+Contudo, a \ac{ES} é inviável sem a persistência e manipulação de dados. 
+Nos primórdios do uso de computadores, a persistência de dados se dava em forma de arquivos de texto simples, inspirado inicialmente nas raízes de uma invenção muito antiga, denominada máquina de tabulação, criada por volta de 1860. 
+Todavia em pouco tempo, e em razão da evolução das tecnologias, o uso de arquivos de texto começaram a se mostrar ineficientes \cite{Silberschatz:1999}. 
+
+Uma alternativa ao problema relacionado aos arquivos de texto, surgida há mais de 40 anos atrás e ainda utilizada amplamente nos dias atuais, foi justamente a automatização do conceito das máquinas de tabulação. 
+Este feito foi realizado pelo cientista da computação Charles Bachman, pesquisador ligado a indústria e ganhador do prêmio ACM Alan Turing de 1973 pela sua fundamental contribuição para a área de \ac{BD} \cite{Krishna:1992}.
+
+Devido ao alto volume de informação que é produzido e manipulado, os \acp{BD} fundamentados inicialmente por Bachman são essenciais na sociedade contemporânea. 
+Segundo \citeonline{Date:1990}, uma base de dados é uma coleção de dados operacionais armazenados, usados pelos sistemas de aplicação de uma determinada organização. 
+Para \citeonline{Elmasri:2011}, um \ac{BD} pode ser definido como uma abstração do mundo real, também chamado de minimundo, uma vez que representa aspectos que, em conjunto, carregam um significado implícito.
+
+Analisando de forma mais objetiva, as bases de dados podem ser consideradas os ativos organizacionais mais importantes atualmente. 
+Isso se deve ao fato de que não armazenam apenas informações triviais mas, por exemplo, também dados de faturamento, pesquisas de mercado e outros aspectos que auxiliam na tomada de decisão. 
+Contudo a sua importância não está focada apenas nas organizações, sendo também possível atestar que o uso de \ac{BD} pode representar um papel crítico na vida dos usuários finais quando estes são analisados individualmente. 
+
+Com este cenário estabelecido, é notável que existe um dever crescente da academia em fornecer um bom nível de preparo para os futuros profissionais que vão ingressar em uma indústria cada vez mais exigente. 
+Com frequência as instituições de ensino superior abordam a área de \ac{BD} com disciplinas específicas e também em componentes curriculares que são convergentes nos currículos de seus cursos. 
+Neste contexto, a UNIPAMPA possui cursos que envolvem desenvolvimento de software, tais como Engenharia de Software e Ciência da Computação.
+
+%#################################################################
+\section{Motivação}
+%#################################################################
+
+Segundo \citeonline{Salgado:1995}, o ensino na área de \ac{BD} é parte essencial da formação de profissionais de computação. 
+O foco no ensino em \ac{BD} geralmente é dividido em quatro etapas: projeto e modelagem, sistemas de gerência de bases de dados, estudos comparativos entre estes sistemas e o desenvolvimento de aplicações. 
+
+Tendo como premissa que existe uma crescente busca por instrumentos que apoiem o processo de ensino-aprendizagem na academia, este estudo tem foco na primeira etapa. 
+O ensino de projeto e modelagem de \ac{BD} em geral é conduzido com a apresentação de tópicos essenciais e a posterior introdução ao uso de ferramentas de modelagem que utilizam abordagens geralmente gráficas. 
+Este estudo tem como motivação oferecer um produto de software que dê apoio a esta fase. 
+Este produto fará uso da abordagem textual, tendo em vista que possua uma gramática de fácil uso e compreensão.
+
+%#################################################################
+\section{Objetivos}
+%#################################################################
+
+O objetivo geral deste trabalho é propor a especificação e realizar a implementação de uma Linguagem Específica de Domínio, do inglês \ac{DSL}, para o projeto e modelagem de \acp{BD} relacionais. 
+O foco da modelagem é em nível conceitual, mas deseja-se que a solução possa também realizar a transformação de modelos conceituais para os modelos lógico e físico. 
+
+Para atingir o objetivo geral proposto, é fundamental que exista a divisão do problema nos seguintes objetivos específicos que precisam ser atingidos:
+
+\begin{itemize} 
+    \item Pesquisar a literatura visando encontrar propostas que façam proposições que forneçam apoio à modelagem de bases de dados; 
+    \item Investigar tecnologias que auxiliem no processo de criação de linguagens específicas de domínio;
+    \item Compreender quais são os requisitos necessários para a criação da linguagem;
+    \item Desenvolver uma gramática para modelagem conceitual de \acp{BD} relacionais;
+    \item Integrar a linguagem proposta em uma ferramenta \textit{open source};
+    \item Implementar a transformação do modelo conceitual para o modelo lógico;
+    \item Criar geradores para tecnologias específicas de \acp{BD}, representando assim o modelo físico;
+    \item Realizar a avaliação da solução proposta;
+    \item Contribuir com uma ferramenta que auxilie no processo de ensino de projeto e modelagem de \acp{BD}.
+\end{itemize}
+
+%#################################################################
+\section{Questão de Pesquisa}
+%#################################################################
+
+Visando a condução do restante deste projeto de \ac{TCC} foi definida uma Questão de Pesquisa (QP) central, descrita a seguir:
+
+\textbf{QP: Uma \ac{DSL} textual pode auxiliar, em nível conceitual de modelagem, o ensino de projeto e modelagem de banco de dados relacionais?}
+
+%#################################################################
+\section{Justificativa}
+%#################################################################
+
+Desde os primórdios os desenvolvedores utilizam texto para especificar produtos de software. 
+As linguagens de programação aumentam o nível de abstração de maneira similar aos modelos. 
+Logo, por consequência lógica, isso resulta em linguagens de modelagem textual.
+
+Uma linguagem de modelagem textual é geralmente processada por mecanismos que transformam as informações expressas em formato textual para modelos. 
+Esses mecanismos baseiam sua execução na estrutura sintática de uma linguagem de modelagem textual, que é formalizada em uma gramática. 
+Uma gramática define palavras-chave de uma linguagem, o aninhamento de seus elementos e também a notação de suas propriedades. 
+Dito isto, pode-se inferir que os modelos textuais podem trazer diversos benefícios:
+
+\begin{itemize}
+    \item \textbf{Transmitir muitos detalhes}: Quando se trata de elementos com inúmeras propriedades, a abordagem textual geralmente se destaca em relação aos gráficos. 
+    O mesmo pode ser dito quanto a estruturas formadas por um grande número de partes muito pequenas, como operações matemáticas ou sequências de instruções;
+    \item \textbf{Coesão}: Um modelo textual geralmente especifica os elementos inteiramente em um só local. 
+    Se por um lado isso pode ser uma desvantagem para uma exibição em alto nível, em contrapartida pode facilitar a localização de definições de propriedades em baixo nível. 
+    Na proposta deste trabalho toda a modelagem conceitual é realizada em apenas um arquivo;
+    \item \textbf{Edição rápida}: Durante a criação e edição de modelos textuais não é necessário a recorrente alternância entre teclado e \textit{mouse}. 
+    Logo, é provável que se gaste menos tempo formatando modelos textuais do que, por exemplo, refinando a posição, as ligações ou mesmo as bordas de elementos em diagramas;
+    \item \textbf{Editores genéricos}: Não existe necessariamente a exigência de uma ferramenta específica para criar ou modificar modelos textuais, como é o caso de linguagens específicas de domínio com esta abordagem. 
+    Para alterações simples é possível o uso de qualquer editor de texto genérico. 
+    Entretanto, para tarefas maiores é melhor se ter algum suporte para a linguagem de modelagem. 
+    Na proposta desse trabalho está incluso a integração da linguagem definida com um editor Eclipse, fornecendo assim um alto nível de auxílio para a escrita.
+\end{itemize}
+
+
+%#################################################################
+\section{Organização}
+%#################################################################
+
+Este trabalho está organizado da seguinte forma. 
+No \autoref{metodologiaPesquisa} é apresentado a metodologia de pesquisa adotada. 
+No \autoref{fundamentacaoTeorica} é realizada a fundamentação teórica. Um mapeamento multivocal de literatura tem o protocolo e condução descritos no \autoref{mapeamentoLiteratura}. 
+A seguir, ocorre a apresentação da proposta no \autoref{propostaDSL}. 
+Finalmente, as considerações preliminares são discutidas no \autoref{consideracoesPreliminares}, em que ainda são apontados os trabalhos futuros e o cronograma de execução para continuação da pesquisa.

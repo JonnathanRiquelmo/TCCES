@@ -1,0 +1,733 @@
+%#################################################################
+\chapter{Mapeamento Multivocal de Literatura}\label{mapeamentoLiteratura}
+%#################################################################
+
+Esse capítulo descreve os procedimentos adotados para a investigação da literatura realizada para este estudo. 
+Para este propósito ser alcançado foi realizado o planejamento e a execução de um Mapeamento Multivocal da Literatura, do inglês \ac{MLM}. 
+Para isto foram aplicadas diretrizes bem estabelecidas conceitualmente por diversos trabalhos \cite{Kitchenham:2007, Petersen:2008, Nakagawa:2017}.  
+
+O protocolo seguido é descrito de forma detalhada na Seção \ref{sec:Protocolo}. 
+%Na Subseção \ref{ssec:QPs} são elencadas as nossas \ac{QP}, as fontes de busca na Subseção \ref{ssec:FontesBuscas}. 
+%Na Subseção \ref{ssec:StringBusca} apresenta-se os termos e a \textit{string} gerada a partir deles. 
+%Os critérios de seleção são categorizados em \acp{CI} e \acp{CE} na Subseção \ref{ssec:CritSelecao}. 
+%A avaliação de qualidade feita nos estudos primários é explicada na Subseção \ref{tab:AvalQualidade}. 
+%Na Subseção \ref{ssec:EstratExtDados} são especificados os dados que deveriam ser observados nos estudos, caracterizando nossa estratégia de extração de dados. 
+Na Seção \ref{sec:ExecMapeamento} é relatado todo o processo de execução do mapeamento multivocal. 
+Os resultados provenientes da execução são analisados e discutidos na Seção \ref{sec:ResultDis}. 
+As ameaças ao \ac{MLM} são debatidas na Seção \ref{sec:AmeacaVal} e, por fim, são pontuadas algumas lições do capítulo na Seção \ref{sec:LicoesMapeamento}.
+
+
+%#################################################################
+\section{Protocolo} \label{sec:Protocolo}
+%#################################################################
+
+Um \ac{MLM} é uma forma de Mapeamento Sistemático de Literatura, do inglês \ac{SLM}, que inclui a literatura cinza. 
+Os \acp{MLM} são úteis para pesquisadores e para profissionais pois fornecem visões abrangentes sobre o estado da arte e da prática em uma determinada área. 
+Neste estudo conduziu-se um \ac{MLM} utilizando o processo de \ac{SLM} definido por Petersen~\cite{Petersen:2008} e as diretrizes propostas por \citeonline{Garousi:2019} para pesquisa na literatura cinza.
+
+Um \ac{SLM} envolve uma busca para determinar que tipos de estudos abordam as questões de pesquisa que se objetiva investigar, além de possibilitar a classificação e extração de dados que possam gerar informações relevantes~\cite{Bailey:2007}. 
+Com o propósito de ter a obtenção de resultados confiáveis e reproduzíveis em um \ac{SLM}, é vital que uma série de atividades bem definidas e estruturadas sejam seguidas \cite{Nakagawa:2017}. 
+Na \autoref{fig:SystematicMappingProcess} é apresentado o processo de \ac{SLM} realizado neste estudo, com base na proposição realizada por \citeonline{Petersen:2008}. %Em linhas gerais este processo define todas as etapas necessárias para conduzir o \ac{SLM}. 
+%Isso compreende a delimitação das \acp{QP}, a escolha das bases a serem utilizadas, a aplicação dos critérios de seleção, a estratégia de leitura e extração de dados dos estudos, a avaliação de qualidade e a síntese dos resultados obtidos.
+
+\begin{figure}[htb]
+	\centering
+	\caption{Processo de mapeamento sistemático.}
+		%\includegraphics[width=\textwidth]{img/ProcessoMSL.png}
+		\include{TiKz/ProcessSMS}
+	\fonte{Adaptado de \citeonline{Petersen:2008}.}
+	\label{fig:SystematicMappingProcess}
+\end{figure}
+
+%#################################################################
+    \subsection{Questões de Pesquisa} \label{ssec:QPs}
+%#################################################################
+
+Levando-se em consideração o objetivo geral deste trabalho, o qual é desenvolver uma \ac{DSL} para a modelagem conceitual de \acp{BD}, foram formulados os seguintes questionamentos que serviram de guia para o restante do \ac{MLM}:
+
+\begin{itemize}
+    \small
+    \item \textbf{QP1.}: Qual o estado da arte do desenvolvimento de DSLs para transformação de modelos em ER?
+    \item \textbf{QP1.1.}: Quais são as metodologias, técnicas e propostas de refinamento (desenho automatizado) baseado em modelos de dados?
+    \item \textbf{QP1.2.}: Qual é o ferramental utilizado como apoio ao desenvolvimento dessas DSL?
+    \item \textbf{QP1.3.}: Quais são as representações de objetos de \ac{BD} adotadas ou sugeridas nas DSL propostas?
+    \item \textbf{QP2} Quais os métodos de avaliação utilizados nos estudos?
+    \item \textbf{QP2.1.}: Quais os pontos positivos e negativos observados na execução dos estudos?
+    \item \textbf{QP2.2.}: Quais desafios são apontados após execução dos estudos empíricos?
+    \item \textbf{QP3.}: Quais são as ferramentas para modelagem conceitual de \acp{BD}? 
+    \item \textbf{QP3.1.}: Quais são as notações que estas ferramentas usam?
+    \item \textbf{QP3.2.}: Quais são os níveis de modelagem de \ac{BD} (Conceitual, Lógico, Físico) que estas ferramentas suportam?
+\end{itemize}
+
+%#################################################################
+    \subsection{Fontes de Busca} \label{ssec:FontesBuscas}
+%#################################################################
+
+As bibliotecas digitais são a principal fonte de busca em um \ac{SLM} \cite{Petersen:2008}. 
+Para a escolha das fontes de busca desse \ac{SLM} são considerados três requisitos obrigatórios que as bases devem contemplar: 
+\textbf{(I)} possuir mecanismo de pesquisa baseado na \textit{Web}; 
+\textbf{(II)} ser capaz de usar palavras-chave durante a pesquisa, e;
+\textbf{(III)} abranger estudos primários da grande área da Ciência da Computação. 
+Na \autoref{tab:BasesDePesquisa} são listadas as bibliotecas digitais selecionadas para este \ac{SLM}.
+        
+\rowcolors{1}{gray!15}{white}
+\begin{table}[!ht]
+    \centering
+    \footnotesize
+    \caption{Bibliotecas digitais utilizadas.}
+    \label{tab:BasesDePesquisa}
+    \begin{tabular}{m{4cm}m{4cm}m{4cm}}
+    \bottomrule
+    \rowcolor[HTML]{C0C0C0}
+    \textbf{Fonte} & \textbf{Endereço} & \textbf{Tipo} \\ 
+    \hline
+    ACM Digital library & \textit{dl.acm.org}           & Híbrida\\
+    IEEE Xplore         & \textit{ieeexplore.ieee.org}  & Base Bibliográfica \\ 
+    ScienceDirect       & \textit{sciencedirect.com}    & Base Bibliográfica \\
+    Scopus       & \textit{scopus.com}   & Motor de Busca \\
+    SpringerLink        & \textit{link.springer.com}    & Base Bibliográfica \\ 
+    \bottomrule
+    \end{tabular}
+    \fonte{Adaptado de \citeonline{Nakagawa:2017}.}
+\end{table}
+            
+%#################################################################
+    \subsection{String de Busca} \label{ssec:StringBusca}
+%#################################################################
+
+A elaboração da \textit{string} de busca não é uma tarefa trivial. 
+A identificação de uma combinação de termos que permitam encontrar o maior número de estudos primários relevantes de forma objetiva necessita, na maioria dos casos, de experiência e profundo conhecimento sobre a área de pesquisa abordada.  
+
+\rowcolors{1}{gray!15}{white}
+\begin{table}[!h]
+    \centering
+    \small
+    \caption{Termos e sinônimos utilizados.}
+    \label{tab:DefinicaoSearch}
+    \begin{tabular}{m{4.5cm}m{10.5cm}}
+        \bottomrule
+        \rowcolor[HTML]{C0C0C0}
+        \textbf{Termos} & \textbf{Sinônimos}\\
+        \hline
+        Domain Specific Language & DSL, Domain-Specific Language, Domain-Specific-Language, DSLM, Domain Specific Modeling Language, Domain-Specific Modeling Language, Domain-Specific-Modeling-Language, Query Language \\
+        \hline
+        Entity-Relationship & ER, Enhanced Entity-Relationship, EER, Database \\
+        \toprule
+    \end{tabular}
+    \fonte{O autor.}
+\end{table}
+        
+Para a formação da \textit{string} de busca é fundamental definir um conjunto de palavras referentes ao tema de pesquisa, bem como os sinônimos considerados expressivos. 
+Estes termos devem representar de forma abrangente o tema central do estudo. 
+Para este trabalho foram estabelecidos os termos e sinônimos da \autoref{tab:DefinicaoSearch}, sendo que sua combinação gerou a \textit{string} genérica da \autoref{fig:StringBusca}.
+        
+\begin{figure}[htb]
+    \caption{String genérica de busca.}
+    \centering
+    \small
+    \fbox{
+    \parbox{14cm}{
+    \centering
+    \small\texttt{
+    (DSL OR Domain Specific Language OR Domain-Specific Language OR Domain-Specific-Language OR DSLM OR Domain Specific Modeling Language OR Domain-Specific Modeling Language OR Domain-Specific-Modeling-Language OR Query Language)
+    AND 
+    (ER OR Entity-Relationship OR Enhanced Entity-Relationship OR Extended Entity-Relationship OR Database)
+    }}}
+    \fonte{O autor.}
+    \label{fig:StringBusca}
+\end{figure}
+        
+%#################################################################
+    \subsection{Critérios de Seleção} \label{ssec:CritSelecao}
+%#################################################################
+    
+Segundo \citeonline{Kitchenham:2007}, os \acp{CI} indicam por qual ou quais parâmetros um estudo é incluído no \ac{SLM}, ou seja, considerado relevante. 
+Da mesma forma, os \acp{CE} indicam por qual ou quais parâmetros um estudo é excluído, ou seja, considerado não relevante na pesquisa realizada. 
+Para o este trabalho foram determinados os critérios de seleção listados a seguir.
+
+\textbf{Critérios de Inclusão (\ac{CI})}
+\begin{itemize}
+    \item CI1: Estudo que propõe alguma técnica, método, abordagem ou ferramenta para a representação e transformação de modelos de \ac{BD} utilizando \acp{DSL}.
+\end{itemize}
+
+\textbf{Critérios de Exclusão (\ac{CE})}
+\begin{itemize}
+    \item CE1: Estudo com menos de 4 páginas;  
+    \item CE2: Estudo que não esteja escrito em inglês;
+    \item CE3: Estudo duplicado;
+    \item CE4: Estudo que não fornece acesso completo ao seu conteúdo;
+    \item CE5: Estudo que não atende o CI1.
+\end{itemize}
+    
+%#################################################################
+    \subsection{Avaliação de Qualidade} \label{scec:AvalQualidade}
+%#################################################################
+    
+Foram definidos sete (7) \acp{CQ} para a avaliação dos estudos primários aprovados após a aplicação dos critérios de seleção. 
+Os \acp{CQ} visam quantificar a relevância para que seja possível realizar uma comparação entre os estudos selecionados. 
+Foi definido também uma pontuação para ser atribuída a partir das \acp{CQ}. 
+Para a definição das pontuações foram estabelecidas siglas para representar a pontuação dos \acp{CQ}. 
+
+\begin{itemize}
+    \item \textbf{T: Total}, contemplando de forma integral o critério de qualidade avaliado;
+    \item \textbf{P: Parcial}, dependendo do peso total do \ac{CQ}), contemplando parcialmente o critério de qualidade avaliado;
+    \item \textbf{N: Negativo}, não contempla de forma nenhuma o critério de qualidade avaliado.
+\end{itemize}
+
+A pontuação máxima possível, avaliados todos os critérios, é dez (10.0) e a mínima zero (0). 
+Cada \ac{CQ} possui um peso específico (1 $\rightarrow$ 1.5 $\rightarrow$ 2) dependendo da sua importância considerada para este estudo. 
+Na \autoref{tab:CAQ} são listadas os \acp{CQ} e seus respectivos pesos. 
+Estes \acp{CQ} basearam-se em aspectos que foram consideramos relevantes para o \ac{SLM}, sendo eles \textbf{relato} (QA1, QA4, QA5), \textbf{rigor} (QA2, QA3), \textbf{credibilidade} (QA2, QA3) e \textbf{relevância} (QA1, QA6, QA7).
+    
+\rowcolors{1}{gray!15}{white}
+\begin{table}[!htb]
+    \centering
+    \small
+    \caption{Critérios de Avaliação de Qualidade.}
+    \label{tab:CAQ}
+    \begin{tabular}{l|p{12cm}|c}
+    \bottomrule
+    \rowcolor[HTML]{C0C0C0}
+    \textbf{ID} & \textbf{Descrição} & \textbf{Peso} 
+    \\ 
+    \hline
+    CQ1. & O estudo apresenta alguma contribuição para a área de modelagem de \ac{BD}? & 1,5 
+    \\
+    CQ2. & O estudo apresenta metodologias, técnicas ou propostas de refinamento baseado em modelos de dados? & 1,5 
+    \\
+    CQ3. & O estudo apresenta alguma forma de avaliação empírica? & 1,5 
+    \\
+    CQ4. & O estudo apresenta as características do processo de criação da DSL? & 1,5 
+    \\
+    CQ5. & O estudo caracteriza as atividades de transformação do modelo para diferentes diferentes tecnologias de \acp{BD}? & 2,0 
+    \\
+    CQ6. & O estudo apresenta pontos positivos e negativos observados em sua execução? & 1,0 
+    \\
+    CQ7. & O estudo aponta desafios decorrentes da sua execução? & 1,0 
+    \\
+    \toprule
+    \end{tabular}
+    \fonte{O autor.}
+\end{table}
+    
+Para todos os \acp{CQ} a sigla \textbf{N} (Negativo) representa zero (0) e a sigla \textbf{T} (Total) representa o conceito máximo (1 $\rightarrow$ 1.5 $\rightarrow$ 2). 
+Por outro lado é importante se salientar que apenas os \acp{CQ} que possuem pontuação um (1) e  dois (2) a sigla \textbf{P} (Parcial) representa 50\%. 
+Nos \acp{CQ} com peso 1.5 o \textbf{P} representa 60\% (0.9) da pontuação. 
+Logo após essa definição detalhada dos \acp{CQ} foi, então, possível dar início a fase de execução do \ac{SLM}. 
+    
+%#################################################################
+     \subsection{Estratégia de Extração de Dados} \label{ssec:EstratExtDados}
+%#################################################################
+
+Definiu-se um formulário de dados para a extração e análise dos dados relevantes contidos nos estudos primários selecionados. 
+A descrição detalhada deste formulário de extração é apresentado na \autoref{tab:DataExtractionForm}.
+
+\rowcolors{1}{gray!15}{white}
+\begin{table}[!htb]
+    \centering
+    \small
+    \caption{Formulário de Extração de Dados.}
+    \label{tab:DataExtractionForm}
+    \begin{tabular}{l|p{11cm}}
+    \bottomrule
+    \rowcolor[HTML]{C0C0C0} 
+    \textbf{Dado} & \textbf{Descrição} \\
+    \hline
+    Origem da Solução & Organização ou Universidade dos autores do estudo
+    \\
+    Ano de Publicação & Ano de publicação do estudo
+    \\
+    Objetivo da Solução & Descrição da solução proposta
+    \\
+    Ferramenta Citad & A ferramenta(s) citada(s) no estudo
+    \\
+    Objetos de \ac{BD} & Os objetos de \ac{BD} adotados ou sugeridos pelas \acp{DSL}
+    \\
+    Avaliação do Estudo & Se houve alguma avaliação, qual?
+    \\
+    Ambiente de Avaliação & Academia ou indústria
+    \\
+    Desafios & Quais são os desafios/trabalhos futuros apontados no estudo?
+    \\
+    Pontos Positivos & Quais são os pontos positivos observados na implementação do estudo?
+    \\
+    Pontos Negativos & Quais são os pontos positivos observados na execução do estudo?
+    \\
+    \toprule
+    \end{tabular}
+    \fonte{O autor.}
+\end{table}
+
+%#################################################################    
+\subsection{Pesquisa na Literatura Cinza} \label{sec:ExecMapeamento}
+%#################################################################
+
+Para a pesquisa por ferramentas que dessem apoio a modelagem ER na literatura cinza foi utilizado o motor de busca da Google. 
+Para isto, combinações de \textit{keywords} foram definidas a partir da compreensão da \textit{string} de busca genérica e sua adequação para o contexto da busca na \textit{Web}: 
+
+\begin{itemize}
+    \item \textit{ERD Moldelling Tool}; 
+    \item \textit{ERD Design Tool}; 
+    \item \textit{Conceptual Design of Database}; 
+    \item \textit{Conceptual Modelling of Database}; 
+    \item \textit{Conceptual Modelling}; 
+    \item \textit{Database Modelling Tool}; 
+    \item \textit{Database Design Tool}.
+\end{itemize} 
+
+A verificação dos resultados foi limitado a 10 (dez) páginas no motor de busca para cada \textit{keyword}. 
+As análise das ferramentas no \ac{MLM} estava sujeita a um processo de seleção com base em alguns requisitos.
+Primeiramente, a ferramenta deveria oferecer acesso para alguma forma de uso (incluindo versão de demonstração para ferramentas comerciais), necessitaria dar suporte a algum nível de modelagem de \ac{BD} e precisaria ter \textit{interface} em inglês ou português. 
+Após, as ferramentas incluídas deveriam ter as notações e níveis de modelagem extraídos, juntamente com outras informações relevantes, e então categorizadas.
+
+%#################################################################    
+\section{Execução do Mapeamento Multivocal} \label{sec:ExecMapeamento}
+%#################################################################
+
+Para a execução do \ac{SLM} foi necessário adaptar a sintaxe da \textit{string} genérica para gerar outras versões, buscando assim adequá-la as peculiaridades de parametrização das diferentes bases utilizadas. 
+Em seguida, foi realizada a busca dos estudos nas bases de dados. 
+A \autoref{fig:ResusltadosBases} mostra os resultados por biblioteca digital, bem como o total de estudos recuperados.
+
+\begin{figure}[!htb]
+	\centering
+	    \caption{Estudos primários por biblioteca digital.}
+		%\includesvg[width=0.7\textwidth]{img/ResultadosBases.svg}
+        \include{TiKz/ResultsBases}
+		\fonte{O autor.}
+	\label{fig:ResusltadosBases}
+\end{figure}
+
+% \begin{figure}
+%     \centering
+%     % \includegraphics[scale=0.6]{images/searchprocess.png}
+%     \begin{tikzpicture}
+%       \begin{scope}[blend group = soft light]
+%         \draw[ultra thin, pattern color=gray, pattern=horizontal lines] (90:4.05) circle (2.5);
+%         \draw[ultra thin, pattern color=gray, pattern=vertical lines] (90:3.56) circle (2);
+%         \draw[ultra thin, pattern color=gray, pattern=crosshatch] (90:3.08) circle (1.5);
+%         \draw[ultra thin, fill=gray!45] (90:2.6) circle (1);
+%       \end{scope}
+%       \node at ( 90:5.9) { \contour{white}{\textbf{633 Retrieved Studies}} };
+%       \node at ( 90:4.9) { \contour{white}{\textbf{559 Not duplicates}} };
+%       \node at ( 90:4) { \contour{white}{\textbf{52 Included}} };
+%       \node at ( 90:2.76) { \contour{white}{\textbf{76 Platforms}} };
+%       \node at ( 90:2.46) {\contour{white}{\& \textbf{Providers}} };
+%     \end{tikzpicture}
+%     \caption{Onion diagram showing the quantity of papers after each step of the SLM process.}
+%     \label{fig:searchprocess}
+% \end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	    \caption{Ciclos de seleção dos estudos primários.}
+		%\includesvg[width=\textwidth]{img/CiclosDeAvaliacao.svg}
+        \include{TiKz/CiclosAval}
+		\fonte{O autor.}
+	\label{fig:CiclosRevisao}
+\end{figure}
+
+Com o conjunto inicial de 3727 estudos primários identificados, 
+%os ciclos de seleção foram iniciados, totalizando cinco (5).
+foram definidos cinco (5) ciclos de seleção, apresentados na \autoref{fig:CiclosRevisao}. 
+Nestas iterações houve a exclusão de estudos duplicados (restando 3513), a seleção de estudos baseado em título e \textit{abstract} (restando 34), seleção baseada em texto completo (restando 18) e a seleção baseada na avaliação de qualidade (restando 10). 
+Cada iteração tinha o objetivo de eliminar estudos que estavam fora do escopo da pesquisa ou considerados não relevantes. 
+Na última iteração, 18 estudos tiveram sua qualidade analisada. 
+Foi estabelecido que apenas estudos com pontuação acima de 5 (cinco) seriam aceitos. 
+Assim, após a aplicação dos \ac{CQ} foram excluídos 8 (oito) trabalhos. 
+O conjunto final de dez (10) estudos aprovados na \ac{SLM} seguiu para a etapa de extração de dados. 
+Com os trabalhos acadêmicos a menor pontuação foi de 5.3, enquanto o maior alcançou 10. 
+A \autoref{tab:AvalQualidade} resume os resultados obtidos na avaliação da qualidade. 
+
+A execução do protocolo de busca na \textit{grey literature} retornou um total de 132 ferramentas. 
+Após sumarização foi realizado a exclusão de duplicatas (restando 67).
+%, e chegou-se a um número final de 67 ferramentas. 
+Durante esse processo houve doze (12) ferramentas que não puderam ser avaliadas 
+% por algum tipo indisponibilidade, 
+\textit{e.g.} impossibilidade de instalação ou incompatibilidade com o ambiente utilizado. 
+Ao fim, foi possível executar testes de uso com um total de 55 ferramentas, e consequentemente, a extração dos dados relevantes ao estudo. 
+Durante o uso das ferramentas foram realizados modelos simples de \acp{BD}, em que se procurou observar o suporte aos níveis de modelagem e as notações e linguagens usadas.
+
+%#################################################################
+\section{Resultados e Discussão} \label{sec:ResultDis}
+%#################################################################
+
+Os estudos primários foram avaliados com base nos critérios de qualidade definidos na \autoref{scec:AvalQualidade}.
+A menor pontuação foi de 5,3 enquanto o maior alcançou 10. 
+A \autoref{tab:AvalQualidade} resume os resultados obtidos na avaliação da qualidade.
+
+\rowcolors{1}{gray!15}{white}
+\begin{table}[!htb]
+\footnotesize
+\centering
+\caption{Resultados da avaliação de qualidade.}
+\label{tab:AvalQualidade}
+\begin{tabular}{lcccccccr}
+\bottomrule
+\rowcolor[HTML]{C0C0C0}
+\multicolumn{1}{c}{\textbf{Estudos}} &
+\multicolumn{7}{c}{\textbf{Critérios de Qualidade}} &
+\multicolumn{1}{r}{\textbf{Pontuação}} \\
+\hline
+\rowcolor[HTML]{C0C0C0}\textbf{Referência} & 
+\textbf{CQ1} & \textbf{CQ2} & \textbf{CQ3} & \textbf{CQ4} & \textbf{CQ5} & \textbf{CQ6} & \textbf{CQ7} & 
+\textbf{Total} \\
+\hline
+\citeonline{Ayadi:2016} & 
+P & P & T & P & N & T & P &
+5,7 \\
+\citeonline{Celikovic:2014} & 
+T & T & N & T & P & P & T &
+7,0 \\
+\citeonline{Dimitrieski:2015} & 
+T & T & T & T & T & T & T &
+10,0
+\\
+\citeonline{Hammer:1981} & 
+T & T & N & T & N & P & P &
+5,5 \\
+\citeonline{Jagannathan:1988} & 
+T & T & N & T & P & N & N &
+5,5 \\
+\citeonline{Kersten:2011} & 
+P & T & T & P & N & N & P &
+5,3 \\
+\citeonline{Litwin:1989} & 
+P & T & N & T & N & P & T &
+5,4 \\
+\citeonline{Mazairac:2013} & 
+T & T & P & T & N & N & P &
+5,9 \\
+\citeonline{Shipman:1981} & 
+T & T & N & T & P & N & P &
+6,0 \\
+\citeonline{Tian:2006} & 
+T & P & N & T & P & P & T &
+6,4 \\
+%\hline
+%\citeonline{Vagner:2018} & 
+%T & T & P & N & N & P & P &
+%4.9 \\
+%\citeonline{Bogdanova:2019} & 
+%T & P & P & N & N & T & P &
+%4.8 \\
+%\citeonline{Ribic:2018} & 
+%N & N & T & T & N & P & T &
+%4.5 \\
+%\citeonline{Morgan:2018} & 
+%N & N & T & N & N & P & P &
+%2.5 \\
+%\citeonline{Karakonda:1990} & 
+%P & P & N & N & N & N & N &
+%1.8 \\
+%\citeonline{Zhang:2016} & 
+%N & N & N & N & N & P & T &
+%1.5 \\
+%\citeonline{Schuler:2018} & 
+%N & N & N & N & N & P & P &
+%1.0 \\
+\hline
+\end{tabular}
+\fonte{O autor.}
+\end{table}
+
+Em relação ao estado da arte (\textbf{QP1}) do desenvolvimento de \ac{DSL} aplicado na transformação de modelos de dados, identificou-se um estudo que apresenta a \textit{System Modeling Tool} (MIST), o qual utiliza uma \ac{DSL} bidirecional para modelagem conceitual de \acp{BD} com a abordagem \ac{EER}, chamado EERDSL. 
+
+Quanto às metodologias, técnicas ou propostas de refinamento (\textbf{QP1.1}) baseadas em modelos de dados, apenas os dois estudos mencionados aplicam conceitos para refinamento, sendo que tais conceitos são apoiados na normalização de \acp{BD} para auxiliar os desenvolvedores que utilizam sua solução.
+
+No que se refere às tecnologias usadas como suporte para o desenvolvimento de \acp{DSL} (\textbf{QP1.2}), foram registradas Xtext, Xtend, Sirius e Eugenia \cite{Celikovic:2014, Dimitrieski:2015}, StarUML \cite{Ayadi:2016}, IfcDoc Tool e ViewEdit Tool \cite{Mazairac:2013}, MonetDB \cite {Kersten:2011}, Java, JFlex e JCup \cite{Tian:2006}. 
+No entanto, estudos mais antigos eram geralmente especificações de \acp{DSL}, não apresentando qualquer forma de implementação ou ferramenta usada \cite{Shipman:1981, Jagannathan:1988, Litwin:1989}.
+
+As representações de \ac{BD} adotadas (\textbf{QP1.3}) possuem \texttt{Tables} e \texttt{Functions} em todos os estudos primários analisados.
+Há também referências explícitas à definição de \texttt{Stored Procedures}, \texttt{Triggers} e \texttt{Views} em outros estudos. 
+A \autoref{tab:Obj_DSL} resume esses dados recuperados de cada um dos estudos primários. 
+Quanto ao uso de \ac{DSL} para transformação de modelos de dados em casos reais (\textbf{QP2}, \textbf{RQ2.1}), nenhuma referência foi encontrada nos estudos avaliados.
+
+\rowcolors{1}{gray!15}{white}
+\begin{table}[!htb]
+    \centering
+    \scriptsize
+    \caption{Objetos de banco de dados representados.}
+    \label{tab:Obj_DSL}
+    \begin{tabular}{llccccc}
+    \bottomrule
+    \rowcolor[HTML]{C0C0C0}
+    \multicolumn{2}{c}{\textbf{Estudo Primário}} &
+    \multicolumn{5}{c}{\textbf{Objetos de BD}} \\
+    \hline
+    \rowcolor[HTML]{C0C0C0}
+    \textbf{Referência} & \textbf{DSL} &
+    \textbf{Tables} & \textbf{SP} & \textbf{Functions} & \textbf{Triggers} &\textbf{Views}\\
+    \hline
+    \citeonline{Ayadi:2016} & Ayadi's Notation & 
+    \checkmark & & & & \\
+    \citeonline{Celikovic:2014} & EERDSL v.1 &
+    \checkmark & & \checkmark & \checkmark & \\
+    \citeonline{Dimitrieski:2015} & EERDSL v.2 & 
+    \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+    \citeonline{Hammer:1981} & SDM &
+    \checkmark & & & \checkmark & \\
+    \citeonline{Jagannathan:1988}   & SDM &
+    \checkmark & & \checkmark & & \\
+    \citeonline{Kersten:2011}& SciSQL &
+    \checkmark & & \checkmark & & \\
+    \citeonline{Litwin:1989} & MSQL &
+    \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+    \citeonline{Mazairac:2013} & BIMQL &
+    \checkmark & \checkmark & \checkmark & & \\
+    \citeonline{Shipman:1981} & DAPLEX &
+    \checkmark & & \checkmark & & \\
+    \citeonline{Tian:2006} & NeuroQL & 
+    \checkmark & & \checkmark & & \\
+    \toprule
+    \end{tabular}
+    \\
+    \textbf{Legenda}: SP = \textit{Stored Procedures}.
+    \\
+    \fonte{O autor.}
+\end{table}
+
+Sobre os métodos usados para avaliar as \acp{DSL} (\textbf{QP2.2}) existe apenas um estudo preliminar que apresenta a validação da proposta \cite{Dimitrieski:2015} usando 16 participantes, sendo 2 especialistas em \ac{IHC}, 3 especialistas em modelagem de sistemas e 11 estudantes (6 mestrandos na área de \acp{BD} e 5 doutorandos com experiência em modelagem).
+Em geral, os outros estudos indicam a falta de uma avaliação de suas proposições como um possível trabalho futuro.
+
+Entre os aspectos positivos e negativos observados (\textbf{RQ2.3}) nos estudos, é positivo ser fácil de entender e intuitivo modelagem e independência de plataforma \cite{Tian:2006, Mazairac:2013}.
+Pontos negativos foram a falta de geração automática de \ac{SQL} para sistemas de \ac{BD} \cite{Ayadi:2016} ou uma limitação neste item \cite{Dimitrieski:2015}.
+Ainda há um registro da falta de implementação real de \acp{DSL} até o momento em que o estudo foi realizado, havendo apenas especificações \cite{Hammer:1981, Jagannathan:1988, Tian:2006, Kersten:2011, Ayadi:2016}.
+Os principais desafios identificados pelos estudos (\textbf{RQ2.4}), em geral, são as avaliações das abordagens, bem como a evolução e/ou simplificação das propostas.
+Finalmente, na \autoref{tab:DSL_type} as \acp{DSL} são apresentadas em relação ao seu tipo.
+No entanto, é importante observar que os estudos que marcam a coluna \texttt{bidirecional} \cite{Celikovic:2014, Dimitrieski:2015} são versões diferentes da mesma implementação de \ac{DSL}, enquanto o \cite{Hammer:1981, Jagannathan:1988} são uma especificação de \ac{DSL} e implementação com base nesta especificação, respectivamente.
+
+\rowcolors{1}{gray!15}{white}
+\begin{table}[!htb]
+    \centering
+    \footnotesize
+    \caption{Categorização das DSLs propostas.}
+    \label{tab:DSL_type}
+    \begin{tabular}{llccc}
+    \bottomrule
+    \rowcolor[HTML]{C0C0C0}
+    \multicolumn{2}{c}{\textbf{Estudos Primários}} &
+    \multicolumn{3}{c}{\textbf{Tipo de DSL}} \\
+    \hline
+    \rowcolor[HTML]{C0C0C0}
+    \textbf{Referência} & \textbf{DSL} & 
+    \textbf{Textual} & \textbf{Gráfica} & \textbf{Bidirecional} \\
+    \hline
+    \citeonline{Ayadi:2016} & Ayadi's Notation & & \checkmark & \\
+    \citeonline{Celikovic:2014} & EERDSL v.1 & & &\checkmark \\
+    \citeonline{Dimitrieski:2015} & EERDSL v.2 & & & \checkmark\\
+    \citeonline{Hammer:1981} & SDM & \checkmark & & \\
+    \citeonline{Jagannathan:1988} & SDM & \checkmark & & \\
+    \citeonline{Kersten:2011} & SciQL & \checkmark & & \\
+    \citeonline{Litwin:1989} & MSQL & \checkmark & & \\
+    \citeonline{Mazairac:2013} & BIMQL & \checkmark & & \\
+    \citeonline{Shipman:1981} & DAPLEX & \checkmark & & \\
+    \citeonline{Tian:2006} & NeuroQL & \checkmark & & \\
+    \toprule
+    \end{tabular}
+    \fonte{O autor.}
+\end{table}
+
+Quanto ao estado da prática (\textbf{QP3}) das ferramentas utilizadas na modelagem de \ac{BD}, foram mapeadas 55 ferramentas. 
+Houve a classificação quanto ao seu tipo, sendo 29 exclusivas de modelagem \ac{BD} (\textit{Data Modeling}), 13 de modelagem que ainda oferecem conexão com \ac{BD} e execução de consultas (\textit{Full IDE}), 10 com suporte a diagramação de diversos tipos de modelos (\textit{Diagramming}) e 3 ferramentas projetadas para grandes empresas, podendo diagramar inúmeros tipos de documentos e processos (\textit{Enterprise Modeling}). 
+
+Em relação às notações utilizadas nas ferramentas (\textbf{QP3.1}) foram identificados mais de 10 (dez) variedades de notações, com destaque a notação \textit{Crow's Foot} com 35 ocorrências e da notação IDEF1X com 23 registros. 
+Esses e outros dados estão listados nas Tabelas \ref{tab:ResultsI} e \ref{tab:ResultsII}.
+
+Finalmente, no que diz respeito aos modelos suportados pelas ferramentas (\textbf{QP3.2}) foi constatado que individualmente 26 ferramentas oferecem suporte a modelagem conceitual, 48 ferramentas à modelagem lógica e 37 à modelagem física. 
+O conjunto representando as intersecções do suporte aos modelos quanto às ferramentas é exibido na \autoref{fig:VennDiagram}.
+
+\rowcolors{0}{}{}
+\begin{figure}[!htb]
+\centering
+\caption{Diagrama de Venn dos modelos suportados nas ferramentas.}
+\include{TiKz/DiagramaVenn}
+\fonte{O autor.}
+\label{fig:VennDiagram}
+\end{figure}
+
+\rowcolors{1}{gray!15}{white}
+
+\begin{landscape}
+\begin{table}
+    \caption{Ferramentas para modelagem de bancos de dados.}
+    \label{tab:ResultsI}
+    \centering
+    \tiny
+    
+    \begin{tabular}{l|l|cccc|ccc|cccccccc|cc|cc}
+    \bottomrule
+    \rowcolor[HTML]{C0C0C0}
+    \multicolumn{2}{l}{} &
+    \multicolumn{4}{c}{\textbf{Tipo}} &
+    \multicolumn{3}{c}{\textbf{Modelos}} &
+    \multicolumn{8}{c}{\textbf{Notações Suportadas}} &
+    \multicolumn{2}{c}{\textbf{Ambiente}} &
+    \multicolumn{2}{c}{\textbf{Licença}}
+    \\ 
+    \hline
+    \rowcolor[HTML]{C0C0C0}
+    \# & \textbf{Ferramenta} &
+    \textbf{DM} & \textbf{FIDE} & \textbf{DG} & \textbf{EM} &
+    \textbf{C} & \textbf{L} & \textbf{F} &
+    \textbf{CF} & \textbf{IDEF1x} & \textbf{CN} & \textbf{MN} & \textbf{UML} & \textbf{BN} & \textbf{AN} & \textbf{ON} & 
+    \textbf{D} &\textbf{W} &  
+    \textbf{C} &\textbf{G}
+    \\
+1 & AnalyseSI	&	\checkmark	&&&	&	\checkmark	&	\checkmark	&&&	\checkmark	&&	\checkmark	&&&&	&	\checkmark	&	&&	\checkmark\\
+2 & Aqua Data Studio ER Modeler	&&	\checkmark	&&	&&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&&&&&&	&	\checkmark	&	&	\checkmark	&	\\
+3 & Astah	&&&	\checkmark	&	&	\checkmark	&	\checkmark	&&	\checkmark	&	\checkmark	&&&&&&	&	\checkmark	&	&	\checkmark	&	\\
+4 & brModelo	&&&	\checkmark	&	&	\checkmark	&	\checkmark	&&&	\checkmark	&	\checkmark	&&&&	&	\checkmark	&	&&	\checkmark\\
+5 & Creately	&&&	\checkmark	&	&	\checkmark	&	\checkmark	&&	\checkmark	&&&&&&&	&&	\checkmark&	\checkmark	&	\\
+6 & Database Deployment Manager	&&	\checkmark	&&	&	\checkmark	&	\checkmark	&	\checkmark	&&&	\checkmark	&&&&&	&	\checkmark	&	&&	\checkmark\\
+7 & Database Workbench	&&	\checkmark	&&	&	\checkmark	&&	\checkmark	&	\checkmark	&&&&&&&	&	\checkmark	&	&	\checkmark	&	\\
+8 & DB Designer	&	\checkmark	&&&	&	\checkmark	&&&&&&&&&&	\checkmark&	\checkmark	&	&	\checkmark	&	\\
+9 & DB-Main	&	\checkmark	&&&	&	\checkmark	&	\checkmark	&&&&&&	\checkmark	&&&	&	\checkmark	&	&&	\checkmark\\
+10 & DBDesigner 4	&	\checkmark	&&&	&	\checkmark	&	\checkmark	&&	\checkmark	&	\checkmark	&&	\checkmark	&&&&	&	\checkmark	&	&&	\checkmark\\
+11 & DBDesigner.net	&	\checkmark	&&&	&&	\checkmark	&&&&&&&&&	\checkmark&&	\checkmark&	\checkmark	&	\\
+12 & dbdiagram.io	&	\checkmark	&&&	&&	\checkmark	&&&&&&&&&	\checkmark&&	\checkmark&&	\checkmark\\
+13 & dbDiffo	&	\checkmark	&&&	&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&&&&&&	\checkmark	&	&&	\checkmark&&	\checkmark\\
+14 & dbForge Studio for MySQL	&&	\checkmark	&&	&&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&&&&&&	&	\checkmark	&	&	\checkmark	&	\\
+15 & DBSchema	&&	\checkmark	&&	&&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&&&&	\checkmark	&&	&	\checkmark	&	&	\checkmark	&	\\
+16 & DBVisualizer	&&	\checkmark	&&	&&&	\checkmark	&&&&&&&&	\checkmark&	\checkmark	&	&	\checkmark	&	\\
+17 & DbWrench	&	\checkmark	&&&	&	\checkmark	&	\checkmark	&&	\checkmark	&&&&&&&	&	\checkmark	&	&	\checkmark	&	\\
+18 & DeZign for Databases	&	\checkmark	&&&	&&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&&&&&&	&	\checkmark	&	&	\checkmark	&	\\
+19 & Dia	&&&	\checkmark	&	&	\checkmark	&	\checkmark	&&	\checkmark	&	\checkmark	&	\checkmark	&&	\checkmark	&	\checkmark	&	\checkmark	&	&	\checkmark	&	&&	\checkmark\\
+20 & dModelAid	&	\checkmark	&&&	&&	\checkmark	&	\checkmark	&&&&&&&&	&&	\checkmark&	\checkmark	&	\\
+21 & Enterprise Architect	&&&&	\checkmark&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&&&&&&	&	\checkmark	&	&	\checkmark	&	\\
+22 & ER-Assistant	&	\checkmark	&&&	&	\checkmark	&&&	\checkmark	&&&&&&&	&	\checkmark	&	&&	\checkmark\\
+23 & ER/Builder	&	\checkmark	&&&	&&	\checkmark	&	\checkmark	&&&&&&&&	\checkmark&	\checkmark	&	&&	\checkmark\\
+24 & ER/Studio Data Architect	&	\checkmark	&&&	&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&&&&&&	&	\checkmark	&	&	\checkmark	&	\\
+25 & ERD Concepts	&&	\checkmark	&&	&&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&&&&&&	&	\checkmark	&	&	\checkmark	&	\\
+26 & ERDesigner NG	&	\checkmark	&&&	&&	\checkmark	&	\checkmark	&	\checkmark	&&&&&&&	&	\checkmark	&	&&	\checkmark\\
+27 & ERDPlus	&	\checkmark	&&&	&	\checkmark	&	\checkmark	&&	\checkmark	&&&&&&&	&&	\checkmark&&	\checkmark\\
+28 & Erwin Data Modeler	&	\checkmark	&&&	&&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&&&&&&	&	\checkmark	&	&	\checkmark	&	\\
+    \toprule
+    \end{tabular}
+    \begin{tablenotes}
+    \tiny
+    \item Legenda: DM (\textit{Data Modeling}) FIDE (\textit{Full IDE}) DG (\textit{Diagramming}) EM (\textit{Enterprise Modeling}) | 
+    C (Conceitual) L (Lógico) F (Físico) | 
+    CF (\textit{Crow's Foot}) CN (\textit{Chen's Notation}) 
+    \item MN (\textit{Merise Notation}) BN (\textit{Barker's Notation}) AN (\textit{Arrow Notation}) ON (\textit{Other Notation}) | 
+    D (\textit{Desktop}) W (Web) C (Comercial) G (\textit{Gratu\'ita})
+    \end{tablenotes}
+    \fonte{O autor.}
+\end{table}
+\end{landscape}
+
+
+\rowcolors{1}{gray!15}{white}
+\begin{landscape}
+    \begin{table}
+    \centering
+    \tiny
+    \caption{Ferramentas para modelagem de bancos de dados (continuação).}    
+    \label{tab:ResultsII}
+    \begin{tabular}{l|l|cccc|ccc|cccccccc|cc|cc}
+    \bottomrule
+    \rowcolor[HTML]{C0C0C0}
+    \multicolumn{2}{l}{} &
+    \multicolumn{4}{c}{\textbf{Tipo}} &
+    \multicolumn{3}{c}{\textbf{Modelos}} &
+    \multicolumn{8}{c}{\textbf{Notações Suportadas}} &
+    \multicolumn{2}{c}{\textbf{Ambiente}} &
+    \multicolumn{2}{c}{\textbf{Licença}}
+    \\ 
+    \hline
+    \rowcolor[HTML]{C0C0C0}
+    \# & \textbf{Ferramenta} &
+    \textbf{DM} & \textbf{FIDE} & \textbf{DG} & \textbf{EM} &
+    \textbf{C} & \textbf{L} & \textbf{F} &
+    \textbf{CF} & \textbf{IDEF1x} & \textbf{CN} & \textbf{MN} & \textbf{UML} & \textbf{BN} & \textbf{AN} & \textbf{ON} & 
+    \textbf{D} &\textbf{W} &  
+    \textbf{C} &\textbf{G}
+\\
+29 & GenMyModel RDS	&&&	\checkmark	&	&&	\checkmark	&	\checkmark	&	\checkmark	&&&&&&&	&&	\checkmark&	\checkmark	&	\\
+30 & InfoSphere Data Architect	&&&&	\checkmark&&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&&&&&&	&	\checkmark	&	&	\checkmark	&	\\
+31 & Jeddict	&&&	\checkmark	&	&&	\checkmark	&	\checkmark	&	\checkmark	&&&&&&&	&	\checkmark	&	&&	\checkmark\\
+32 & ModelRight	&	\checkmark	&&&	&	\checkmark	&	\checkmark	&&&	\checkmark	&&&&&&	&	\checkmark	&	&	\checkmark	&	\\
+33 & MySQL Workbench	&&	\checkmark	&&	&&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&&&	\checkmark	&&&	\checkmark&	\checkmark	&	&&	\checkmark\\
+34 & Navicat Data Modeler	&	\checkmark	&&&	&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&&&&&&	&	\checkmark	&	&	\checkmark	&	\\
+35 & Navicat Data Modeler	&	\checkmark	&&&	&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&&&	\checkmark	&&&	&	\checkmark	&	&	\checkmark	&	\\
+36 & Open ModelSphere	&	\checkmark	&&&	&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&&	\checkmark	&	\checkmark	&&&&	&	\checkmark	&	&&	\checkmark\\
+37 & Oracle SQL Developer Data Modeler	&&	\checkmark	&&	&&	\checkmark	&	\checkmark	& \checkmark & \checkmark &&&&&&	&	\checkmark	&	&&	\checkmark\\
+38 & pgModeler	&	\checkmark	&&&	&\checkmark&\checkmark&\checkmark&&&&&&&&	\checkmark&	\checkmark	&	&&	\checkmark\\
+39 & PowerDesigner	&&&&	\checkmark&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&&	\checkmark	&&	&	\checkmark	&	&	\checkmark	&	\\
+40 & QuickDBD	&	\checkmark	&&&	&&	\checkmark	&&&&&&&&&	\checkmark&&	\checkmark&	\checkmark	&	\\
+41 & RISE	&&&	\checkmark	&	&	\checkmark	&	\checkmark	&&	\checkmark	&&&&&&&	&	\checkmark	&	&&	\checkmark\\
+42 & Software Ideas Modeler	&&&	\checkmark	&	&	\checkmark	&&&	\checkmark	&	\checkmark	&	\checkmark	&&&&&	&	\checkmark	&	&	\checkmark	&	\\
+43 & SQL Database Modeler	&	\checkmark	&&&	&&	\checkmark	&	\checkmark	&&	\checkmark	&&&&&&	&&	\checkmark&	\checkmark	&	\\
+44 & SQL Maestro	&&	\checkmark	&&	&&	\checkmark	&	\checkmark	&&	\checkmark	&&&&&&	&	\checkmark	&	&	\checkmark	&	\\
+45 & SQL Power Architect	&	\checkmark	&&&	&&	\checkmark	&	\checkmark	&	\checkmark	&&&&&&&	&	\checkmark	&	&	\checkmark	&	\\
+46 & SQL Server Management Studio	&&	\checkmark	&&	&&&	\checkmark	&&&&&&&&	\checkmark&	\checkmark	&	&&	\checkmark\\
+47 & SQLDBM	&	\checkmark	&&&	&&	\checkmark	&	\checkmark	&&	\checkmark	&&&&&&	&&	\checkmark&&	\checkmark\\
+48 & SQLyog	&&	\checkmark	&&	&&	\checkmark	&	\checkmark	&&&&&&&&	\checkmark&	\checkmark	&	&	\checkmark	&	\\
+49 & Toad Data Modeler	&	\checkmark	&&&	&&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&&&&&&	&	\checkmark	&	&	\checkmark	&	\\
+50 & Valentina Studio	&&	\checkmark	&&	&&	\checkmark	&	\checkmark	&	\checkmark	&&&&&&&	&	\checkmark	&	&	\checkmark	&	\\
+51 & Vertabelo	&	\checkmark	&&&	&&&	\checkmark	&	\checkmark	&&&&&&&	&&	\checkmark&	\checkmark	&	\\
+52 & Visual Paradigm	&&&	\checkmark	&	&	\checkmark	&	\checkmark	&	\checkmark	&	\checkmark	&&&&&&&	&	\checkmark	&	&	\checkmark	&	\\
+53 & Win A\&D	&&&	\checkmark	&	&&	\checkmark	&	\checkmark	&	\checkmark	&&&&&&&	&	\checkmark	&	&	\checkmark	&	\\
+54 & WWW SQL Designer	&	\checkmark	&&&	&	\checkmark	&	\checkmark	&&&&&&&&&	\checkmark&&	\checkmark&&	\checkmark\\
+55 & xCase	&	\checkmark	&&&	&&	\checkmark	&	\checkmark	&	\checkmark	&&&&&&&	&	\checkmark	&	&	\checkmark	&	\\
+    \toprule
+    \end{tabular}
+    \begin{tablenotes}
+    \tiny
+    \item Legenda: DM (\textit{Data Modeling}) FIDE (\textit{Full IDE}) DG (\textit{Diagramming}) EM (\textit{Enterprise Modeling}) | 
+    C (Conceitual) L (Lógico) F (Físico) | 
+    CF (\textit{Crow's Foot}) CN (\textit{Chen's Notation}) 
+    \item MN (\textit{Merise Notation}) BN (\textit{Barker's Notation}) AN (\textit{Arrow Notation}) ON (\textit{Other Notation}) | 
+    D (\textit{Desktop}) W (Web) C (Comercial) G (\textit{Gratu\'ita})
+    \end{tablenotes}
+    \fonte{O autor.}
+    \end{table}
+\end{landscape}
+
+%#################################################################
+\section{Ameaças à Validade} \label{sec:AmeacaVal}
+%#################################################################
+
+Ameaças ao resultado do estudo foram identificadas no MLM realizado, e então categorizadas nos seguintes tipos: validade de construto, validade interna, validade externa e validade de conclusão \cite{Cook:1979, Wohlin:2012}.
+
+\textbf{Validade do Construto:} Aborda a possibilidade de que as QPs ou os termos de pesquisa que estruturam a \textit{string} de busca sejam inadequados ou incompletos.
+Para mitigar essas ameaças, pesquisadores da área de \ac{DSL} e modelagem de dados foram consultados. 
+Além disso, foi realizada uma pesquisa piloto para avaliar a consistência de nossa \textit{string} de pesquisa. 
+Outra ameaça é a qualidade do material publicado que foi coletado na literatura cinza. 
+
+\textbf{Validade Interna:} 
+Algumas possíveis ameaças são o uso de métodos incorretos de busca, o que pode levar a exclusão de estudos relevantes, uma aplicação de estratégia de extração de dados precária, a ocorrência de vieses na seleção ou no conteúdo dos estudos primários. 
+Na tentativa de mitigar esses riscos, um protocolo foi definido com base em modelos de referência já bem estabelecidos na literatura.
+
+\textbf{Validade Externa:}
+Ameaças externas geralmente abordam se as descobertas de um estudo podem ser generalizadas para outro domínio. 
+Uma razão para esta ameaça seria a ocorrência da seleção estudos de primários contendo informações incompletas. 
+Contudo é provável que por se tratar de uma área de intersecção entre modelagem de dados e \acp{DSL}, os resultados não podem ser generalizados para outros tópicos de pesquisa, reduzindo assim esse risco naturalmente.
+
+\textbf{Validade da Conclusão:}
+Uma possível ameaça é o viés na extração de dados, o que leva a erros de conclusão.
+Para atenuar esse problema foi realizado uma leitura criteriosa e, assim como os testes de uso das ferramentas, houve a síntese de dados em planilha eletrônica\footnote{http://bit.ly/2Vs0oYN} para uma melhor análise.
+
+%################################################################# 
+\section{Lições do Capítulo} \label{sec:LicoesMapeamento}
+%#################################################################
+
+Todos os anos, várias contribuições para a modelagem \ac{ER} são publicadas. 
+A modelagem de \ac{BD} é uma área essencial na \ac{ES} e as \acp{DSL} que suportam essa atividade não são encontradas trivialmente na literatura.
+A fim de acompanhar a evolução e as tendências de vários sistemas de \acp{BD}, uma pesquisa de alternativas para o \textit{design} é essencial. 
+Neste capítulo é fornecido uma visão geral sobre as \acp{DSL} usadas pela modelagem de \ac{ER} por meio de um \ac{MLM}.
+
+%Nossa principal motivação para esta pesquisa é o fato de acreditarmos que a usabilidade do DSL, assim como seu alto poder de especialização em domínios, é um elemento que pode auxiliar fortemente na modelagem de atividades de bancos de dados, principalmente no nível conceitual.
+
+Este mapeamento abrangeu 3727 artigos com a intenção de investigar estudos primários que fizeram propostas de \acp{DSL} para modelagem de \ac{BD}. 
+Da mesma forma, foi levantado um conjunto de 132 ferramentas que dão suporte a modelagem de \acp{BD}, procurando mapear as notações e modelos suportados pelas mesmas.
+O protocolo do \ac{MLM} foi detalhado, assim como sua condução e subsequente análise dos resultados obtidos.
+Ao final, 10 estudos primários e 55 ferramentas foram selecionadas para serem analisados de forma quantitativa e qualitativa. 
+Como resultado, classificou-se apenas as \acp{DSL} atualmente usadas para dar suporte à modelagem de \ac{ER} e ferramentas que são utilizadas para projetar \acp{BD}.
+Entre os resultados destaca-se que o estudo de \citeonline{Dimitrieski:2015}, o qual apresenta uma ferramenta de modelagem bidirecional que aplica sua própria \ac{DSL} com base na abordagem \ac{EER}.
+
+Este capítulo forneceu algumas evidências de que, a cada ano, um número significativo de trabalhos apresentando diferentes tipos de notações é publicado.
+Isso é de certa forma surpreendente, devido ao fato de que as notações de relacionamento entre entidade usadas hoje pela indústria e pela academia, como as de \citeonline{Chen:1976} e \citeonline{Barker:1990}, não são propostas recentes.
+Portanto, conclui-se que a modelagem de \ac{ER} continua um amplo campo de pesquisa com algumas lacunas a serem exploradas.
+
+%Portanto, concluímos que a modelagem de ER continua um amplo campo de pesquisa com algumas lacunas: em especial, perdemos ferramentas que suportam o design em muitos ciclos de vida de aplicativos por meio de técnicas de design automatizadas.
+%Multivocal \citeonline{Garousi:2016}
