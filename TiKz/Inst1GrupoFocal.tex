@@ -1,0 +1,55 @@
+% \pgfplotstableread{
+% Instrumento           DT   DP    I   CP    CT
+% Inst1           0       0       4       6       3     
+% Inst2           0       0       4       6       3
+% Inst3           0       0       4       6       3
+
+% }\testdata
+
+% \begin{tikzpicture}
+% \begin{axis}[
+%             legend cell align=left,
+%             enlargelimits=0.15,
+%             legend columns=1,
+%             legend style={at={(0.5,-0.15)},anchor=north,draw=none},
+%             xbar stacked,
+%             xmin=0,
+%             xmax=13,
+%             xticklabel=\pgfmathprintnumber{\tick}\,$\%$,
+%             ytick=data,
+%             yticklabels from table={\testdata}{Instrumento}
+%             ]
+% \addlegendimage{empty legend}
+% \addlegendentry{}
+% \addplot [fill=red] table [x=DT, meta=Instrumento ,y expr=\coordindex] {\testdata};
+% \addlegendentry{Discorda Totalmente}
+% \addplot [fill=orange!90] table [x=DP, meta=Instrumento ,y expr=\coordindex] {\testdata};
+% \addlegendentry{Discorda Parcialmente}
+% \addplot [fill=yellow] table [x=I, meta=Instrumento ,y expr=\coordindex] {\testdata};
+% \addlegendentry{Indiferente}
+% \addplot [fill=black] table [x=CP, meta=Instrumento ,y expr=\coordindex] {\testdata};
+% \addlegendentry{Concorda Parcialmente}
+% \addplot [fill=green] table [x=CT, meta=Instrumento ,y expr=\coordindex] {\testdata};
+% \addlegendentry{Concorda Totalmente}
+% \end{axis}
+% \end{tikzpicture}
+
+\pgfplotstableread{ % Read the data into a table macro
+Label                                Daily Weekly LessOften
+Calendars\space And\space Reminders   0.51  0.24  0.25
+Send/receive\space Texts              0.67  0.23  0.07
+Make/receive\space Phone\space Calls  0.46  0.38  0.16
+}\testdata
+
+\begin{tikzpicture}
+\begin{axis}[
+            xbar stacked,   % Stacked horizontal bars
+            xmin=0,         % Start x axis at 0
+            ytick=data,     % Use as many tick labels as y coordinates
+            yticklabels from table={\testdata}{Label}  % Get the labels from the Label column of the \datatable
+]
+\addplot [fill=cyan!20!green!40] table [x=Daily, meta=Label,y expr=\coordindex] {\testdata};   % "First" column against the data index
+\addplot [fill=cyan!60!green!20] table [x=Weekly, meta=Label,y expr=\coordindex] {\testdata};
+\addplot [fill=cyan!10] table [x=LessOften, meta=Label,y expr=\coordindex] {\testdata};
+\end{axis}
+\end{tikzpicture}

@@ -145,24 +145,32 @@ Segundo \citeonline{Kitchenham:2007}, os \acp{CI} indicam por qual ou quais par�
 Da mesma forma, os \acp{CE} indicam por qual ou quais parâmetros um estudo é excluído, ou seja, considerado não relevante na pesquisa realizada. 
 Para o este trabalho foram determinados os critérios de seleção listados a seguir.
 
-\textbf{Critérios de Inclusão (\ac{CI})}
+
 \begin{itemize}
-    \item CI1: Estudo que propõe alguma técnica, método, abordagem ou ferramenta para a representação e transformação de modelos de \ac{BD} utilizando \acp{DSL}.
+    \item \textbf{Critérios de Inclusão (\ac{CI})}
+    \begin{itemize}
+        \item CI1: Estudo que propõe alguma técnica, método, abordagem ou ferramenta para a representação e transformação de modelos de \ac{BD} utilizando \acp{DSL}.
+    \end{itemize}
 \end{itemize}
 
-\textbf{Critérios de Exclusão (\ac{CE})}
 \begin{itemize}
-    \item CE1: Estudo com menos de 4 páginas;  
-    \item CE2: Estudo que não esteja escrito em inglês;
-    \item CE3: Estudo duplicado;
-    \item CE4: Estudo que não fornece acesso completo ao seu conteúdo;
-    \item CE5: Estudo que não atende o CI1.
+    \item \textbf{Critérios de Exclusão (\ac{CE})}
+    \begin{itemize}
+        \item CE1: Estudo com menos de 4 páginas;  
+        \item CE2: Estudo que não esteja escrito em inglês;
+        \item CE3: Estudo duplicado;
+        \item CE4: Estudo que não fornece acesso completo ao seu conteúdo;
+        \item CE5: Estudo que não atende o CI1.
+    \end{itemize}
 \end{itemize}
     
 %#################################################################
     \subsection{Avaliação de Qualidade} \label{scec:AvalQualidade}
 %#################################################################
-    
+
+Segundo \citeonline{Nakagawa:2017}, embora exemplos de formulários de avaliação de qualidade possam ser encontrados com certa facilidade na literatura, para a elaboração de critérios e definição de seus pesos os pesquisadores envolvidos em cada revisão ou mapeamento devem levar em consideração as particularidades conforme o tema e as questões de pesquisa.
+Portanto, em pesquisas desse tipo existe total liberdade para definição o número de \acs{CQ} e seus pesos relacionados. 
+
 Foram definidos sete (7) \acp{CQ} para a avaliação dos estudos primários aprovados após a aplicação dos critérios de seleção. 
 Os \acp{CQ} visam quantificar a relevância para que seja possível realizar uma comparação entre os estudos selecionados. 
 Foi definido também uma pontuação para ser atribuída a partir das \acp{CQ}. 
@@ -263,20 +271,12 @@ A descrição detalhada deste formulário de extração é apresentado na \autor
 %#################################################################
 
 Para a pesquisa por ferramentas que dessem apoio a modelagem ER na literatura cinza foi utilizado o motor de busca da Google. 
-Para isto, combinações de \textit{keywords} foram definidas a partir da compreensão da \textit{string} de busca genérica e sua adequação para o contexto da busca na \textit{Web}: 
+Para isto, uma série de \textit{keywords} foram definidas a partir da compreensão da \textit{string} de busca genérica utilizada no mapeamento e na sua adequação para o contexto da busca na \textit{Web}, sendo:
+\textit{ERD Moldelling Tool}, \textit{ERD Design Tool}, \textit{Conceptual Design of Database}, \textit{Conceptual Modelling of Database}, \textit{Conceptual Modelling}, \textit{Database Modelling Tool} e \textit{Database Design Tool}.
 
-\begin{itemize}
-    \item \textit{ERD Moldelling Tool}; 
-    \item \textit{ERD Design Tool}; 
-    \item \textit{Conceptual Design of Database}; 
-    \item \textit{Conceptual Modelling of Database}; 
-    \item \textit{Conceptual Modelling}; 
-    \item \textit{Database Modelling Tool}; 
-    \item \textit{Database Design Tool}.
-\end{itemize} 
 
-A verificação dos resultados foi limitado a 10 (dez) páginas no motor de busca para cada \textit{keyword}. 
-As análise das ferramentas no \ac{MLM} estava sujeita a um processo de seleção com base em alguns requisitos.
+A verificação dos resultados limitou-se a 10 (dez) páginas no motor de busca para cada \textit{keyword}. 
+As análise das ferramentas no \ac{MLM} obedeceu a um processo de seleção com base em alguns requisitos.
 Primeiramente, a ferramenta deveria oferecer acesso para alguma forma de uso (incluindo versão de demonstração para ferramentas comerciais), necessitaria dar suporte a algum nível de modelagem de \ac{BD} e precisaria ter \textit{interface} em inglês ou português. 
 Após, as ferramentas incluídas deveriam ter as notações e níveis de modelagem extraídos, juntamente com outras informações relevantes, e então categorizadas.
 
@@ -335,7 +335,7 @@ Na última iteração, 18 estudos tiveram sua qualidade analisada.
 Foi estabelecido que apenas estudos com pontuação acima de 5 (cinco) seriam aceitos. 
 Assim, após a aplicação dos \ac{CQ} foram excluídos 8 (oito) trabalhos. 
 O conjunto final de dez (10) estudos aprovados na \ac{SLM} seguiu para a etapa de extração de dados. 
-Com os trabalhos acadêmicos a menor pontuação foi de 5.3, enquanto o maior alcançou 10. 
+Entre estes trabalhos a menor pontuação foi de 5.3, enquanto o maior alcançou 10. 
 A \autoref{tab:AvalQualidade} resume os resultados obtidos na avaliação da qualidade. 
 
 A execução do protocolo de busca na \textit{grey literature} retornou um total de 132 ferramentas. 
@@ -430,7 +430,7 @@ T & P & N & T & P & P & T &
 \fonte{O autor.}
 \end{table}
 
-Em relação ao estado da arte (\textbf{QP1}) do desenvolvimento de \ac{DSL} aplicado na transformação de modelos de dados, identificou-se um estudo que apresenta a \textit{System Modeling Tool} (MIST), o qual utiliza uma \ac{DSL} bidirecional para modelagem conceitual de \acp{BD} com a abordagem \ac{EER}, chamado EERDSL. 
+Em relação ao estado da arte (\textbf{QP1}) do desenvolvimento de \ac{DSL} aplicado na transformação de modelos de dados, identificou-se um estudo que apresenta a \textit{System Modeling Tool} (MIST), o qual utiliza uma \ac{DSL} bidirecional para modelagem conceitual de \acp{BD}, chamado \textit{EERDSL}. 
 
 Quanto às metodologias, técnicas ou propostas de refinamento (\textbf{QP1.1}) baseadas em modelos de dados, apenas os dois estudos mencionados aplicam conceitos para refinamento, sendo que tais conceitos são apoiados na normalização de \acp{BD} para auxiliar os desenvolvedores que utilizam sua solução.
 
@@ -486,10 +486,10 @@ Quanto ao uso de \ac{DSL} para transformação de modelos de dados em casos reai
     \fonte{O autor.}
 \end{table}
 
-Sobre os métodos usados para avaliar as \acp{DSL} (\textbf{QP2.2}) existe apenas um estudo preliminar que apresenta a validação da proposta \cite{Dimitrieski:2015} usando 16 participantes, sendo 2 especialistas em \ac{IHC}, 3 especialistas em modelagem de sistemas e 11 estudantes (6 mestrandos na área de \acp{BD} e 5 doutorandos com experiência em modelagem).
+Sobre os métodos usados para avaliar as \acp{DSL} (\textbf{QP2.2}) existe apenas um estudo preliminar que apresenta a validação da proposta \cite{Dimitrieski:2015} usando dezesseis (16) participantes, sendo dois (2) especialistas em \ac{IHC}, três (3) especialistas em modelagem de sistemas e onze (11) estudantes. Entre os estudantes seis (6) eram mestrandos na área de \acp{BD} e cinco (5) doutorandos com experiência em modelagem.
 Em geral, os outros estudos indicam a falta de uma avaliação de suas proposições como um possível trabalho futuro.
 
-Entre os aspectos positivos e negativos observados (\textbf{RQ2.3}) nos estudos, é positivo ser fácil de entender e intuitivo modelagem e independência de plataforma \cite{Tian:2006, Mazairac:2013}.
+Entre os aspectos positivos e negativos observados (\textbf{RQ2.3}) nos estudos, houve observações favoráveis à facilidade de compreensão, a modelagem intuitiva e independência de plataformas específicas \cite{Tian:2006, Mazairac:2013}.
 Pontos negativos foram a falta de geração automática de \ac{SQL} para sistemas de \ac{BD} \cite{Ayadi:2016} ou uma limitação neste item \cite{Dimitrieski:2015}.
 Ainda há um registro da falta de implementação real de \acp{DSL} até o momento em que o estudo foi realizado, havendo apenas especificações \cite{Hammer:1981, Jagannathan:1988, Tian:2006, Kersten:2011, Ayadi:2016}.
 Os principais desafios identificados pelos estudos (\textbf{RQ2.4}), em geral, são as avaliações das abordagens, bem como a evolução e/ou simplificação das propostas.
@@ -700,12 +700,50 @@ Na tentativa de mitigar esses riscos, um protocolo foi definido com base em mode
 
 \textbf{Validade Externa:}
 Ameaças externas geralmente abordam se as descobertas de um estudo podem ser generalizadas para outro domínio. 
-Uma razão para esta ameaça seria a ocorrência da seleção estudos de primários contendo informações incompletas. 
-Contudo é provável que por se tratar de uma área de intersecção entre modelagem de dados e \acp{DSL}, os resultados não podem ser generalizados para outros tópicos de pesquisa, reduzindo assim esse risco naturalmente.
+Uma razão para esta ameaça seria a ocorrência da seleção de estudos de primários contendo informações incompletas. 
+Contudo é provável que, por se tratar de uma área de intersecção entre modelagem de dados e \acp{DSL}, os resultados não podem ser generalizados para outros tópicos de pesquisa, reduzindo assim esse risco naturalmente.
 
 \textbf{Validade da Conclusão:}
 Uma possível ameaça é o viés na extração de dados, o que leva a erros de conclusão.
 Para atenuar esse problema foi realizado uma leitura criteriosa e, assim como os testes de uso das ferramentas, houve a síntese de dados em planilha eletrônica\footnote{http://bit.ly/2Vs0oYN} para uma melhor análise.
+
+%#################################################################
+\section{Trabalhos Relacionados} \label{sec:TrabRelacionados}
+%#################################################################
+
+Essa seção descreve os trabalhos de maior representatividade para o objeto deste estudo. 
+Uma vez que a proposta envolve a construção de uma ferramenta que implemente uma \ac{DSL} textual, e após a pesquisa descrita neste capítulo, selecionou-se propostas e ferramentas que mais se aproximam do objetivo final deste trabalho.
+
+O trabalho de \citeonline{Dimitrieski:2015}, desenvolvido na universidade de Novi Sad na Sérvia, apresenta uma ferramenta chamada \textit{System Modeling Tool} (MIST). 
+Essa ferramenta utiliza uma \ac{DSL} chamada EERDSL, uma linguagem com base no modelo aprimorado de entidade-relacionamento, do inglês \ac{EER}.
+O \ac{EER} inclui todos os conceitos introduzidos pelo modelo \ac{ER} original proposto por Chen, sendo assim uma extensão do mesmo. 
+Além disso, inclui os conceitos de subclasses e superclasses (\textit{Is-a}), juntamente com os conceitos de especialização e generalização.
+A MIST apresenta uma abordagem de modelagem bidirecional (gráfica e textual) de modelagem de \acp{BD}. 
+O autor discute que tal decisão tem como motivo o entendimento de que a preferência sobre a abordagem de modelagem utilizada pode depender do domínio do problema, do conhecimento e das preferências pessoais de um projetista de \ac{BD}. 
+Apresenta também uma experiência anterior, onde foi construída uma ferramenta de modelagem com uma abordagem baseada em formulários. 
+A partir dos resultados obtidos nesta experiência, foi concebida a ideia da MIST. 
+O propósito da ferramenta é a aplicação tanto no mercado profissional quanto para o ensino de projeto e modelagem de \ac{BD} no meio acadêmico. 
+A MIST foi desenvolvida com o auxílio do \textit{framework} Xtext para a notação da \ac{DSL} textual e inicialmente utilizava o \textit{framework} Eugene, um projeto que foi descontinuado, para a sua versão gráfica. 
+Posteriormente em razão disso o Eugene foi substituído pelo \textit{framework} Sirius. 
+A MIST ainda oferece suporte à geração de código \ac{SQL}.
+
+O \textit{dbdiagram.io}\footnote{https://dbdiagram.io/} é uma ferramenta \textit{Web} gratuita para o desenho de \acp{DER}, desenvolvida por uma empresa de Singapura, com uma abordagem textual que implementa uma \ac{DSL} própria.
+Esta \ac{DSL} utiliza um modelo muito próximo do lógico. 
+O diferencial da ferramenta é sua rápida curva de aprendizagem e, além disso, a apresentação de uma representação gráfica do que está sendo modelado.
+A apresentação dos elementos do diagrama pode ser organizada livremente pelo usuário em tempo real. 
+Entretanto é importante se salientar que toda a modelagem de fato é feita de modo textual. 
+A ferramenta ainda oferece a geração automática de código \ac{SQL}.
+
+Da mesma forma, a \textit{QuickDBD}\footnote{https://quickdatabasediagrams.com/}, desenvolvida por uma empresa na Irlanda, é uma ferrramenta \textit{Web} com exatamente o mesmo modo operacional que a \textit{dbdiagram.io}, também implementando uma \ac{DSL} textual própria para modelagem de \acp{BD}.
+Contudo é uma ferramenta proprietária, ou seja, paga e com o foco declaradamente na indústria. 
+Ambas as ferramentas são muito similares também quanto a geração de representações gráficas da modelagem e apresentam diversos argumentos para sua adoção, como a rápida compreensão de suas \acp{DSL}, a perspectiva de realização de trabalhos fluídos, o acesso de qualquer plataforma e o compartilhamento dos modelos com outros usuários.
+
+Finalmente, pode-se citar a ferramenta \textit{Web} gratuita \textit{RelaX (Relational Algebra Calculator)}\footnote{https://dbis-uibk.github.io/relax/}. 
+Esta ferramenta não foi encontrada no mapeamento, mas indicada por um pesquisador da área de \acp{DSL} e \acp{BD}. 
+Trata-se de uma ferramenta desenvolvida na universidade de Innsbruck, na Áustria, e voltada ao ensino de álgebra relacional fazendo operações sobre bases de dados relacionais. 
+Tem uma abordagem textual, utilizando uma \ac{DSL} chamada RelAlg, e apresentando inclusive duas perspectivas de operação: instruções de RelAlg e instruções em \ac{SQL}. 
+A RelaX utiliza uma abordagem de modelo já em nível físico para operações, como as \acp{DDL} de construção e \acp{DML} para as consultas. 
+Apesar de suas funcionalidades, a RelaX não se propõe a ser uma ferramenta de projeto e modelagem de \ac{BD}, mas de uso restrito ao ensino dentro da academia.
 
 %################################################################# 
 \section{Lições do Capítulo} \label{sec:LicoesMapeamento}
@@ -723,11 +761,11 @@ Da mesma forma, foi levantado um conjunto de 132 ferramentas que dão suporte a 
 O protocolo do \ac{MLM} foi detalhado, assim como sua condução e subsequente análise dos resultados obtidos.
 Ao final, 10 estudos primários e 55 ferramentas foram selecionadas para serem analisados de forma quantitativa e qualitativa. 
 Como resultado, classificou-se apenas as \acp{DSL} atualmente usadas para dar suporte à modelagem de \ac{ER} e ferramentas que são utilizadas para projetar \acp{BD}.
-Entre os resultados destaca-se que o estudo de \citeonline{Dimitrieski:2015}, o qual apresenta uma ferramenta de modelagem bidirecional que aplica sua própria \ac{DSL} com base na abordagem \ac{EER}.
+Entre os resultados destaca-se, entre os trabalhos relacionados, o estudo de \citeonline{Dimitrieski:2015}, o qual apresenta uma ferramenta de modelagem bidirecional que aplica sua própria \ac{DSL} com base na abordagem \ac{EER}.
 
 Este capítulo forneceu algumas evidências de que, a cada ano, um número significativo de trabalhos apresentando diferentes tipos de notações é publicado.
 Isso é de certa forma surpreendente, devido ao fato de que as notações de relacionamento entre entidade usadas hoje pela indústria e pela academia, como as de \citeonline{Chen:1976} e \citeonline{Barker:1990}, não são propostas recentes.
-Portanto, conclui-se que a modelagem de \ac{ER} continua um amplo campo de pesquisa com algumas lacunas a serem exploradas.
+Portanto, conclui-se que a modelagem de \ac{ER} continua um amplo campo de pesquisa com algumas lacunas a serem exploradas \textit{e.g.} No que diz respeito a abordagens gráficas, qual a notação de mais fácil aprendizado? A abordagem textual pode ser uma alternativa viável para a modelagem de \acp{BD} em diferentes níveis? Qual o grau de aderência abordagens entre os usuários conforme o seu perfil (analista ou desenvolvedor)?. 
 
 %Portanto, concluímos que a modelagem de ER continua um amplo campo de pesquisa com algumas lacunas: em especial, perdemos ferramentas que suportam o design em muitos ciclos de vida de aplicativos por meio de técnicas de design automatizadas.
 %Multivocal \citeonline{Garousi:2016}

@@ -52,7 +52,7 @@ Para atingir o objetivo geral proposto, é fundamental que exista a divisão do 
     \item Pesquisar a literatura visando encontrar propostas que façam proposições que forneçam apoio à modelagem de bases de dados; 
     \item Investigar tecnologias que auxiliem no processo de criação de linguagens específicas de domínio;
     \item Compreender quais são os requisitos necessários para a criação da linguagem;
-    \item Desenvolver uma gramática para modelagem conceitual de \acp{BD} relacionais;
+    \item Desenvolver uma gramática para modelagem conceitual de \acp{BD} que sigam o modelo relacional;
     \item Integrar a linguagem proposta em uma ferramenta \textit{open source};
     \item Implementar a transformação do modelo conceitual para o modelo lógico;
     \item Criar geradores para tecnologias específicas de \acp{BD}, representando assim o modelo físico;
@@ -82,14 +82,14 @@ Uma gramática define palavras-chave de uma linguagem, o aninhamento de seus ele
 Dito isto, pode-se inferir que os modelos textuais podem trazer diversos benefícios:
 
 \begin{itemize}
-    \item \textbf{Transmitir muitos detalhes}: Quando se trata de elementos com inúmeras propriedades, a abordagem textual geralmente se destaca em relação aos gráficos. 
-    O mesmo pode ser dito quanto a estruturas formadas por um grande número de partes muito pequenas, como operações matemáticas ou sequências de instruções;
-    \item \textbf{Coesão}: Um modelo textual geralmente especifica os elementos inteiramente em um só local. 
+    \item \textbf{Transmitir de muitos detalhes}: Quando se trata de elementos com inúmeras propriedades, a abordagem textual geralmente se destaca em relação aos gráficos. 
+    O mesmo pode ser dito quanto às estruturas formadas por um grande número de partes muito pequenas, como operações matemáticas ou sequências de instruções;
+    \item \textbf{Aumentar coesão do modelo}: Um modelo textual geralmente especifica os elementos inteiramente em um só local. 
     Se por um lado isso pode ser uma desvantagem para uma exibição em alto nível, em contrapartida pode facilitar a localização de definições de propriedades em baixo nível. 
     Na proposta deste trabalho toda a modelagem conceitual é realizada em apenas um arquivo;
-    \item \textbf{Edição rápida}: Durante a criação e edição de modelos textuais não é necessário a recorrente alternância entre teclado e \textit{mouse}. 
+    \item \textbf{Realizar uma edição rápida}: Durante a criação e edição de modelos textuais não é necessário a recorrente alternância entre teclado e \textit{mouse}. 
     Logo, é provável que se gaste menos tempo formatando modelos textuais do que, por exemplo, refinando a posição, as ligações ou mesmo as bordas de elementos em diagramas;
-    \item \textbf{Editores genéricos}: Não existe necessariamente a exigência de uma ferramenta específica para criar ou modificar modelos textuais, como é o caso de linguagens específicas de domínio com esta abordagem. 
+    \item \textbf{Utilizar editores genéricos}: Não existe necessariamente a exigência de uma ferramenta específica para criar ou modificar modelos textuais, como é o caso de linguagens específicas de domínio com esta abordagem. 
     Para alterações simples é possível o uso de qualquer editor de texto genérico. 
     Entretanto, para tarefas maiores é melhor se ter algum suporte para a linguagem de modelagem. 
     Na proposta desse trabalho está incluso a integração da linguagem definida com um editor Eclipse, fornecendo assim um alto nível de auxílio para a escrita.
@@ -101,7 +101,7 @@ Dito isto, pode-se inferir que os modelos textuais podem trazer diversos benefí
 %#################################################################
 
 Este trabalho está organizado da seguinte forma. 
-No \autoref{metodologiaPesquisa} é apresentado a metodologia de pesquisa adotada. 
+No \autoref{metodologiaPesquisa} é apresentada a metodologia de pesquisa adotada. 
 No \autoref{fundamentacaoTeorica} é realizada a fundamentação teórica. Um mapeamento multivocal de literatura tem o protocolo e condução descritos no \autoref{mapeamentoLiteratura}. 
 A seguir, ocorre a apresentação da proposta no \autoref{propostaDSL}. 
 Finalmente, as considerações preliminares são discutidas no \autoref{consideracoesPreliminares}, em que ainda são apontados os trabalhos futuros e o cronograma de execução para continuação da pesquisa.

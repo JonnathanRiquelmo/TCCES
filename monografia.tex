@@ -60,7 +60,7 @@
 % Pacotes opcionais
 \usepackage{nomencl}        % Para criar uma lista de símbolos
 \usepackage{acro}           % Para usar acrônimos e abreviaturas
-\usepackage{tikz}           % Para fazer figuras, diagramas e gráficos integrados e elegantes
+\usepackage{tikz}{}           % Para fazer figuras, diagramas e gráficos integrados e elegantes
 \usepackage{pgfplots}       % Usa o pacote tikz para fazer gráficos muito melhores que os do Excel
 \usepackage{pgfplotstable}  % Para gerar tabelas automaticamente a partir de arquivos com dados
 \usepackage{filecontents}   % Para colocar o conteúdo de um arquivo dentro de um arquivo tex
@@ -158,15 +158,15 @@
 % +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % -------------------------------------------------------------------------------------------------
-\titulo{Uma Linguagem Específica de Domínio para a Representação de Modelos Conceituais de Bancos de Dados Relacionais}
+\titulo{ERDSL: Uma Linguagem Específica de Domínio para a Representação de Modelos Conceituais de Bancos de Dados Relacionais}
 \autor{Jonnathan Riquelmo Lopes Frescura}
 \local{Alegrete}
 \data{2019}
 \orientador{Prof. Dr. Maicon Bernardino da Silveira}
 \coorientador{Prof. Dr. Fábio Paulo Basso} % Se houver
 \instituicao{Universidade Federal do Pampa}
-\tipotrabalho{Projeto de Trabalho de Conclusão de Curso~} % Para TCC I
-%\tipotrabalho{Trabalho de Conclusão de Curso~} % Para TCC II
+%\tipotrabalho{Projeto de Trabalho de Conclusão de Curso~} % Para TCC I
+\tipotrabalho{Trabalho de Conclusão de Curso~} % Para TCC II
 % O preambulo deve conter o tipo do trabalho, o objetivo, o nome da instituição e a área de concentração
 \preambulo{\imprimirtipotrabalho apresentado ao Curso de Graduação em Engenharia de Software da Universidade Federal do Pampa como requisito parcial para a obtenção do título de Bacharel em Engenharia de Software.}
 % +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -445,6 +445,25 @@
   long  =  \textit{Document Object Graph},
   class = acronimos
 }
+
+\DeclareAcronym{LN}{
+  short = LN,
+  long  =  Linguagem Natural,
+  class = acronimos
+}
+\DeclareAcronym{PLN}{
+  short = PLN,
+  long  =  Processamento de Linguagem Natural,
+  class = acronimos
+}
+
+\DeclareAcronym{GLC}{
+  short = GLC,
+  long  =  Gramática Livre de Contexto,
+  long-plural-form = Gramáticas Livres de Contexto,
+  class = acronimos
+}
+
 % -------------------------------------------------------------------------------------------------
 % Nomenclaturas/Símbolos
 \nomenclature{$A_i$}{Área do $i^{esimo}$ componente}
@@ -582,7 +601,8 @@
 \input{textuais/3fundamentacaoTeorica}
 \input{textuais/4mapeamentoMultivocalLiteratura}
 \input{textuais/5propostaDSL}
-\input{textuais/6consideracoesPreliminares}
+\input{textuais/6validacao.tex}
+\input{textuais/7consideracoesPreliminares}
 
 %\input{textuais/desenvolvimento.tex}
 %\input{textuais/conclusao.tex}
@@ -603,12 +623,12 @@
 % -----------------------------------------------
 % Apêndices [OPCIONAL]
 % -----------------------------------------------
-%\input{postextuais/apendices}
+\input{postextuais/apendices}
 
 % -----------------------------------------------
 % Anexos [OPCIONAL]
 % -----------------------------------------------
-%\input{postextuais/anexos}
+% \input{postextuais/anexos}
 
 % -----------------------------------------------
 % Índice Remissivo [OPCIONAL]
