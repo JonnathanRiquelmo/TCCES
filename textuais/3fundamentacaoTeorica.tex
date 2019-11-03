@@ -1,20 +1,20 @@
 \chapter{Fundamentação Teórica}\label{fundamentacaoTeorica}
 
-Neste capítulo é apresentado de forma abrangente os domínios abordados para a realização e compreensão deste trabalho. 
+Neste capítulo ocorre a apresentação, de forma abrangente, dos domínios abordados para a realização e compreensão deste trabalho. 
 A Seção \ref{sec:ProjetoBD} expõe o que é um projeto de \acp{BD} e suas fases de modelagem para a construção de esquemas de \acp{BD}. 
 A Seção \ref{sec:LinguagemSQL} elucida a aplicação da \ac{SQL}, e exemplifica seu uso com alguns exemplos de \acp{SGBD}. 
 A Seção \ref{ssec:MDE} aborda a Engenharia Dirigida por Modelos, do inglês \ac{MDE}, e suas aplicações com as \acp{DSL}. 
-Na Seção \ref{sec:TrabRelacionados} é discutido os trabalhos relacionados e, por fim, na Seção \ref{sec:LicoesFundamentacaoTeorica} é apresentado algumas lições aprendidas e pontuados os principais tópicos discutidos.
+Na Seção \ref{sec:TrabRelacionados} discute-se os trabalhos relacionados e, por fim, na Seção \ref{sec:LicoesFundamentacaoTeorica} são apresentadas algumas lições aprendidas, bem como os principais tópicos discutidos.
 
 %#################################################################
 \section{Projeto de Banco de Dados} \label{sec:ProjetoBD}
 %#################################################################
 
-Segundo \citeonline{Date:2004} um \ac{BD} é fundamentalmente um sistema computacional para a manutenção de registros. 
-Sistemas desse tipo tem a finalidade de armazenar dados de forma persistente, bem como permitir que usuários definam, busquem e atualizem esses dados para gerar informações pertinentes quando necessário. 
+Segundo \citeonline{Date:2004} uma estrutura de \ac{BD} é fundamentalmente um sistema computacional para a manutenção de registros. 
+Sistemas desse tipo têm a finalidade de armazenar dados de forma persistente, bem como permitir que usuários definam, busquem e atualizem esses dados para gerar informações pertinentes quando necessário. 
 Um \ac{BD} pode ser representado por um modelo de dados, expressado em diferentes níveis e com diferentes técnicas.
 
-Normalmente durante o ciclo de desenvolvimento de software os modelos de dados passam por níveis distintos de transformações. 
+Normalmente durante o ciclo de vida do desenvolvimento de software os modelos de dados passam por níveis distintos de transformações. 
 Inicialmente não existia um padrão ou recomendação difundida amplamente na indústria, ou mesmo na academia, para o processo de modelagem de dados. 
 A estratégia para a utilização de diferentes níveis de projeto e representação tem suas origens com o grupo de estudos em \acp{SGBD} intitulado \textit{ANSI/X3/SPARK}, ainda na década de 1970 \cite{DBLP:1975}.  
 
@@ -34,7 +34,7 @@ Sendo assim, os \acp{BD} relacionais até os dias atuais continuam levando em co
 
 A construção de um \ac{BD} é baseada em um modelo de \ac{BD}, o qual é uma descrição detalhada dos tipos de informações que devem ser armazenadas. 
 O projeto de \ac{BD} acontece em três fases distintas de modelagem, onde são gerados o \ac{MCD}, \ac{MLD} e o \ac{MFD} \cite{Heuser:2009}. 
-Para a elaboração de modelos de dados deve ser usado uma linguagem de modelagem de dados. 
+Para a elaboração de modelos de dados deve-se usar uma linguagem de modelagem de dados. 
 Existem linguagens gráficas e textuais capazes de descrever os modelos em diferentes níveis de detalhamento e abstração.  
 
 %Entre as vantagens da abordagem de \acp{BD}, \citeonline{Date:2004} enumera as seguintes: (I)Os dados podem ser compartilhados; (II)A redundância de dados pode ser reduzida; (III)A inconsistência pode ser evitada, pelo menos até certo ponto; (IV)O suporte a transações pode ser fornecido; (V)A integridade pode ser mantida; (VI)A segurança pode ser reforçada; (VII)Requisitos podem ser equilibrados; e (VIII)Os padrões podem ser impostos.  
@@ -58,6 +58,10 @@ Sendo assim, com esta abordagem os \acp{MCD} são representados com \acp{DER}, c
 	\label{fig:DER}
 \end{figure}
 
+%#################################################################
+    \subsubsection{Modelo Entidade-Relacionamento} \label{ssec:ModeloER}
+%#################################################################
+
 Na abordagem \ac{ER} o conceito principal é o de \textbf{entidade}, o qual é uma representação de um conjunto de objetos do domínio modelado. 
 As entidades são simbolizadas por retângulos. 
 Contudo, nesta abordagem ainda existem também outros conceitos que são essenciais e devem ser analisados.
@@ -76,6 +80,32 @@ Na esquerda da \autoref{fig:DER2} é ilustrado um exemplo de \ac{DER} simples e,
 \end{figure}
 
 %#################################################################
+\subsubsection{Construtores do Modelo ER} \label{sssec:ModeloER}
+%#################################################################
+
+\textcolor{red}{...}
+
+\textcolor{red}{(talvez criar uma tabela sintetizando os construtores, e tirar essa seção e inclui-la na seção anterior)}
+
+\textcolor{red}{Herança}
+
+\textcolor{red}{relacionamentos ternários}
+
+\textcolor{red}{entidades fracas}
+
+\textcolor{red}{atributos}
+
+\textcolor{red}{atributos multivalorados}
+    
+%#################################################################
+\subsubsection{Notações de Modelagem ER} \label{sssec:ModeloER}
+%#################################################################
+    
+\textcolor{red}{ ... }
+    
+\textcolor{red}{crowsfoot, notação merise, etc...}
+
+%#################################################################
     \subsection{Modelo Lógico de Dados} \label{ssec:ModelLogico}
 %#################################################################
 
@@ -86,7 +116,7 @@ Na \autoref{fig:MLD} é apresentado um \ac{MLD} gráfico baseado no modelo da \a
 
 \begin{figure}[htb]
 	\centering
-	\caption{Exemplo de MLD.}
+	\caption{Exemplo de MLD para BD relacional.}
 		\includegraphics[width=0.8\textwidth]{img/MLD.jpg}
 	\fonte{\citeonline{Heuser:2009}.}
 	\label{fig:MLD}
@@ -116,22 +146,22 @@ Isso ocorre pois esse modelo não se preocupa somente com a representação dos 
 Isso implica, em uma última observação, que do ponto de vista formal da definição da abordagem \ac{ER}, esse modelo não se enquadra fielmente como um modelo \ac{ER} \cite{West:2011}.
 
 %#################################################################
-    \subsection{Modelo Físico de Dados} \label{ssec:ModelFisico}
+    \subsection{\textcolor{red}{Modelo Físico de Dados}} \label{ssec:ModelFisico}
 %#################################################################
 
-Um \ac{MFD} caracteriza-se como um modelo em que a representação dos objetos de \ac{BD} já estão em um nível físico de implementação das ocorrências, ou instâncias, das entidades de relacionamentos. 
-Cada \ac{SGBD} pode definir diferentes modos de implementação física das características e recursos indispensáveis para o armazenamento e manipulação das estruturas de dados \cite{Cougo:2013}.
+\textcolor{red}{Um \ac{MFD} caracteriza-se como um modelo em que a representação dos objetos de \ac{BD} já estão em um nível físico de implementação das ocorrências, ou instâncias, das entidades de relacionamentos. 
+Cada \ac{SGBD} pode definir diferentes modos de implementação física das características e recursos indispensáveis para o armazenamento e manipulação das estruturas de dados \cite{Cougo:2013}.}
 
-Em geral os modelos físicos apresentam dois aspectos bem representados. 
+\textcolor{red}{Em geral os modelos físicos apresentam dois aspectos bem representados. 
 Primeiramente, existem as ocorrências ou instâncias, seus relacionamentos e a disposição básica dos elementos. 
 O outro aspecto diz respeito a alocação nos diversos níveis de agrupamentos possíveis, como as tabelas, linhas (registros), colunas (campos) e blocos \cite{West:2011}.
-Em suma é uma sequência lógica de instruções em \ac{SQL}, executadas em um \ac{SGBD}.
+Em suma é uma sequência lógica de instruções em \ac{SQL}, executadas em um \ac{SGBD}.}
 
 %#################################################################
 \section{Linguagem SQL} \label{sec:LinguagemSQL}
 %#################################################################
 
-Para a manipulação dos dados a \ac{SQL} é a linguagem padrão utilizada por sistemas de \acp{BD} relacionais disponíveis no mercado. 
+Para a manipulação dos dados a linguagem \ac{SQL} é o  padrão utilizado por sistemas de \acp{BD} relacionais disponíveis no mercado. 
 A \ac{SQL} teve sua gênese originalmente nos laboratórios da IBM Research, na década de 1970, com o nome inicial de SEQUEL \cite{Chamberlin:1974}.
 A \ac{SQL} é uma linguagem com a versão estável mais recente lançada em 2016 e denominada \texttt{SQL:2016}, possuindo um total de mais de 2000 páginas de especificação\footnote{https://iso.org/standard/63555.html}\footnote{https://standards.iso.org/ittf/PubliclyAvailableStandards/c065143_ISO_IEC_TR_19075-5_2016.zip}\footnote{https://standards.iso.org/ittf/PubliclyAvailableStandards/c067367_ISO_IEC_TR_19075-6_2017.zip}\footnote{https://standards.iso.org/ittf/PubliclyAvailableStandards/c069776_ISO_IEC_TR_19075-7_2017.zip}. 
 Entretanto, é importante salientar que ao mesmo tempo em que a maioria dos produtos do mercado trabalham com a \ac{SQL}, estas soluções também deixam de oferecer suporte a determinados aspectos ou ainda os implementa de uma forma diferente da especificação oficial. 
@@ -164,44 +194,44 @@ Um ponto importante a ser citado é o fato de praticamente todos os \acp{SGBD} r
 \end{figure}
 
 A \autoref{fig:ModeloRelacional} mostra o esquema estrutural de um modelo relacional. Nele uma tabela, também chamada de entidade, é definida por um nome e um número fixo de atributos com seus tipos de dados indicados. 
-Cada tabela deve ter um ou mais atributos identificadores, chamado de chaves, o qual visa auxiliar na integridade referencial dos dados. 
+Cada tabela deve ter um ou mais atributos identificadores, chamados de chaves, os quais auxiliam a manter a integridade referencial dos dados. 
 Um registro, também chamado de ocorrência ou tupla, corresponde a uma linha na tabela e consiste nos valores de cada atributo. 
-Uma relação, portanto, consiste em um conjunto de registros associados entre tabelas~\cite{Ramakrishnan:2002}.
+Uma relação, portanto, consiste em um conjunto de registros associados (referenciados) entre tabelas através das variáveis de relação~\cite{Ramakrishnan:2002}.
 
-\subsubsection{MySQL}
-O MySQL é um \ac{SGBD} relacional que foi criado por uma empresa sueca chamada MySQL AB, e atualmente é desenvolvido e mantido pela Oracle. 
-O desenvolvimento original do MySQL começou em 1994, mas a primeira versão do MySQL foi lançada apenas em maio de 1995. 
-Foi inicialmente criada para uso pessoal do \ac{SGBD} mSQL baseado na linguagem de baixo nível. 
-O MySQL é usado por muitos aplicativos da \textit{Web} orientados a \ac{BD} como o Drupal, o Joomla, o phpBB e o WordPress.
+% \subsubsection{MySQL}
+% O MySQL é um \ac{SGBD} relacional que foi criado por uma empresa sueca chamada MySQL AB, e atualmente é desenvolvido e mantido pela Oracle. 
+% O desenvolvimento original do MySQL começou em 1994, mas a primeira versão do MySQL foi lançada apenas em maio de 1995. 
+% Foi inicialmente criada para uso pessoal do \ac{SGBD} mSQL baseado na linguagem de baixo nível. 
+% O MySQL é usado por muitos aplicativos da \textit{Web} orientados a \ac{BD} como o Drupal, o Joomla, o phpBB e o WordPress.
     
-Entre suas funcionalidades mais relevantes estão o suporte multiplataforma, suporte SSL, \textit{stored procedures}, \textit{triggers}, \textit{views} atualizáveis, \textit{subselects}, entre outras. 
-Atualmente, o MySQL está na versão 8.0, funciona sobre plataformas Windows, Linux, Solaris, macOS e FreeBSD. 
-Existe a versão paga \textit{Enterprise Server} e a versão de código aberto MySQL \textit{Community Server}, gratuita e com licença GPL. 
-É considerado o 2º \ac{SGBD} mais popular~\footnote{https://db-engines.com/en/system/MySQL} entre as opções do mercado pelo portal DB-Engines. 
-Segundo a avaliação publicada em 2019 pela empresa de consultoria Gartner \textit{Group}\footnote{https://gartner.com/reviews/market/operational-dbms}, o MySQL possui uma avaliação de 4,5 de 5 pelo mercado.
+% Entre suas funcionalidades mais relevantes estão o suporte multiplataforma, suporte SSL, \textit{stored procedures}, \textit{triggers}, \textit{views} atualizáveis, \textit{subselects}, entre outras. 
+% Atualmente, o MySQL está na versão 8.0, funciona sobre plataformas Windows, Linux, Solaris, macOS e FreeBSD. 
+% Existe a versão paga \textit{Enterprise Server} e a versão de código aberto MySQL \textit{Community Server}, gratuita e com licença GPL. 
+% É considerado o 2º \ac{SGBD} mais popular~\footnote{https://db-engines.com/en/system/MySQL} entre as opções do mercado pelo portal DB-Engines. 
+% Segundo a avaliação publicada em 2019 pela empresa de consultoria Gartner \textit{Group}\footnote{https://gartner.com/reviews/market/operational-dbms}, o MySQL possui uma avaliação de 4,5 de 5 pelo mercado.
 
-\subsubsection{Microsoft SQL Server}
-O Microsoft SQL Server é um \ac{SGBD} relacional desenvolvido e mantido pela Microsoft. 
-Teve uma versão de teste foi criada em parceria com a Sybase em 1988, mas sua primeira versão para uso comercial foi lançada em abril de 1989. 
-Desde de seu lançamento este \ac{SGBD} sofreu inúmeras melhorias. 
-Atualmente possui diversas versões disponibilizadas no mercado, como a \textit{Enterprise}, a \textit{Standard}, \textit{Web}, \textit{Business Intelligence} e \textit{Workgroup}. 
+% \subsubsection{Microsoft SQL Server}
+% O Microsoft SQL Server é um \ac{SGBD} relacional desenvolvido e mantido pela Microsoft. 
+% Teve uma versão de teste foi criada em parceria com a Sybase em 1988, mas sua primeira versão para uso comercial foi lançada em abril de 1989. 
+% Desde de seu lançamento este \ac{SGBD} sofreu inúmeras melhorias. 
+% Atualmente possui diversas versões disponibilizadas no mercado, como a \textit{Enterprise}, a \textit{Standard}, \textit{Web}, \textit{Business Intelligence} e \textit{Workgroup}. 
     
-Também possui uma versão chamada \textit{Express}, uma edição gratuita e reduzida. 
-Essa versão inclui o mecanismo de \ac{BD} principal e, embora não haja limitações quanto ao número de \acp{BD} ou usuários com suporte, ele é limitado ao uso de um processador, 1 GB de memória e 10 GB de arquivos de \ac{BD}. 
-O Microsoft SQL Server pode funcionar sobre plataformas Linux, Microsoft Windows Server e Microsoft Windows.
-Atualmente está na versão SQL Server 2017 e é considerado o 3º \ac{SGBD} mais popular~\footnote{https://db-engines.com/en/system/Microsoft+SQL+Server} no mercado pelo portal DB-Engines. 
-Segundo a avaliação publicada pela Gartner Group, o Microsoft SQL Server possui uma avaliação de 4,4 de 5 pelo mercado em 2019.
+% Também possui uma versão chamada \textit{Express}, uma edição gratuita e reduzida. 
+% Essa versão inclui o mecanismo de \ac{BD} principal e, embora não haja limitações quanto ao número de \acp{BD} ou usuários com suporte, ele é limitado ao uso de um processador, 1 GB de memória e 10 GB de arquivos de \ac{BD}. 
+% O Microsoft SQL Server pode funcionar sobre plataformas Linux, Microsoft Windows Server e Microsoft Windows.
+% Atualmente está na versão SQL Server 2017 e é considerado o 3º \ac{SGBD} mais popular~\footnote{https://db-engines.com/en/system/Microsoft+SQL+Server} no mercado pelo portal DB-Engines. 
+% Segundo a avaliação publicada pela Gartner Group, o Microsoft SQL Server possui uma avaliação de 4,4 de 5 pelo mercado em 2019.
 
-\subsubsection{PostgreSQL}
-O PostgreSQL é um \ac{SGBD} que incorpora o modelo relacional para seus esquemas de dados e suporta a linguagem de consulta padrão \ac{SQL}. 
-Surgiu dentro do projeto do Ingres, outro \ac{SGBD}, na universidade da Califórnia. 
-Lançado em 1996 e mantido atualmente pelo PostgreSQL Global Development Group, é considerado pelo mercado um \ac{SGBD} estável, abrangente e possuidor de boas características de desempenho. 
-É executado em praticamente qualquer plataforma Linux, macOS e Microsoft Windows. 
-O grande diferencial do PostgreSQL para ser um dos \acp{SGBD} de maior sucesso é o fato de ser gratuito e de código aberto por meio da flexível licença BSD.
+% \subsubsection{PostgreSQL}
+% O PostgreSQL é um \ac{SGBD} que incorpora o modelo relacional para seus esquemas de dados e suporta a linguagem de consulta padrão \ac{SQL}. 
+% Surgiu dentro do projeto do Ingres, outro \ac{SGBD}, na universidade da Califórnia. 
+% Lançado em 1996 e mantido atualmente pelo PostgreSQL Global Development Group, é considerado pelo mercado um \ac{SGBD} estável, abrangente e possuidor de boas características de desempenho. 
+% É executado em praticamente qualquer plataforma Linux, macOS e Microsoft Windows. 
+% O grande diferencial do PostgreSQL para ser um dos \acp{SGBD} de maior sucesso é o fato de ser gratuito e de código aberto por meio da flexível licença BSD.
     
-Entre algumas características suportadas pelo PostgreSQL estão transações, \textit{subselects}, \textit{views}, integridade referencial de chaves estrangeiras, bloqueios sofisticados, tipos definidos pelo usuário, herança, regras variadas, \textit{triggers}, funções, procedimentos armazenáveis, entre outras. 
-Atualmente está na versão 11.3 e é considerado o 4º mais popular~\footnote{https://db-engines.com/en/system/PostgreSQL} entre os \acp{SGBD} existentes pelo portal DB-Engines. 
-Segundo a avaliação publicada pela Gartner Group, o Microsoft SQL Server possui uma avaliação de 4,5 de 5 pelo mercado em 2019.
+% Entre algumas características suportadas pelo PostgreSQL estão transações, \textit{subselects}, \textit{views}, integridade referencial de chaves estrangeiras, bloqueios sofisticados, tipos definidos pelo usuário, herança, regras variadas, \textit{triggers}, funções, procedimentos armazenáveis, entre outras. 
+% Atualmente está na versão 11.3 e é considerado o 4º mais popular~\footnote{https://db-engines.com/en/system/PostgreSQL} entre os \acp{SGBD} existentes pelo portal DB-Engines. 
+% Segundo a avaliação publicada pela Gartner Group, o Microsoft SQL Server possui uma avaliação de 4,5 de 5 pelo mercado em 2019.
 
 %#################################################################
 \section{\textit{Model-Driven Engineering}} \label{ssec:MDE}
@@ -217,7 +247,7 @@ Sendo assim, não é de surpreender que os modelos tenham se tornado cruciais e 
 
 A \ac{MDE}, também chamada de \ac{MDSE}, é uma abordagem da \ac{ES} para desenvolvimento de \textit{software} que tem essencialmente modelos como saídas principais de algum processo. 
 Essa abordagem resulta em programas ou atividades de computador executados em \textit{hardware} ou \textit{software} que são gerados automaticamente a partir de modelos \cite{Sommerville:2011}. 
-Conceitualmente, a \ac{MDE} fornece apoio a outros conceitos, como a \ac{MDD} e a \ac{MDA}. Na \autoref{fig:MDE_MDD_MDA} a relação entre estes conceitos é ilustrada.
+Conceitualmente, a \ac{MDE} fornece apoio a outros conceitos, como o \ac{MDD} e a \ac{MDA}. Na \autoref{fig:MDE_MDD_MDA} a relação entre estes conceitos é ilustrada.
 
 \begin{figure}[!htb]
     \centering
@@ -228,10 +258,10 @@ Conceitualmente, a \ac{MDE} fornece apoio a outros conceitos, como a \ac{MDD} e 
 \end{figure}
 
 O \ac{MDD} é um paradigma de desenvolvimento que usa modelos como o principal artefato do processo de desenvolvimento. 
-Normalmente na \ac{MDD} a implementação é gerada de forma semiautomática a partir dos modelos. 
+No \ac{MDD} geralmente a implementação é gerada de forma semiautomática a partir dos modelos. 
 Apesar de serem vistas como a mesma coisa, o conceito da \ac{MDE} tem origem na \ac{MDA}, proposta em 2001 pelo \ac{OMG}. 
 Com diferenças sutis, \citeonline{Sommerville:2011} afirma que a \ac{MDA} concentra-se nos estágios de projeto e implementação do processo de desenvolvimento de software, sendo muito similar ao \ac{MDD}, porém implementando diretrizes específicas da \ac{OMG}. 
-Desta forma, conclui-se que a \ac{MDA} é um subconjunto da \ac{MDD}. 
+Desta forma, conclui-se que a \ac{MDA} é um subconjunto do \ac{MDD}. 
 Por outro lado, a \ac{MDE} pode abordar muitos outros tópicos do processo de \ac{ES}, entre eles a engenharia de requisitos baseada em modelos, processos de software para desenvolvimento baseado em modelos, ou ainda, testes baseados em modelos.
 
 A \ac{MDE}, como uma metodologia, auxilia a aplicação das vantagens da modelagem nas atividades de \ac{ES}. 
@@ -249,11 +279,11 @@ Logo, ela visa reduzir a dificuldade associada ao desenvolvimento de sistemas de
 
 De uma forma objetiva, a abordagem \ac{MDA}, ou ainda a \ac{MDD}, é a forma de se realizar a \ac{MDE}. 
 Essa abordagem define três camadas que devem ser usadas como pilares para todo o processo, listados a seguir.
-A relação conceitual entre esses níveis, com o o uso de mecanismos de transformação e regras de transformação, é exemplificado na \autoref{fig:MDALevels}.
+A relação conceitual entre esses níveis, com o uso de mecanismos de transformação e regras de transformação, é exemplificado na \autoref{fig:MDALevels}.
 
 \begin{enumerate}
     \item \textbf{\acp{CIM}:} descrevem objetos de negócio e as atividades independentemente de sistemas de suporte;
-    \item \textbf{\acp{PIM}:} descrevem como os processos de negócio são suportados por sistemas, vistos como caixas-pretas funcionais, ou seja, desconsiderando as restrições associadas as tecnologias candidatas;
+    \item \textbf{\acp{PIM}:} descrevem como os processos de negócio são suportados por sistemas, vistos como caixas-pretas funcionais, ou seja, desconsiderando as restrições associadas às tecnologias candidatas;
     \item \textbf{\acp{PSM}:} descrevem os componentes do sistema conforme implementados por tecnologias específicas.
 \end{enumerate}
 
@@ -264,6 +294,14 @@ A relação conceitual entre esses níveis, com o o uso de mecanismos de transfo
 	\fonte{\citeonline{Frantz:2012}.}
 	\label{fig:MDALevels}
 \end{figure}
+
+Para melhor esclarecimento, os mecanismos de transformação podem ser entendidos como geradores que tem como entrada a descrição de modelos.
+Esses geradores devem processar tais modelos, tendo em si implementados uma série de regras de transformação. 
+Por exemplo, no contexto deste estudo um artefato de entrada seria o modelo feito utilizando a \ac{DSL} da proposta, e um mecanismo de transformação seria o gerador do modelo lógico. 
+Para tanto, este gerador deve ter descritas ao todas ou parte das regras possíveis de transformação do modelo conceitual para o modelo lógico, ou seja, deve realizar o mapeamento do modelo da \ac{DSL} para um modelo relacional equivalente.
+É importante salientar que estes mecanismos de transformação podem estar dispostos em vários níveis. 
+Sendo assim, no contexto exemplificado é possível haver até dois (2) mecanismos de transformação: um que faz a transição do modelo conceitual para o lógico e outro que gera código \ac{SQL}.
+Este último gerador ainda pode realizar esta tarefa a partir do modelo lógico previamente gerado ou mesmo diretamente do modelo conceitual. 
 
 A separação de interesses da \ac{MDA} baseia-se, por exemplo, na exploração de diferentes \acp{DSL}, cada uma fornecendo construções baseadas em abstrações que são específicas do domínio de um sistema. 
 Por conta disto, as \acp{DSL} podem desempenhar um papel de destaque na \ac{MDE} \cite{Schmidt:2006}.
@@ -291,17 +329,17 @@ Entre exemplos conhecidos de \acp{DSL} estão:
 Segundo \citeonline{Faveri:2013}, apesar do termo \ac{DSL} poder intuitivamente remeter para um campo de estudos recente, de fato isso não é uma realidade. 
 Por exemplo, a APT é uma \ac{DSL} para programação de máquinas controladas numericamente que foi desenvolvida por dois anos a partir de 1957 \cite{Ross:1978}, enquanto o formalismo de especificação de sintaxe \ac{BNF}, o mais usado para notação das linguagens de programação nos dias de hoje, remonta o final da década de 1950 \cite{Backus:1959}.
     
-Por conta desse fato é possível encontrar na literatura muitos estudos que abordam conceitualmente \acp{DSL}, porém com diferentes terminologias.
+Em razão disso é possível encontrar na literatura muitos estudos que abordam conceitualmente \acp{DSL}, porém com diferentes terminologias.
 Entre estas, pode-se citar: \textit{Languages for specialized application} \cite{Sammet:1972}; \textit{Special-purpose languages} \cite{Wexelblat:1978};  \textit{Application Languages} \cite{Martin:1982}; \textit{Task-specific programming languages} \cite{Nardi:1993}; \textit{Specialized languages} \cite{Bergin:1996}. 
     
 A aplicação de \acp{DSL} permite que softwares sejam desenvolvidos de forma mais rápida e eficaz. 
 A maior vantagem observada no uso de \acp{DSL} é que o conhecimento necessário para a sua aplicabilidade é abstraído para outro nível. 
 Desta forma, especialistas do domínio podem entender, validar e modificar o código, adaptando o modelo as suas necessidades, tornando o impacto das mudanças mais fácil de ser compreendido. 
-Ainda existe um aumento significativo na produtividade, confiabilidade, facilidade de uso e flexibilidade \cite{vanDeursen:2000}.
+Também existe um aumento significativo na produtividade, confiabilidade, facilidade de uso e flexibilidade \cite{vanDeursen:2000}.
 
 Segundo \citeonline{Mernik:2005} as \acp{DSL} podem ser classificadas sob três dimensões diferentes: \textbf{origem}, \textbf{aparência} e \textbf{implementação}. 
 As dimensões de classificação de \ac{DSL} são exibidas na \autoref{fig:ClassDSL}. 
-Em relação a origem de uma \ac{DSL}, as opções existentes são as \acp{DSL} \textbf{internas} e \textbf{externas}.
+Em relação à origem de uma \ac{DSL}, as opções existentes são as \acp{DSL} \textbf{internas} e \textbf{externas}.
 
 \begin{figure}[!htb]
     \centering
@@ -317,7 +355,7 @@ Sendo assim, para seu funcionamento correto uma \ac{DSL} interna acaba transferi
 Uma \ac{DSL} \textbf{externa} é uma linguagem com sintaxe distinta e que depende de uma infraestrutura própria para a análise léxica, sintática, semântica, interpretação, compilação, otimização e geração de código. 
 Se comparada a uma \ac{GPL}, uma \ac{DSL} externa possui especificidades similares, porém seus recursos são restritos ao domínio de aplicação para o qual a linguagem é projetada.
     
-No que diz respeito a dimensão de \textbf{aparência}, uma \ac{DSL} pode ser classificada como \textbf{textual}, \textbf{gráfica}, \textbf{tabular} e \textbf{simbólica}. 
+No que diz respeito à dimensão de \textbf{aparência}, uma \ac{DSL} pode ser classificada como \textbf{textual}, \textbf{gráfica}, \textbf{tabular} e \textbf{simbólica}. 
 Quando no formato textual as \acp{DSL} permitem que o domínio seja expressado com caracteres, os quais são então combinados gerando palavras, expressões, sentenças e instruções que seguem as regras gramaticais previamente estabelecidas na linguagem. 
 As \acp{DSL} não textuais seguem a mesma lógica, mas utilizando-se de modelos gráficos para permitir que o usuário possa expressar conhecimento de domínio com um maior nível de compreensão e empregando para tal o uso de símbolos, tabelas, figuras e conectores. 
     
@@ -328,21 +366,20 @@ Essas classificações formam quatro grupos:
 (iii) \acp{DSL} não executáveis mas úteis como entrada de geradores de aplicação; 
 (iv) \acp{DSL} não projetadas para serem executadas.
 
-Em geral o principal aspecto levado em consideração para a construção de uma \acp{DSL} deve ser a sua \textbf{origem} pois cada abordagem apresenta vantagens e desvantagens específicas que são inerentes a cada tipo \cite{Fowler:2010}. 
+É prática usual que o principal aspecto levado em consideração para a construção de uma \acp{DSL} deve ser a sua \textbf{origem}, pois cada abordagem apresenta vantagens e desvantagens específicas que são inerentes a cada tipo \cite{Fowler:2010}. 
 Apesar das \acp{DSL} externas poderem ter um esforço associado a sua construção muitas vezes maior do que o de uma \ac{DSL} interna, atualmente existem ferramentas que dão grande suporte a construção de \acp{DSL}. 
 Estas ferramentas são conhecidas como \acp{LW} e aplicam conceitos de programação orientada a linguagens, fornecendo um nível de abstração maior no que diz respeito as questões complexas de infraestrutura \cite{Fowler:2005}.
-    
     
 %#################################################################    
 \subsection{\textit{Language Workbenches}} \label{ssec:LW}
 %#################################################################
 
-O desenvolvimento de uma \ac{DSL} não é tarefa trivial, pois como são linguagens de programação possuem uma sintaxe que é, por consequência lógica, definida por uma gramática. 
+O desenvolvimento de uma \ac{DSL} não é tarefa trivial pois, como são linguagens de programação, possuem uma sintaxe que é, por consequência lógica, definida por uma gramática. 
 Desta forma, se faz necessária a utilização de ferramentas que suportem a definição dos conceitos para a nova linguagem \cite{Fowler:2005}.
 
 Os \acp{LW} são ferramentas que fornecem mecanismos de infraestrutura para a implementação de linguagens de programação, tornando assim a criação de linguagens mais acessível \cite{Wachsmuth:2014}. 
 Entre os mecanismos fornecidos nesses ambientes está a formatação automática, validação com base nas restrições descritas na gramática, \textit{syntax highlighting}\footnote{Realce de código-fonte com cor, negrito, etc. Serve para indicar sua estrutura sintática.} e \textit{syntax completion}\footnote{Uma função, como em um mecanismo de busca, que fornece uma ou mais opções de palavras reservadas previstas na gramática a partir dos caracteres que um usuário já inseriu.}. 
-A seguir são citados três dos mais conhecidos \acp{LW} da atualidade:
+A seguir são citados alguns dos mais conhecidos \acp{LW} da atualidade:
 
 \begin{itemize}
     \item \textbf{Xtext:} lançado em 2006, o Xtext é um \textit{framework} de código aberto para o desenvolvimento linguagens de programação textuais, com integração com o ambiente de desenvolvimento integrado, do inglês \ac{IDE}, Eclipse. 
@@ -351,7 +388,11 @@ A seguir são citados três dos mais conhecidos \acp{LW} da atualidade:
     A partir dessa definição, um gerador de código deriva um analisador ANTLR e as classes para o modelo de objetos. 
     O Xtext também tem um gerador Xtend editável, o que dá a capacidade de se gerar código para qualquer outra gramática. 
     O Xtext inclui recursos inerentes ao \ac{IDE} Eclipse como \textit{syntax highlighting}, \textit{code completion}, \textit{static analysis}, \textit{source-code navigation} e outros. 
-    Atualmente está na versão 2.17.1.
+    Atualmente está na versão 2.18.0.
+    
+    \item \textbf{Sirius:} lançado em 2007 em um esforço entre as empresas Thales e Obeo, atualmente o \textit{framework} Sirius é um projeto de licença aberta mantido pela Eclipse Foundation, cujo objetivo é permitir a criação de ferramentas de modelagem. 
+    Com o Sirius é possível especificar \acp{DSL} visuais e gerar assim a infraestrutura de editores gráficos.
+    O Sirius, assim como o Xtext, possui integração com recursos específicos do ambiente Eclipse. Atualmente está na versão 6.2.1.
     
     \item \textbf{JetBrains MPS:} o JetBrains MPS é um sistema desenvolvido pela JetBrains, empresa da República Tcheca, que usa edição projetiva. 
     Essa abordagem permite aos desenvolvedores uma melhor compreensão, o que a diferencia de outros \acp{LW}. 
@@ -366,47 +407,90 @@ A seguir são citados três dos mais conhecidos \acp{LW} da atualidade:
     Atualmente está na versão 5.5 SR1.
 \end{itemize}
 
+É interessante se observar que as \acp{LW} textuais em particular fornecem poder de abstração suficiente para, por exemplo, especificar \acp{GLC}.
 
+%#################################################################    
+\section{Gramáticas Livres de Contexto} \label{ssec:GLC}
 %#################################################################
-\section{Trabalhos Relacionados} \label{sec:TrabRelacionados}
+
+Na matemática, ciência da computação e linguística, uma linguagem formal consiste em palavras cujas letras são retiradas de um alfabeto e são bem formadas de acordo com um conjunto específico de regras. 
+Existem diversas abordagens computacionais que tem por objetivo proporcionar que os computadores possam compreender a \ac{LN} falada e/ou escrita por humanos. 
+Compreender neste cenário significa, no mínimo, reconhecer o contexto, fazer análise sintática, semântica, léxica e morfológica. 
+Esse conjunto de técnicas computacionais compõem uma área denominada \ac{PLN} \cite{Jurafsky:2009}.
+
+Contudo, mesmo com a evolução tecnológica proporcionada pelo esforço de diversos pesquisadores, a comunicação entre homem e máquina através de \ac{LN} continua sendo um desafio. 
+Ainda assim, por ser uma área vasta o \ac{PLN} engloba diversos espectros onde as linguagens podem ser classificadas conforme as regras de formação e sua expressividade. 
+Neste sentido a figura do filósofo, linguista e escritor norte-americano Noan Chomsky é um expoente, uma vez que ele estabeleceu uma teoria em 1959 que descreve um conjunto de quatro (4) níveis para a classificação de qualquer linguagem. 
+A teoria mostra que há quatro (4) classes de gramáticas capazes de gerar diferentes linguagens \cite{Linz:2016}.
+
+Posteriormente o modelo proposto foi refinado por outros pesquisadores, e conta atualmente com versões de até sete (7) níveis. 
+Em razão do foco deste estudo ser uma \ac{GLC}, será abordado o nível dois (2) da definição clássica de Chomsky, expressada na Figura \ref{fig:Chomsky}.
+
+\begin{figure}[!htb]
+    \centering
+    \caption{Representação dos níveis da Hierarquia de Chomsky.}
+    \label{fig:Chomsky}
+    \include{TiKz/ChomskyHierarchy}
+    \fonte{O autor.}
+\end{figure}
+
+Nesta hierarquia toda a classe de gramática é um subconjunto da classe do nível imediatamente acima. 
+Por exemplo, toda linguagem livre de contexto também é sensível ao contexto, porém a situação inversa não é sempre verdadeira. 
+As \acp{GLC} são poderosas o suficiente para descrever a sintaxe da maioria das linguagens de programação utilizadas na atualidade.
+
+Segundo \citeonline{Linz:2016}, as gramáticas consistem de uma coleção de regras de substituição, também chamadas de produções. 
+Cada regra aparece como uma linha na gramática, compreendendo um símbolo e uma cadeia separados por uma seta. 
+Estas regras descrevem como as cadeias podem ser reconhecidas ou formadas. 
+Uma \ac{GLC} é uma gramática formal em que cada regra de produção é da forma $V \rightarrow w$, onde $V$ é um único símbolo não-terminal(variável) e $w$ é uma cadeia de terminais e/ou variáveis, podendo ainda ser também uma cadeia vazia (palavra vazia). 
+O termo "livre de contexto" expressa basicamente o fato de que um $V$ não terminal sempre pode ser substituído por $w$, independentemente do contexto em que ocorre.
+
+Demonstrando em um exemplo simples, a linguagem $L=\{a^{n}b^{n}:n \geq 1\}$ define uma estrutura onde todas as cadeias de caracteres são não vazias, de tamanho par e tem a primeira metade preenchida por "a"s e a segunda metade sempre por "b"s. 
+Algumas palavras que essa linguagem aceita são $ab$, $aabb$ e $aaabbb$.
+Um exemplo de \ac{GLC} que consegue gerá-las é  ${S\to aSb~|~ab}$, contudo é importante salientar que dependendo da linguagem diferentes gramáticas podem gerá-las.
+
+%#################################################################    
+\subsection{Formalismo de Backus-Naur} \label{sssec:BNF}
 %#################################################################
 
-Essa seção descreve os trabalhos de maior representatividade para o objeto deste estudo. 
-Uma vez que a proposta envolve a construção de uma ferramenta que implemente uma \ac{DSL} textual, e após a pesquisa descrita no \autoref{mapeamentoLiteratura} deste estudo, selecionou-se propostas e ferramentas que mais se aproximam do objetivo final deste trabalho.
+A primeira representação da gramática de uma linguagem de programação foi apresentada por John Backus, em 1959, para expressar a linguagem 
+Algol. Esta notação seguia o mesmo padrão de \acp{GLC} estudado por linguistas como Chomsky, dando origem a notação \ac{BNF} \cite{Edelweiss:2014}.
 
-O trabalho de \citeonline{Dimitrieski:2015}, desenvolvido na universidade de Novi Sad na Sérvia, apresenta uma ferramenta chamada \textit{System Modeling Tool} (MIST). 
-Essa ferramenta utiliza uma \ac{DSL} chamada EERDSL, uma linguagem com base no modelo aprimorado de entidade-relacionamento, do inglês \ac{EER}.
-A MIST apresenta uma abordagem de modelagem bidirecional (gráfica e textual) de modelagem de \acp{BD}. 
-O autor discute que tal decisão tem como motivo o entendimento de que preferência sobre a abordagem de modelagem utilizada pode depender do domínio do problema, do conhecimento e das preferências pessoais de um projetista de \ac{BD}. 
-Apresenta também uma experiência anterior, onde foi construído uma ferramenta de modelagem com uma abordagem baseada em formulários. 
-A partir dos resultados obtidos nesta experiência, foi concebida a ideia da MIST. 
-O propósito da ferramenta é a aplicação tanto no mercado profissional quanto para o ensino de projeto e modelagem de \ac{BD} no meio acadêmico. 
-A MIST foi desenvolvida com o auxílio do Xtext para a notação da \ac{DSL} textual, e inicialmente a Eugene e posteriormente a Sirius para a sua versão gráfica. 
-A MIST ainda oferece suporte à geração de código \ac{SQL}.
+A notação \ac{BNF} é utilizada para expressar \acp{GLC} e, em geral, é amplamente empregada para a especificação de \acp{GPL}. 
+Porém é uma notação que não se restringe apenas as \acp{GPL}, sendo usada também para expressar protocolos de comunicação, formato de dados e outros tipos de linguagens como as específicas de domínio. 
+Em geral não é usado em língua natural porque essa notação não é adequada para gramáticas que dependem de contexto.
 
-O \textit{dbdiagram.io}\footnote{https://dbdiagram.io/} é uma ferramenta \textit{Web} gratuita para o desenho de \acp{DER}, desenvolvida por uma empresa de Singapura, com uma abordagem textual que implementa uma \ac{DSL} própria.
-Esta \ac{DSL} utiliza um modelo muito próximo do lógico. 
-O diferencial da ferramenta é sua rápida curva de aprendizagem e, além disso, a apresentação de uma representação gráfica do que está sendo modelado.
-A apresentação dos elementos do diagrama pode ser organizada livremente pelo usuário em tempo real. 
-Entretanto é importante se salientar que toda a modelagem de fato é feita de modo textual. 
-A ferramenta ainda oferece a geração automática de código \ac{SQL}.
+Na notação \ac{BNF} é simples e muito similar ao modelo utilizado no campo da linguística para definição de \acp{GLC} pois nela: (\textbf{I}) as variáveis são palavras entre os símbolos $\langle$ e $\rangle$ ; (\textbf{II}) as palavras não delimitadas são terminais; (\textbf{III}) a regra geral de produção ${S\to \alpha}$ é representada como ${S ::= \alpha}$, ou ainda, $\langle SNT \rangle ::= \langle \alpha T~|~\alpha T~+~SNT \rangle$. 
 
-Da mesma forma, a \textit{QuickDBD}\footnote{https://quickdatabasediagrams.com/}, desenvolvida por uma empresa na Irlanda, é uma ferrramenta \textit{Web} com exatamente o mesmo modo operacional que a \textit{dbdiagram.io}, também implementando uma \ac{DSL} textual própria para modelagem de \acp{BD}.
-Contudo é uma ferramenta proprietária, ou seja, paga e com o foco declaradamente na indústria. 
-Ambas as ferramentas são muito similares também quanto a geração de representações gráficas da modelagem e apresentam diversos argumentos para sua adoção, como a rápida compreensão de suas \acp{DSL}, a perspectiva de realização de trabalhos fluídos, o acesso de qualquer plataforma e o compartilhamento dos modelos com outros usuários.
+Para compreensão, o "\texttt{$::=$}"~ indica "\textit{é definido como}", o \texttt{$|$} indica "\textit{ou}"~ e os colchetes angulares (\texttt{$\langle~\rangle$}) distinguem nomes de regras de sintaxe, chamados de símbolos não terminais (SNT), dos símbolos de terminais (\texttt{$\alpha T$}) que são escritos exatamente como devem ser representados, sendo estes últimos também conhecidos como palavras reservadas. 
+Um exemplo da aplicação da notação \ac{BNF} para definir a estrutura de uma mini-linguagem de programação pode ser expressada conforme a Figura \ref{fig:MiniLanguage}.
+\input{languages}
 
-Finalmente, pode-se citar a ferramenta \textit{Web} gratuita \textit{RelaX (Relational Algebra Calculator)}\footnote{https://dbis-uibk.github.io/relax/}. 
-Esta ferramenta não foi encontrada no mapeamento, mas indicada por um pesquisador da área de \acp{DSL} e \acp{BD}. 
-Trata-se de uma ferramenta desenvolvida na universidade de Innsbruck, na Áustria, e voltada ao ensino de álgebra relacional fazendo operações sobre bases de dados relacionais. 
-Tem uma abordagem textual, utilizando uma \ac{DSL} chamada RelAlg, e apresentando inclusive duas perspectivas de operação: instruções de RelAlg e instruções em \ac{SQL}. 
-A RelaX utiliza uma abordagem de modelo já em nível físico para operações, como as \acp{DDL} de construção e \acp{DML} para as consultas. 
-Apesar de suas funcionalidades, a RelaX não se propõe a ser uma ferramenta de projeto e modelagem de \ac{BD}, mas de uso restrito ao ensino dentro da academia.
+\begin{figure}
+    \centering
+    \caption{Exemplo de mini-linguagem definida com \ac{BNF}.}
+    \label{fig:MiniLanguage}
+    \begin{scriptsize}
+    \begin{lstlisting}[language = BNF , frame = trbl]
+<program> ::= 
+            program 
+                <declaration_seq>
+            begin
+                <statements_seq>
+            end ;
+    \end{lstlisting}
+    \end{scriptsize}
+\end{figure}
+
+Esse modelo estabelece a estrutura para um programa genérico de forma abstrata, em alto nível. 
+Ele consiste de uma regra chamada \texttt{program} que inicia com a palavra-chave \texttt{program} (essa redundância caracteriza a linguagem não ser sensível ao contexto).
+Em seguida vem a regra de \texttt{declaration\_seq}, e após a palavra-chave \texttt{begin} e a sequência de instruções definidas na regra \texttt{statements\_seq}.
+Finalmente, a a especificação da palavra-chave \texttt{end} seguida de um ponto e vírgula (\texttt{;}). 
 
 %#################################################################
 \section{Lições do Capítulo} \label{sec:LicoesFundamentacaoTeorica}
 %#################################################################
 
 Os conceitos mais importantes para este trabalho foram apresentados neste capítulo. 
-No geral foi necessário investigar dois grandes domínios, sendo eles: (i) projeto e modelagem de \ac{BD} e (ii) \ac{MDE}. 
-Dentre os temas abordados destaca-se a Seção \ref{ssec:DSL}, a qual apresenta definições importantes para a compreensão do que é de fato uma \ac{DSL}. 
+Foi necessário investigar dois grandes domínios, sendo eles: (i) projeto e modelagem de \ac{BD} e (ii) \ac{MDE}. 
+Dentre os temas abordados destaca-se a Seção \ref{ssec:DSL}, a qual apresenta definições importantes para a compreensão do que é de fato uma \ac{DSL}, bem como são definidas \acp{GLC} para representá-la. 
 A Seção \ref{ssec:LW} também merece destaque pois cita alguns \acp{LW}, dentre eles o Xtext que acabou por ser a ferramenta selecionada para a construção do protótipo da proposta deste estudo.

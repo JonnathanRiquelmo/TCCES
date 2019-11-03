@@ -4,7 +4,7 @@
 
 Este capítulo apresenta a proposta central deste trabalho. 
 A Seção \ref{sec:reqDSL} aponta os requisitos levantados para a construção da \ac{DSL}. 
-A Seção \ref{sec:decDSL} descreve as decisões de projeto referente aos requisitos. 
+A Seção \ref{sec:decDSL} descreve as decisões de projeto referentes aos requisitos. 
 A arquitetura da implementação da proposta é detalhada na Seção \ref{sec:arqDSL}. 
 A demonstração do protótipo construído ocorre na Seção \ref{sec:protDSL} e, por fim, as lições do capítulo são pontuadas na Seção \ref{sec:licDSL}.
 
@@ -22,10 +22,10 @@ Como o foco da proposta é no processo de ensino é fundamental que a linguagem 
 A vantagem que este requisito proporciona é a posterior evolução e manutenção colaborativa com o envolvimento de outros desenvolvedores.
 
 \item\textit{\textbf{RQ2. A \ac{DSL} deve permitir representar textualmente modelos conceituais de \acp{BD}.}} 
-Como é um objetivo que a solução seja outra opção em relação as abordagens gráficas, esse requisito se justifica. 
+Como é um objetivo que a solução seja outra opção em relação às abordagens gráficas, esse requisito se justifica. 
 Isso permite o foco na compreensão do domínio e no desenvolvimento da \ac{DSL}.
 
-\item\textit{\textbf{RQ3. Os modelos conceituais devem dar suporte a definição de entidades, atributos, relações e cardinalidades.}} 
+\item\textit{\textbf{RQ3. Os modelos conceituais devem dar suporte à definição de entidades, atributos, relações e cardinalidades.}} 
 As ferramentas utilizadas para o desenvolvimento da linguagem precisam permitir que sejam implementados os conceitos de domínio que regem a estrutura de \ac{DER} tradicional.
 
 \item\textit{\textbf{RQ4. Os modelos conceituais devem dar suporte a definição de atributos identificadores, generalização/especialização, auto-relacionamentos e relacionamentos ternários.}} 
@@ -34,7 +34,7 @@ A linguagem deve permitir que conceitos mais sofisticados dos domínios sejam de
 \item\textit{\textbf{RQ5. A implementação da \ac{DSL} deve realizar a transformação do modelo conceitual para o lógico.}} 
 A solução deve realizar a transformação do conceitual para o lógico, exibindo o resultado gerado ao usuário.
 
-\item\textit{\textbf{RQ6. A implementação da \ac{DSL} deve gerar modelos físicos equivalentes, com base no modelo conceitual ou lógico.}} 
+\item\textit{\textbf{RQ6. A implementação da \ac{DSL} deve gerar instruções \ac{SQL} equivalentes, com base no modelo conceitual ou lógico.}} 
 A solução precisa realizar a geração de instruções \ac{SQL} para diferentes \acp{SGBD}.
 
 \end{itemize}
@@ -130,7 +130,7 @@ A única diferença com maior impacto é a opção pela definição da cardinali
 %#################################################################
 \section{Protótipo} \label{sec:protDSL}
 %#################################################################
-\input{xtext}
+\input{languages}
 
 Na fase atual do trabalho a linguagem a nível conceitual não se encontra totalmente finalizada. 
 Existem tópicos relativos a validação de escopo, como no caso do tratamento de referências cruzadas indesejadas, e outras restrições inerentes ao modelo \ac{ER} que devem ser analisadas e então implementadas. 
@@ -198,7 +198,7 @@ Ele é um objeto que pode conter outros objetos, no caso um ou mais \texttt{Enti
 
 Para melhor entendimento, deve-se deixar claro que a multiplicidade é indicada por \texttt{*} (zero ou muitos), \texttt{+} (um ou muitos) ou \texttt{?} (zero ou um). 
 Ao não se colocar nenhum desses operadores, implicitamente se espera então apenas uma ocorrência. 
-Em relação as atribuições, quando apenas um \texttt{=} for especificado significa que o objeto da esquerda espera apenas um registro. 
+Em relação às atribuições, quando apenas um \texttt{=} for especificado significa que o objeto da esquerda espera apenas um registro. 
 Logo, para \texttt{+=} espera-se então zero, uma ou mais ocorrências. 
 
 O objeto \texttt{Domain} é precedido de uma palavra reservada com o mesmo nome, seguido de um identificador. 
@@ -207,7 +207,7 @@ A definição de uma herança é opcional por meio da palavra reservada \texttt{
 Após a definição do nome, abre-se um corpo de chaves em que são especificados os atributos da entidade. 
 Uma entidade deve conter ao menos um atributo, mas ele não precisa ser identificador por conta da possível existência de entidades fracas. 
 
-As regras compostas só são realizadas devido a possibilidade de se agrupar expressões com o uso de parênteses, além da possibilidade de se utilizar outras regras por meio de referências cruzadas. 
+As regras compostas só são realizadas devido à possibilidade de se agrupar expressões com o uso de parênteses, além da possibilidade de se utilizar outras regras por meio de referências cruzadas. 
 Os colchetes entre a regra \texttt{Entity} servem para indicar que se almeja usar apenas o atributo \texttt{name} que identifica o objeto. 
 % Se esse detalhe não for especificado então o compilador da linguagem interpretaria que é necessário aplicar toda a regra \texttt{Entity} novamente, ou seja, se iniciaria a definição de outra entidade entrando assim em um \textit{loop}. 
 Os atributos das entidades são definidos por um nome, herdando a regra \texttt{ID} de \texttt{Terminals}, e atributos \texttt{isIdentifier} opcionais para simbolizar chaves primárias. 
@@ -267,15 +267,13 @@ Neste protótipo já se pode observar a modelagem de generalização/especializa
 
 % Para essa transformação existem regras que podem ser aplicadas, sendo que em alguns casos existem inclusive mais de uma opção. 
 % Nestes casos estão sendo analisadas a melhores estratégias possíveis, uma vez que durante o processo de transformação será necessário se assumir algumas premissas.
-
+Domain University;
 \begin{figure}[!htb]
 \centering
 \caption{Exemplo de uso da 1º versão da DSL no RCP do Eclipse.}
 \label{fig:DSLvs1Uso}
 \begin{scriptsize}
 \begin{lstlisting}[language = ERDSL, frame = trbl]
-Domain University;
-
 Entities{
 	Person{ 
 		PID: int isIdentifier, 
@@ -289,7 +287,6 @@ Entities{
 		Course: string
 	} 	
 	OutsrcEmployee isA Person{
-	    OutsourcedEID: int isIdentifier,
 	    Company: string
 	}
 	Class{
@@ -302,12 +299,22 @@ Entities{
 		Capacity: int
 	}
 };
+\end{lstlisting}
+\end{scriptsize}
+    \fonte{O autor.}
+\end{figure}
 
+\begin{figure}[!htb]
+\centering
+\caption{Exemplo de uso da 1º versão da DSL no RCP do Eclipse.}
+\label{fig:DSLvs1Uso}
+\begin{scriptsize}
+\begin{lstlisting}[language = ERDSL, frame = trbl]
 Relationships{	 
 	[many Student isRelatedWith many Class]
 	TeacherClass [many Teacher isRelatedWith many Class]
 	ClassSchedule [many TeacherClass isRelatedWith many ClassRoom]
-	        {ClassScheduleID: int, DayOfWeek: datetime, Discipline: string}
+	        {CSID: int isIdentifier, DayOfWeek: datetime, Discipline: string}
 	Supervisor [one OutsrcEmployee isRelatedWith many OutsrcEmployee]
 };
 \end{lstlisting}
@@ -327,9 +334,68 @@ A implementação desta transformação está sendo realizada utilizando-se a Xt
     \centering
     \caption{Fragmento do modelo \textit{Ecore} gerado em tempo de execução.}
     \label{fig:EcoreRealTime}
-    \includegraphics[width=0.65\textwidth]{img/EcoreTempoReal.png}
+    \includegraphics[width=\textwidth]{img/EcoreTempoReal.png}
     \fonte{O autor.}
 \end{figure}
+
+
+%#################################################################
+\section{Avaliação Preliminar da Gramática} \label{sec:reqDSL}
+%#################################################################
+Esta seção descreve a avaliação preliminar conduzida para analisar as duas alternativas de gramática propostas, visando assim o seu aperfeiçoamento em uma versão final na solução. 
+Para tanto, foi estabelecido a utilização de um grupo focal, um método de pesquisa qualitativa que objetiva gerar \textit{feedback} de um conjunto de pessoas em relação a um tema específico. 
+O protocolo executado nesta etapa teve como base as diretrizes estabelecidas no trabalho de \citeonline{Kontio:2008}, que cobre a aplicação desse método no contexto da \ac{ES}. 
+
+\subsection{Planejamento do Grupo Focal}
+
+Durante o planejamento foi definido um protocolo que deveria ser seguido.
+Neste protocolo, motivado pelo problema que era gerar uma versão definitiva da gramática da \ac{DSL} proposta, foram criados os documentos necessários para sua execução: \textbf{(I)} Termo de Consentimento Livre e Esclarecido; \textbf{(II)} Glossário de Termos; \textbf{(III)} Questionário de Perfil; \textbf{(IV)} Instrumentos da Discussão 1, 2 e 3; \textbf{(V)} Modelos das Gramáticas Avaliadas; \textbf{(VI)} Roteiro de Apresentação. 
+Todos os modelos dos documentos produzidos estão incluídos no \autoref{ap:GRUPOFOCAL}.
+
+\subsubsection{Definição do Participantes}
+
+Tipicamente as avaliações que utilizam grupos focais devem ser constituídas de quatro (4) a seis (6) grupos focais individuais para que o rigor científico seja considerado verdadeiramente alto. 
+O tamanho de cada grupo focal pode variar de três (3) a até doze (12) elementos, sendo mais comum esse número ficar entre quatro (4) e oito (8) participantes \cite{Kontio:2008}. 
+
+Por questões de viabilidade de tempo e recursos humanos, para o presente estudo foi possível ser realizado apenas um grupo focal. 
+Após a realização do convite houve a colaboração de treze (13) participantes, todos da área da \ac{ES}. 
+Desse total, três (3) participantes eram alunos de graduação, nove (9) eram mestrandos e um (1) doutorando. 
+
+Foi então aplicado o Questionário de Perfil, onde foi possível identificar que havia um nível equilibrado de conhecimento entre os participantes. 
+Isso foi constatado pois todos já possuíam contato com \acp{DSL}, tendo utilizado esse tipo de linguagem, ao menos, durante a graduação.
+
+\subsection{Execução do Grupo Focal}
+
+O grupo focal foi realizado em 08/2019, nas dependências da UNIPAMPA, e teve duração de duas (2) horas. 
+Iniciando com a exposição do roteiro que deveria ser seguido, onde houve a apresentação do objetivo do grupo focal e os conceitos básicos envolvidos, aconteceu o pedido para que os participantes realizassem a leitura e assinatura do Termo de Consentimento Livre e Esclarecido. 
+Com o documento preenchido, foi dado continuidade ao roteiro previsto, 
+
+A cada Instrumento de Discussão disponibilizado esperou-se até que os participantes respondessem de forma individual. 
+Após, aconteceu uma discussão em grupo sobre o tema levantado. 
+Todo o processo foi gravado em áudio e teve o suporte dos pesquisadores envolvidos neste estudo. 
+Foi realizado também a transcrição das observações levantadas pelo debate que se seguiu, caracterizando assim as práticas de \textit{brainstorming}\footnote{Brainstorming é uma técnica utilizada para propor soluções a um problema específico. Consiste em uma reunião também chamada de tempestade de ideias, na qual os participantes devem ter liberdade de expor suas sugestões e debater sobre as contribuições dos colegas.} previstas em grupos focais. 
+
+\subsection{Resultados do Grupo Focal}
+
+
+
+\subsubsection{Discussão 1}
+
+% \rowcolors{0}{}{}
+% \begin{figure}[!htb]
+% \centering
+% \caption{Teste TiKZ.}
+% \include{TiKz/Inst1GrupoFocal}
+% \fonte{O autor.}
+% \label{fig:Teste}
+% \end{figure}
+
+\subsubsection{Discussão 2}
+
+\subsubsection{Discussão 3}
+
+
+
 
 
 %#################################################################
