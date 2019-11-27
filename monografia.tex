@@ -77,8 +77,96 @@
 \usepackage{lscape}
 \usepackage{listings} % Para incluir código no texto
 \usepackage{rotating}
+\usepackage{pgf-pie} % Para fazer gráfico de pizza 
+\usepackage{gensymb} % Para o símbolo de grau º \degree
+%PGPLOTS
+\usepackage{pgfplots}
+\usetikzlibrary{patterns}
+\usepgfplotslibrary[statistics] % ConTEXt
+\usetikzlibrary{pgfplots.statistics} % LATEX and plain TEX
+\usepackage{tikz}
+\usepackage{ragged2e}
 
-\usetikzlibrary{patterns,arrows}
+\pgfplotsset{width=9cm, height=8cm, compat=1.9}
+
+\usetikzlibrary{patterns,arrows, shapes.geometric,calc}
+
+
+% \newcommand\score[2]{
+% \pgfmathsetmacro\pgfxa{#1+1}
+% \tikzstyle{scorestars}=[star, star points=5, star point ratio=2.25, draw,inner sep=0.15em,anchor=outer point 3]
+% \begin{tikzpicture}[baseline]
+%   \foreach \i in {1,...,#2} {
+%     \pgfmathparse{(\i<=#1?"yellow":"gray")}
+%     \edef\starcolor{\pgfmathresult}
+%     \draw (\i*1em,0) node[name=star\i,scorestars,fill=\starcolor]  {};
+%   }
+%   \pgfmathparse{(#1>int(#1)?int(#1+1):0}
+%   \let\partstar=\pgfmathresult
+%   \ifnum\partstar>0
+%      \pgfmathsetmacro\starpart{#1-(int(#1))}
+%      \path [clip] ($(star\partstar.outer point 3)!(star\partstar.outer point 2)!(star\partstar.outer point 4)$) rectangle 
+%     ($(star\partstar.outer point 2 |- star\partstar.outer point 1)!\starpart!(star\partstar.outer point 1 -| star\partstar.outer point 5)$);
+%      \fill (\partstar*1em,0) node[scorestars,fill=yellow]  {};
+%   \fi
+% ,\end{tikzpicture}
+% }
+
+% \tikzset{
+%   chart/.style={
+%     legend label/.style={font={\footnotesize},anchor=west,align=left},
+%     legend box/.style={rectangle, draw, minimum size=12pt},
+%     axis/.style={black, semithick, ->},
+%     axis label/.style={anchor=east,font={\tiny}},
+%   },
+%   pie chart/.style={
+%     chart,
+%     slice/.style={line cap=round, line join=round, semithick, draw=lightgray},
+%     pie title/.style={font={\bfseries}},
+%     slice type/.style n args={3}{
+%         ##1/.style={pattern color=##2,pattern=##3},
+%         values of ##1/.style={fill=white,fill opacity=0.75}
+%     }
+% }}
+% \pgfdeclarelayer{background}
+% \pgfdeclarelayer{foreground}
+% \pgfsetlayers{background,main,foreground}
+
+% \newcommand{\pie}[3][]{
+%     \begin{scope}[#1]
+%     \pgfmathsetmacro{\curA}{90}
+%     \pgfmathsetmacro{\r}{1}
+%     \def\c{(0,0)}
+%     % \node[pie title] at (90:1.3) {#2};
+%     \foreach \v/\s in{#3}{
+%         \pgfmathsetmacro{\deltaA}{\v/100*360}
+%         \pgfmathsetmacro{\nextA}{\curA + \deltaA}
+%         \pgfmathsetmacro{\midA}{(\curA+\nextA)/2}
+
+%         \path[slice,\s] \c
+%             -- +(\curA:\r)
+%             arc (\curA:\nextA:\r)
+%             -- cycle;
+%         \pgfmathsetmacro{\d}{max((\deltaA * -(.5/50) + 1) , .5)}
+
+%         \begin{pgfonlayer}{foreground}
+%         \path \c -- node[pos=\d,pie values,values of \s]{$\v\%$} +(\midA:\r);
+%         \end{pgfonlayer}
+
+%         \global\let\curA\nextA
+%     }
+%     \end{scope}
+% }
+
+% \newcommand{\legend}[2][]{
+%     \begin{scope}[#1]
+%     \path
+%     \foreach \n/\s in {#2}
+%     {
+%       ++(0,-6pt) node[\s,legend box] {} +(3pt,0) node[legend label] {\n}
+%     };
+%     \end{scope}
+% }
 
 % -------------------------------------------------------------------------------------------------
 % Configurações de pacotes
@@ -158,7 +246,7 @@
 % +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % -------------------------------------------------------------------------------------------------
-\titulo{ERDSL: Uma Linguagem Específica de Domínio para a Representação de Modelos Conceituais de Bancos de Dados Relacionais}
+\titulo{ERText: Uma Linguagem Específica de Domínio para a Representação de Modelos Conceituais de Bancos de Dados Relacionais}
 \autor{Jonnathan Riquelmo Lopes Frescura}
 \local{Alegrete}
 \data{2019}
@@ -464,6 +552,20 @@
   class = acronimos
 }
 
+\DeclareAcronym{ESE}{
+  short = ESE,
+  long  =  Engenharia de Software Experimental,
+  class = acronimos
+}
+
+\DeclareAcronym{TCLE}{
+  short = TCLE,
+  long  =  Termo de Consentimento Livre e Esclarecido,
+  class = acronimos
+}
+
+
+
 % -------------------------------------------------------------------------------------------------
 % Nomenclaturas/Símbolos
 \nomenclature{$A_i$}{Área do $i^{esimo}$ componente}
@@ -506,17 +608,17 @@
 % -----------------------------------------------
 % Dedicatória [OPCIONAL]
 % -----------------------------------------------
-%\input{pretextuais/dedicatoria}
+\input{pretextuais/dedicatoria}
 
 % -----------------------------------------------
 % Agradecimentos [OPCIONAL]
 % -----------------------------------------------
-%\input{pretextuais/agradecimentos}
+\input{pretextuais/agradecimentos}
 
 % -----------------------------------------------
 % Epígrafe [OPCIONAL]
 % -----------------------------------------------
-%\input{pretextuais/epigrafe}
+\input{pretextuais/epigrafe}
 
 % -----------------------------------------------
 % Resumo [OBRIGATÓRIO]

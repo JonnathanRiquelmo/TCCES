@@ -1,0 +1,115 @@
+\pgfplotsset{testbar/.style={
+            xbar stacked,
+            legend cell align=left,
+            legend style={
+                legend columns=6,
+                font=\footnotesize,
+                at={(xticklabel cs:1.0)},
+                anchor=north east,
+                draw=none
+                },
+            width=10cm,
+            axis y line*= none, 
+            axis x line*= bottom,
+            xmajorgrids = false,
+            xmin=0,xmax=27,
+            ytick = data,
+            yticklabels = {Entidade, Atributo Referencial, Atributo Descritivo, Relação Binária, Relação Ternária, Autorelacionamento, Cardinalidade, Generalização},
+            tick align = outside, xtick pos = left,
+            bar width=7mm, y=10mm,
+            enlarge y limits={abs=0.625},% 0.5 + 0.5*(y - bar width)/y [TeX.sx #47995]
+            nodes near coords,
+            nodes near coords align=center,%Move values in bar
+            every node near coord/.append style={
+                black,
+                font=\footnotesize,
+                text opacity=1,
+                fill=white,
+                fill opacity=0.5,
+                outer sep=\pgflinewidth
+            }
+        }}
+    \begin{tikzpicture}
+    \begin{axis}[testbar] 
+    \addplot[pattern color=red,pattern=north east lines] coordinates
+        {(0,8) (0,7) (0,6) (0,5) (0,4) (0,3) (0,2) (0,1)};
+    \addplot[pattern color=teal,pattern=vertical lines] coordinates
+        {(0,8) (0,7) (0,6) (0,5) (0,4) (0,3) (0,2) (0,1)};   
+    \addplot[pattern color=gray, pattern=grid] coordinates
+        {(0,8) (1,7) (0,6) (1,5) (2,4) (1,3) (3,2) (1,1)};   
+    \addplot[pattern color=magenta, pattern=north west lines] coordinates
+        {(1,8) (2,7) (4,6) (3,5) (9,4) (5,3) (2,2) (2,1)};   
+    \addplot[pattern color=blue, pattern=horizontal lines] coordinates
+        {(5,8) (6,7) (6,6) (7,5) (7,4) (9,3) (7,2) (7,1)};   
+    \addplot[pattern color=green, pattern=crosshatch dots] coordinates
+        {(21,8) (18,7) (17,6) (16,5) (9,4) (12,3) (15,2) (17,1)};  
+    \legend{1-Discorda, 2, 3, 4, 5, 6-Concorda}
+    \end{axis}
+    \end{tikzpicture}
+
+
+
+
+% \begin{figure}[!ht]
+% \centering
+% \caption{Resultados do formulários de avaliação.}
+% \begin{tikzpicture}
+% \begin{axis}[
+%     xbar stacked,
+%     legend cell align=center,
+%     legend style={
+%     legend columns=5,
+%         at={(xticklabel cs:1.0)},
+%         anchor=north east,
+%         draw=none
+%     },
+%     ytick=data,
+%     axis y line*=none,
+%     axis x line*=bottom,
+%     tick label style={font=\small},
+%     legend style={font=\small},
+%     label style={font=\small},
+%     xtick={0,5,10},
+%     xticklabel= {},
+%     bar width=7mm,
+%     ylabel={Formulário/Grupo},
+%     yticklabels={F1-C, F1-E, F2-C, F2-E, F3-C, F3-E},
+%     xmin=0,
+%     xmax=10,
+%     area legend,
+%     y=9mm,
+%     enlarge y limits={abs=0.825},
+%     nodes near coords,
+%     nodes near coords align=center,
+%     every node near coord/.append style={
+%         black,
+%         font=\small,
+%         text opacity=.65,
+%         fill=white,
+%         fill opacity=0.6,
+%         outer sep=\pgflinewidth
+%     }
+% ]
+% %NOTA 1
+% \addplot[pattern color=red,pattern=horizontal lines] coordinates
+% {(0,6)(0,5)(0,4)(0,3)(0,2)(0,1)};
+% %NOTA 2
+% \addplot[pattern color=orange,pattern=grid] coordinates
+% {(1,6)(1,5)(1,4)(0,3)(1,2)(0,1)};   
+% \addplot[pattern color = green, pattern=crosshatch dots] coordinates
+% % NOTA 3
+% {(3,6)(3,5)(5,4)(2,3)(5,2)(1,1)};   
+% \addplot[pattern color=blue, pattern =vertical lines ] coordinates
+% %NOTA 4
+% {(2,6)(3,5)(1,4)(4,3)(3,2)(3,1)};   
+% \addplot[pattern color=gray, pattern = dots] coordinates
+% %NOTA 5
+% {(3,6)(3,5)(2,4)(4,3)(0,2)(6,1)};   
+% \legend{1-Disagree, 2, 3, 4, 5-Agree}
+
+% \end{axis}
+% \end{tikzpicture}
+% \footnotesize
+% \label{img:respostas1}
+% 	\fonte{O autor.}
+% \end{figure}

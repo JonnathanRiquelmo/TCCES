@@ -10,19 +10,19 @@ Dessa forma o uso eficaz de bancos de dados é de suma importância para a manut
 Posto isto, a capacitação nessa área para profissionais oriundos da academia deve ser constante, sendo esse um ponto fundamental com o qual as instituições de ensino superior devem ter especial atenção.
 Contudo, a variedade de tecnologias de sistemas de banco de dados que se tornaram disponíveis nos últimos anos, sendo a grande maioria focada em abordagens gráficas, dificulta a escolha de ferramentas para modelagem de entidade-relacionamento (ER) na indústria e, consequentemente, no meio acadêmico.
 %================== SOLUÇÃO/CONTRIBUIÇÃO ==================
-Objetivando contribuir com uma alternativa \textit{open source} relevante, este Projeto de Trabalho de Conclusão de Curso propõe uma Linguagem Específica de Domínio (\textit{Domain Specific Language} - DSL) textual para apoiar o processo de ensino-aprendizagem da modelagem conceitual de banco de dados. 
+Objetivando contribuir com uma alternativa \textit{open source} relevante, este Trabalho de Conclusão de Curso propõe uma Linguagem Específica de Domínio (\textit{Domain Specific Language} - DSL) textual para apoiar o processo de ensino-aprendizagem da modelagem conceitual de banco de dados. 
 O uso de DSLs fornece meios de especificar e modelar domínios de forma mais rápida e produtiva, pois são linguagens com expressividade limitada a domínios particulares, diferenciando-se assim das linguagens de propósito geral. 
 %================== ESTADO-ARTE/PRÁTICA e MÉTODO PROPOSTO ================== 
 Nesse sentido, foi executado uma investigação do estado da arte e da prática em projeto e modelagem de banco de dados utilizando DSLs. 
 Um levantamento de inovações recentes foi realizado por meio de um mapeamento sistemático complementado por uma pesquisa na literatura cinza.
 Esse trabalho abrange um conjunto final de 10 estudos primários focados em DSLs e identifica 55 ferramentas já aplicadas na indústria e academia para modelagem ER em nível conceitual, lógico e físico.
-Em seguida, houve a seleção do \textit{framework} Xtext para apoiar o desenvolvimento inicial da linguagem de modelagem.
+Em seguida, houve a seleção do \textit{framework} Xtext para apoiar o desenvolvimento da linguagem de modelagem.
+Após o definição de duas versões da gramática, foi planejado e executado uma avaliação preliminar junto a um grupo focal composto por treze (13) participantes.
+Com o \textit{feedback} recebido na dinâmica, chegou-se a uma versão final e, em seguida, ao \textit{plugin} da solução ERText.
+Para avaliar a proposta foi conduzida uma avaliação empírica com vinte e sete (27) sujeitos.
+A intenção foi verificar o esforço (tempo), precisão, revocação, Medida-F, utilidade percebida e facilidade de uso da ferramenta com abordagem textual desenvolvida frente a uma ferramenta com abordagem gráfica.
 %================== RESULTADOS ==================
-Por meio disso foi possível inferir requisitos necessários, decisões de projeto e então realizar a definição preliminar de uma gramática.
-Posteriormente, ocorreu a implementação de um protótipo funcional e a integração da DSL em um RCP (\textit{Rich Client Platform}) Eclipse. 
-Dessa forma, houve o teste prévio do projeto da proposta. Nele, o processo de modelagem com a nova linguagem criada ganhou recursos nativos como formatação, validação com base nas restrições descritas na gramática e \textit{syntax highlighting}. 
-O \textit{plugin} pôde ser testado devido a integração nativa fornecida pelo Xtext com o EMF (\textit{Eclipse Modeling Framework}), um conjunto de recursos do Eclipse para representar modelos e gerar código equivalente.
-
+Os resultados obtidos apresentam evidências de que ao realizar tarefas de modelagem com ambas as abordagens há menor esforço associado à abordagem gráfica e um desempenho muito similar no que diz respeito a qualidade dos modelos feitos em ambas as ferramentas. 
 \vspace{\onelineskip}
     
 \noindent

@@ -6,14 +6,14 @@
 As infraestruturas de empresas nacionais e multinacionais são controladas por sistemas baseados em computadores e a maioria dos produtos elétricos inclui algum computador ou software de controle. 
 A fabricação e distribuição industrial é totalmente informatizada, assim como o sistema financeiro. 
 Entretenimento, incluindo a indústria criativa formada por jogos, música e cinema tem intensiva participação de software em suas atividades. 
-Portanto, a \ac{ES} é essencial para o funcionamento das sociedades nacionais e internacionais \cite{Sommerville:2011}.
+Portanto, a \ac{ES} é essencial para o funcionamento das sociedades \cite{Sommerville:2011}.
 
 Contudo, a \ac{ES} é inviável sem a persistência e manipulação de dados. 
 Nos primórdios do uso de computadores, a persistência de dados se dava em forma de arquivos de texto simples, inspirado inicialmente nas raízes de uma invenção muito antiga, denominada máquina de tabulação, criada por volta de 1860. 
-Todavia em pouco tempo, e em razão da evolução das tecnologias, o uso de arquivos de texto começaram a se mostrar ineficientes \cite{Silberschatz:1999}. 
+Todavia, em pouco tempo, e em razão da evolução das tecnologias, o uso de arquivos de texto começou a se mostra ineficiente \cite{Silberschatz:1999}. 
 
 Uma alternativa ao problema relacionado aos arquivos de texto, surgida há mais de 40 anos atrás e ainda utilizada amplamente nos dias atuais, foi justamente a automatização do conceito das máquinas de tabulação. 
-Este feito foi realizado pelo cientista da computação Charles Bachman, pesquisador ligado a indústria e ganhador do prêmio ACM Alan Turing de 1973 pela sua fundamental contribuição para a área de \ac{BD} \cite{Krishna:1992}.
+Isso foi realizado pelo cientista da computação Charles Bachman, pesquisador ligado a indústria e ganhador do prêmio ACM Alan Turing de 1973 pela sua fundamental contribuição para a área de \ac{BD} \cite{Krishna:1992}.
 
 Devido ao alto volume de informação que é produzido e manipulado, os \acp{BD} fundamentados inicialmente por Bachman são essenciais na sociedade contemporânea. 
 Segundo \citeonline{Date:1990}, uma base de dados é uma coleção de dados operacionais armazenados, usados pelos sistemas de aplicação de uma determinada organização. 
@@ -44,7 +44,7 @@ Este produto fará uso da abordagem textual, tendo em vista que possua uma gram�
 %#################################################################
 
 O objetivo geral deste trabalho é propor a especificação e realizar a implementação de uma Linguagem Específica de Domínio, do inglês \ac{DSL}, para o projeto e modelagem de \acp{BD} relacionais. 
-O foco da modelagem é em nível conceitual, mas deseja-se que a solução possa também realizar a transformação de modelos conceituais para os modelos lógico e físico. 
+O foco da modelagem é em nível conceitual, mas deseja-se que a solução possa também realizar a transformação de modelos conceituais para o modelo lógico. 
 
 Para atingir o objetivo geral proposto, é fundamental que exista a divisão do problema nos seguintes objetivos específicos que precisam ser atingidos:
 
@@ -55,7 +55,7 @@ Para atingir o objetivo geral proposto, é fundamental que exista a divisão do 
     \item Desenvolver uma gramática para modelagem conceitual de \acp{BD} que sigam o modelo relacional;
     \item Integrar a linguagem proposta em uma ferramenta \textit{open source};
     \item Implementar a transformação do modelo conceitual para o modelo lógico;
-    \item Criar geradores para tecnologias específicas de \acp{BD}, representando assim o modelo físico;
+    % \item Criar geradores para tecnologias específicas de \acp{BD};
     \item Realizar a avaliação da solução proposta;
     \item Contribuir com uma ferramenta que auxilie no processo de ensino de projeto e modelagem de \acp{BD}.
 \end{itemize}
@@ -64,7 +64,7 @@ Para atingir o objetivo geral proposto, é fundamental que exista a divisão do 
 \section{Questão de Pesquisa}
 %#################################################################
 
-Visando a condução do restante deste projeto de \ac{TCC} foi definida uma Questão de Pesquisa (QP) central, descrita a seguir:
+Visando a condução do restante deste \ac{TCC}, foi definida uma Questão de Pesquisa (QP) central, descrita a seguir:
 
 \textbf{QP: Uma \ac{DSL} textual pode auxiliar, em nível conceitual de modelagem, o ensino de projeto e modelagem de banco de dados relacionais?}
 
@@ -104,4 +104,5 @@ Este trabalho está organizado da seguinte forma.
 No \autoref{metodologiaPesquisa} é apresentada a metodologia de pesquisa adotada. 
 No \autoref{fundamentacaoTeorica} é realizada a fundamentação teórica. Um mapeamento multivocal de literatura tem o protocolo e condução descritos no \autoref{mapeamentoLiteratura}. 
 A seguir, ocorre a apresentação da proposta no \autoref{propostaDSL}. 
-Finalmente, as considerações preliminares são discutidas no \autoref{consideracoesPreliminares}, em que ainda são apontados os trabalhos futuros e o cronograma de execução para continuação da pesquisa.
+O \autoref{validacaoProposta} detalha o experimento controlado conduzido para a avaliação da proposta.
+Finalmente, as considerações finais são discutidas no \autoref{consideracoesFinais}, onde também são apontados os trabalhos futuros.

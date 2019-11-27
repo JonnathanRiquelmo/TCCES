@@ -2,9 +2,41 @@
 \chapter{Considerações Finais}\label{consideracoesFinais}
 %#################################################################
 
-\textcolor{red}{\textbf{REESCREVER TUDO}}
+Este \ac{TCC} se propôs a realizar um estudo que abordou a área de projeto e modelagem conceitual de \acp{BD} relacionais.
+Para tanto, foi necessário realizar um desenho de pesquisa que orientou toda a execução das atividades necessárias para atingir os objetivos específicos.
+O projeto envolveu a pesquisa bibliográfica para o embasamento teórico, a condução de um \ac{MLM} visando encontrar estudos relacionados, o desenvolvimento da solução proposta e um experimento controlado para sua avaliação.
 
-% Este trabalho abordou o projeto de conclusão de curso expondo seu planejamento metodológico, a fundamentação teórica, um mapeamento multivocal de literatura e a proposta de uma \ac{DSL} textual para modelagem conceitual de \acp{BD}.
+Através dos estudos realizados, assim como por meio dos resultados obtidos com o \ac{MLM} e do experimento controlado, é possível concluir que o objetivo principal deste trabalho foi alcançado.
+Isto significa que se ofereceu uma alternativa ferramental para uso de uma abordagem textual para apoiar o processo de ensino-aprendizagem de projeto de modelagem de \ac{BD} relacionais. Além disso, mediante uma possível exposição contínua da gramática aos alunos, apresentou-se uma perspectiva de melhora em relação ao esforço associado. 
+
+Além disso, destaca-se como principais contribuições deste \ac{TCC}:
+
+\begin{itemize}
+    \item A investigação da literatura científica e o relato de experiência, adquirida principalmente durante a etapa de projeto, acerca da forma de desenvolvimento de uma \ac{DSL} textual utilizando um \ac{LW};
+    \item A definição da gramática de uma \ac{DSL} voltada à modelagem conceitual de \acp{BD} relacionais;
+    \item A avaliação preliminar do protótipo e sua evolução;
+    \item O uso de tecnologias \textit{open source};
+    \item A Avaliação empírica do produto desenvolvido;
+        \begin{itemize}
+            \item Definição de um protocolo experimental;
+            \item Execução;
+            \item Coleta de dados;
+            \item Análise quantitativa e qualitativa.
+        \end{itemize}
+    \item A disponibilização do \textit{plugin} da linguagem desenvolvida, com suporte à modelagem conceitual, bem como mapeamento e transformação para o modelo lógico.
+\end{itemize}
+
+Inegavelmente, houveram diversos desafios durante o andamento deste \ac{TCC}. 
+A definição do protocolo de \ac{MLM} e do experimento não foram atividades triviais, pois exigem experiência para que se consiga obter resultados confiáveis.
+O desenvolvimento da solução também se mostrou dificultosa em momentos, principalmente na implementação do gerador que faz o mapeamento do modelo conceitual para o modelo lógico. 
+Entretanto, por meio do uso de metodologias apoiadas na literatura, e também de protocolos bem definidos, foi possível superar as adversidades enfrentadas.
+
+Outro ponto que merece destaque foi o esforço dos pesquisadores envolvidos neste estudo para a realização de três artigos.
+O primeiro abordou o \ac{SLM} e foi submetido ao \textit{ER - International Conference on Conceptual Modeling} (ER'2019).
+Outro abrangeu toda o \ac{MLM} e foi submetido ao Simpósio Brasileiro de Bancos de Dados (SBBD'2019). 
+E finalmente, um artigo descrevendo o protótipo desenvolvido, o qual foi submetido à Escola Regional de Engenharia de Software (ERES'2019), aprovado e apresentado.
+
+Existe a intenção de que seja realizada a escrita de outro artigo, desta vez compilando os resultados de todo o estudo, a ser submetido à um \textit{journal} inserido na área deste trabalho.
 
 % Como principais resultados obtidos está a investigação conduzida para compreender o estado da arte e da prática no uso de \acp{DSL} para modelagem de \acp{BD}, bem como a criação de uma \ac{DSL} textual utilizando o \textit{framework} Xtext, ferramenta \textit{open source} que permitiu a integração do protótipo a um \ac{RCP} Eclipse. 
 
@@ -16,7 +48,11 @@
 \section{Trabalhos Futuros}
 %#################################################################
 
-\textcolor{red}{\textbf{REESCREVER TUDO}}
+
+Como sugestão de trabalhos futuros é possível indicar que através dos resultados do experimento executado foi identificada a necessidade de evolução da \ac{DSL} desenvolvida. 
+A evolução pode ser tanto em cima dos construtores atualmente suportados, quanto na definição de novos termos para cobrir outros conceitos importantes do modelo \ac{ER}.
+
+Também pode-se citar que existe espaço para a aplicação das regras de transformação entre modelos ainda não desenvolvidas, bem como a geração de \textit{scripts} \ac{SQL} que para tecnologias específicas \textit{e.g.} PostgreSQL, MySQL e SQL Server.
 
 % Na fase atual desta pesquisa pode-se dizer que foram obtidos avanços, porém ainda é necessário realizar a finalização de diversos aspectos da proposta. 
 % Os principais pontos que devem ser investigados e desenvolvidos dizem respeito à transformação completa dos modelos conceituais para modelos lógicos, bem como a geração de \textit{scripts} \ac{SQL} que representem o modelo físico.

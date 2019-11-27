@@ -2,9 +2,10 @@
 
 Neste capítulo ocorre a apresentação, de forma abrangente, dos domínios abordados para a realização e compreensão deste trabalho. 
 A Seção \ref{sec:ProjetoBD} expõe o que é um projeto de \acp{BD} e suas fases de modelagem para a construção de esquemas de \acp{BD}. 
-A Seção \ref{sec:LinguagemSQL} elucida a aplicação da \ac{SQL}, e exemplifica seu uso com alguns exemplos de \acp{SGBD}. 
+A Seção \ref{sec:LinguagemSQL} elucida a aplicação da Linguagem de Consulta Estruturadam, do inglês \ac{SQL}. 
 A Seção \ref{ssec:MDE} aborda a Engenharia Dirigida por Modelos, do inglês \ac{MDE}, e suas aplicações com as \acp{DSL}. 
-Na Seção \ref{sec:TrabRelacionados} discute-se os trabalhos relacionados e, por fim, na Seção \ref{sec:LicoesFundamentacaoTeorica} são apresentadas algumas lições aprendidas, bem como os principais tópicos discutidos.
+A Seção \ref{ssec:GLC} trata de conceitos relacionados as \acp{GLC}, assim como do formalismo envolvido para o seu desenvolvimento.
+Por fim, na Seção \ref{sec:LicoesFundamentacaoTeorica} são apresentadas algumas lições aprendidas, bem como os principais tópicos discutidos.
 
 %#################################################################
 \section{Projeto de Banco de Dados} \label{sec:ProjetoBD}
@@ -64,7 +65,30 @@ Sendo assim, com esta abordagem os \acp{MCD} são representados com \acp{DER}, c
 
 Na abordagem \ac{ER} o conceito principal é o de \textbf{entidade}, o qual é uma representação de um conjunto de objetos do domínio modelado. 
 As entidades são simbolizadas por retângulos. 
-Contudo, nesta abordagem ainda existem também outros conceitos que são essenciais e devem ser analisados.
+Contudo, nesta abordagem ainda existem também outros conceitos que são essenciais e devem ser analisados. 
+Para melhor compreensão da modelagem conceitual que utiliza esta abordagem, a seguir são apresentados na \autoref{fig:ERConstrutores} algumas representações gráficas dos construtores previstos no modelo \ac{ER}. 
+
+\begin{figure} [!htb]
+    \centering
+    \caption{Construtores do modelo \ac{ER}.}
+    \label{fig:ERConstrutores}
+    \include{TiKz/ERC/AllConstrutores}
+    \fonte{O autor.}
+\end{figure}
+
+Uma \textbf{Entidade Forte} e uma entidade que para existir não depende da existência de outra(s) entidades(s). 
+De forma inversa, uma \textbf{Entidade Fraca} é uma entidade que possui sua existência ou identificação dependente de outra(s) entidade(s). 
+A representação de \textbf{Entidade Associativa} serve para dar mais sentido semântico ao modelo, e pode ser usada para simbolizar relações muitos para muitos, contendo referências a colunas de tabelas do mesmo ou de outros \acp{BD}. 
+
+Os \textbf{atributos} podem ser \textbf{referenciais}, ou seja, que identificam a entidade, e \textbf{descritivos} que a descrevem. 
+A maioria dos atributos tendem a ser descritivos e também são chamados de simples ou monovalorados. 
+Contudo, existem outros tipos destes atributos como os \textbf{multivalorados}, que podem assumir diversos valores, os \textbf{derivados}, que são inferidos a partir de outros atributos, e os \textbf{compostos}, que podem ser divididos em várias partes com significados independentes.
+
+No que diz respeito aos \textbf{relacionamentos} possíveis entre entidades pode-se citar os \textbf{binários}, aqueles que envolvem duas (2) entidades, e os \textbf{n-ários} que correspondem a ligação de três (3) ou mais entidades. 
+É comum que as relações compostas especificamente por três entidades sejam chamadas de relações \textbf{ternárias}. 
+Além destes tipos ainda é possível haver relações recursivas de uma entidade com ela mesma, também chamado de \textbf{auto-relacionamento}.
+
+A abordagem \ac{ER} ainda suporta conceitos de \textbf{generalização/especialização}, que definem um grupo hierárquico de entidades que compartilham atributos em comum, e \textbf{agregação} onde a condição de existência é que o relacionamento principal necessita ser necessariamente de muitos para muitos.
 
 Os \textbf{relacionamentos} representam a associação entre os objetos e são sinalizados por losangos. 
 A \textbf{cardinalidade} de relacionamentos registra o número de ocorrências com que as entidades podem se associar. 
@@ -79,31 +103,22 @@ Na esquerda da \autoref{fig:DER2} é ilustrado um exemplo de \ac{DER} simples e,
 	\label{fig:DER2}
 \end{figure}
 
-%#################################################################
-\subsubsection{Construtores do Modelo ER} \label{sssec:ModeloER}
-%#################################################################
-
-\textcolor{red}{...}
-
-\textcolor{red}{(talvez criar uma tabela sintetizando os construtores, e tirar essa seção e inclui-la na seção anterior)}
-
-\textcolor{red}{Herança}
-
-\textcolor{red}{relacionamentos ternários}
-
-\textcolor{red}{entidades fracas}
-
-\textcolor{red}{atributos}
-
-\textcolor{red}{atributos multivalorados}
     
 %#################################################################
 \subsubsection{Notações de Modelagem ER} \label{sssec:ModeloER}
 %#################################################################
-    
-\textcolor{red}{ ... }
-    
-\textcolor{red}{crowsfoot, notação merise, etc...}
+
+A abordagem \ac{ER} teve uma notação estabelecida no trabalho original de Chen, porém muitas outras notações foram propostas com o passar do tempo.
+Todas essas convenções de diagramação possíveis objetivam o mesmo propósito de modelar \acp{BD}, e eventualmente podem ser utilizadas para diagramar até mesmo modelos em nível lógico como o caso da notação \textit{Crow's Foot}, conhecida pelo seu alto nível de aceitação pela indústria. 
+A \autoref{fig:NotacoesER} ilustra como uma relação binária simples com cardinalidade \textit{um para muitos} pode ser representada em quatro (4) diferentes notações.
+
+\begin{figure} [!htb]
+    \centering
+    \caption{Exemplos de notações para modelagem ER.}
+    \label{fig:NotacoesER}
+    \include{TiKz/ERC/Notacoes}
+    \fonte{O autor.}
+\end{figure}
 
 %#################################################################
     \subsection{Modelo Lógico de Dados} \label{ssec:ModelLogico}
@@ -146,16 +161,16 @@ Isso ocorre pois esse modelo não se preocupa somente com a representação dos 
 Isso implica, em uma última observação, que do ponto de vista formal da definição da abordagem \ac{ER}, esse modelo não se enquadra fielmente como um modelo \ac{ER} \cite{West:2011}.
 
 %#################################################################
-    \subsection{\textcolor{red}{Modelo Físico de Dados}} \label{ssec:ModelFisico}
+    \subsection{Modelo Físico de Dados} \label{ssec:ModelFisico}
 %#################################################################
 
-\textcolor{red}{Um \ac{MFD} caracteriza-se como um modelo em que a representação dos objetos de \ac{BD} já estão em um nível físico de implementação das ocorrências, ou instâncias, das entidades de relacionamentos. 
-Cada \ac{SGBD} pode definir diferentes modos de implementação física das características e recursos indispensáveis para o armazenamento e manipulação das estruturas de dados \cite{Cougo:2013}.}
+Um \ac{MFD} caracteriza-se como um modelo em que a representação dos objetos de \ac{BD} já estão em um nível físico de implementação das ocorrências, ou instâncias, das entidades de relacionamentos. 
+Cada \ac{SGBD} pode definir diferentes modos de implementação física das características e recursos indispensáveis para o armazenamento e manipulação das estruturas de dados \cite{Cougo:2013}.
 
-\textcolor{red}{Em geral os modelos físicos apresentam dois aspectos bem representados. 
+Em geral os modelos físicos apresentam dois aspectos bem representados. 
 Primeiramente, existem as ocorrências ou instâncias, seus relacionamentos e a disposição básica dos elementos. 
 O outro aspecto diz respeito a alocação nos diversos níveis de agrupamentos possíveis, como as tabelas, linhas (registros), colunas (campos) e blocos \cite{West:2011}.
-Em suma é uma sequência lógica de instruções em \ac{SQL}, executadas em um \ac{SGBD}.}
+Em suma, é a materialização dos objetos de \ac{BD} em um esquema interno de um dado \ac{SGBD} a partir da execução de uma sequência lógica de instruções em \ac{SQL}.
 
 %#################################################################
 \section{Linguagem SQL} \label{sec:LinguagemSQL}
@@ -290,8 +305,9 @@ A relação conceitual entre esses níveis, com o uso de mecanismos de transform
 \begin{figure}[htb]
 	\centering
 	\caption{Níveis de abstração do MDA.}
-		\includegraphics[width=0.57\textwidth]{img/MDA_Process.png}
-	\fonte{\citeonline{Frantz:2012}.}
+    % \includegraphics[width=0.57\textwidth]{img/MDA_Process.png}
+    \include{TiKz/MDA}
+	\fonte{Adaptado de \citeonline{Frantz:2012}.}
 	\label{fig:MDALevels}
 \end{figure}
 
@@ -407,7 +423,7 @@ A seguir são citados alguns dos mais conhecidos \acp{LW} da atualidade:
     Atualmente está na versão 5.5 SR1.
 \end{itemize}
 
-É interessante se observar que as \acp{LW} textuais em particular fornecem poder de abstração suficiente para, por exemplo, especificar \acp{GLC}.
+É interessante salientar que a capacidade de definir referências cruzadas fornecida por \acp{LW} é o que os torna mais atrativos para o desenvolvimento rápido de \acp{DSL}. Observando por um lado prático, essa capacidade é ainda mais notável em \acp{LW} como o Xtext, uma vez que essa plataforma proporciona abstração suficiente para a realizar a especificação de \acp{GLC} executáveis.
 
 %#################################################################    
 \section{Gramáticas Livres de Contexto} \label{ssec:GLC}
@@ -462,12 +478,12 @@ Em geral não é usado em língua natural porque essa notação não é adequada
 Na notação \ac{BNF} é simples e muito similar ao modelo utilizado no campo da linguística para definição de \acp{GLC} pois nela: (\textbf{I}) as variáveis são palavras entre os símbolos $\langle$ e $\rangle$ ; (\textbf{II}) as palavras não delimitadas são terminais; (\textbf{III}) a regra geral de produção ${S\to \alpha}$ é representada como ${S ::= \alpha}$, ou ainda, $\langle SNT \rangle ::= \langle \alpha T~|~\alpha T~+~SNT \rangle$. 
 
 Para compreensão, o "\texttt{$::=$}"~ indica "\textit{é definido como}", o \texttt{$|$} indica "\textit{ou}"~ e os colchetes angulares (\texttt{$\langle~\rangle$}) distinguem nomes de regras de sintaxe, chamados de símbolos não terminais (SNT), dos símbolos de terminais (\texttt{$\alpha T$}) que são escritos exatamente como devem ser representados, sendo estes últimos também conhecidos como palavras reservadas. 
-Um exemplo da aplicação da notação \ac{BNF} para definir a estrutura de uma mini-linguagem de programação pode ser expressada conforme a Figura \ref{fig:MiniLanguage}.
+Um exemplo da aplicação da notação \ac{BNF} para definir a estrutura de uma mini-linguagem de programação pode ser expressada conforme a \autoref{fig:MiniLanguage}.
 \input{languages}
 
-\begin{figure}
+\begin{figure}[!htb]
     \centering
-    \caption{Exemplo de mini-linguagem definida com \ac{BNF}.}
+    \caption{Exemplo de mini-linguagem definida com BNF.}
     \label{fig:MiniLanguage}
     \begin{scriptsize}
     \begin{lstlisting}[language = BNF , frame = trbl]
@@ -491,6 +507,6 @@ Finalmente, a a especificação da palavra-chave \texttt{end} seguida de um pont
 %#################################################################
 
 Os conceitos mais importantes para este trabalho foram apresentados neste capítulo. 
-Foi necessário investigar dois grandes domínios, sendo eles: (i) projeto e modelagem de \ac{BD} e (ii) \ac{MDE}. 
-Dentre os temas abordados destaca-se a Seção \ref{ssec:DSL}, a qual apresenta definições importantes para a compreensão do que é de fato uma \ac{DSL}, bem como são definidas \acp{GLC} para representá-la. 
-A Seção \ref{ssec:LW} também merece destaque pois cita alguns \acp{LW}, dentre eles o Xtext que acabou por ser a ferramenta selecionada para a construção do protótipo da proposta deste estudo.
+Foi necessário investigar dois grandes domínios, sendo eles: (i) projeto e modelagem de \ac{BD}; (ii) \ac{MDE}.
+Dentre os temas abordados destaca-se a Seção \ref{ssec:DSL}, a qual apresenta definições importantes para a compreensão do que é de fato uma \ac{DSL}, bem como são definidas as \acp{GLC} para representá-la. 
+A Seção \ref{ssec:LW} também merece destaque pois cita alguns \acp{LW}, dentre eles o Xtext que acabou por ser a ferramenta selecionada para a construção da solução proposta neste estudo.

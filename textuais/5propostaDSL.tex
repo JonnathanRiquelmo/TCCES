@@ -1,12 +1,14 @@
 %#################################################################
-\chapter{Proposta de DSL}\label{propostaDSL}
+\chapter{DSL para a Representação de Modelos Conceituais de Banco de Dados Relacionais}\label{propostaDSL}
 %#################################################################
-
+\addlinespace
 Este capítulo apresenta a proposta central deste trabalho. 
 A Seção \ref{sec:reqDSL} aponta os requisitos levantados para a construção da \ac{DSL}. 
 A Seção \ref{sec:decDSL} descreve as decisões de projeto referentes aos requisitos. 
 A arquitetura da implementação da proposta é detalhada na Seção \ref{sec:arqDSL}. 
-A demonstração do protótipo construído ocorre na Seção \ref{sec:protDSL} e, por fim, as lições do capítulo são pontuadas na Seção \ref{sec:licDSL}.
+A demonstração do protótipo construído ocorre na Seção \ref{sec:protDSL}.
+Em seguida a avaliação preliminar conduzida com um grupo focal é apresentado na Seção \ref{sec:AvalPrelGram}, bem como os resultados obtidos.
+A Seção \ref{sec:ERTEXTFinal} detalha a ferramenta ERText, produto do desenvolvimento da \ac{DSL} e, por fim, as lições do capítulo são pontuadas na Seção \ref{sec:licDSL}.
 
 %#################################################################
 \section{Requisitos da Linguagem} \label{sec:reqDSL}
@@ -34,8 +36,8 @@ A linguagem deve permitir que conceitos mais sofisticados dos domínios sejam de
 \item\textit{\textbf{RQ5. A implementação da \ac{DSL} deve realizar a transformação do modelo conceitual para o lógico.}} 
 A solução deve realizar a transformação do conceitual para o lógico, exibindo o resultado gerado ao usuário.
 
-\item\textit{\textbf{RQ6. A implementação da \ac{DSL} deve gerar instruções \ac{SQL} equivalentes, com base no modelo conceitual ou lógico.}} 
-A solução precisa realizar a geração de instruções \ac{SQL} para diferentes \acp{SGBD}.
+% \item\textit{\textbf{RQ6. A implementação da \ac{DSL} deve gerar instruções \ac{SQL} equivalentes, com base no modelo conceitual ou lógico.}} 
+% A solução precisa realizar a geração de instruções \ac{SQL} para diferentes \acp{SGBD}.
 
 \end{itemize}
 
@@ -61,10 +63,9 @@ Para cada decisão de projeto são indicados os seus requisitos associados.
     Desta forma, existe a representação do modelo da gramática na forma de um metamodelo central no núcleo do \ac{EMF}, chamado de modelo \textit{Ecore}. 
     Tendo o \textit{Ecore} da \ac{DSL} proposta como uma representação, é possível então aplicar regras de transformação, gerando assim outros modelos.
     
-    \item\textit{\textbf{DP4. A solução deve prover a integração entre a \ac{DSL} e outras tecnologias (RQ6).}} 
-    A solução deve permitir a realização da exportação dos modelos construídos para um formato de instruções \ac{SQL}, representando assim o modelo físico. 
-    Inicialmente, essa integração será realizada para o SQL Server, o MySQL e o PostgreSQL. 
-    Foram estabelecidas essas tecnologias pois são alguns dos \acp{SGBD} mais utilizados no mercado, conforme foi descrito nos tópicos da \autoref{ssec:SGBDRelacionais}.
+    % \item\textit{\textbf{DP4. A solução deve prover a integração entre a \ac{DSL} e outras tecnologias (RQ6).}} 
+    % A solução deve permitir a realização da exportação dos modelos construídos para um formato de instruções \ac{SQL}, representando assim o modelo físico. 
+    % Inicialmente, essa integração será realizada para o SQL Server, o MySQL e o PostgreSQL.
 \end{itemize}
 
 
@@ -79,9 +80,10 @@ A \autoref{fig:arqXtext} fornece uma visão geral em um nível abstrato da arqui
 \begin{figure}[!htb]
     \centering
     \caption{Arquitetura geral do Xtext.}
-    \includegraphics[width=0.6\textwidth]{img/ArquiteturaXtext.jpg}
+    % \includegraphics[width=0.6\textwidth]{img/ArquiteturaXtext.jpg}
+    \include{TiKz/ArqXtext}
     \label{fig:arqXtext}
-    \fonte{\citeonline{XtextSirius:2017}.}
+    \fonte{Adaptado de \citeonline{XtextSirius:2017}.}
 \end{figure}
 
 Foram implementadas duas versões da gramática no protótipo da \ac{DSL}. 
@@ -91,8 +93,8 @@ A partir dos resultados dessa avaliação, objetiva-se gerar uma versão final d
 
 \begin{figure}[!htb]
     \centering
-    \caption{Representação do modelo \textit{Ecore} da 1º versão da DSL.}
-    \includegraphics[width=1\textwidth]{img/erDslClassDiagram.png}
+    \caption{Representação do modelo \textit{Ecore} da 1\degree~versão da DSL.}
+    \includegraphics[width=\textwidth]{img/erDslClassDiagram.png}
     \fonte{O autor.}
     \label{fig:ERDSL}
 \end{figure}
@@ -124,7 +126,8 @@ Isto significa que, em uma modelagem onde uma cardinalidade mínima \textit{zero
 %     \label{fig:ERDSL2}
 % \end{figure}
 
-Estruturalmente o modelo \textit{Ecore} da segunda versão \ac{DSL} não muda significativamente.%, como pode-se observar na Figura \ref{fig:ERDSL2}. 
+Estruturalmente, o modelo \textit{Ecore} da segunda versão \ac{DSL} não muda significativamente. 
+%, como pode-se observar na Figura \ref{fig:ERDSL2}. 
 A única diferença com maior impacto é a opção pela definição da cardinalidade utilizando-se as quatro combinações possíveis como termos reservados, armazenados diretamente no atributo \texttt{Cardinality} de \texttt{RelationSide}.
 
 %#################################################################
@@ -133,12 +136,13 @@ A única diferença com maior impacto é a opção pela definição da cardinali
 \input{languages}
 
 Na fase atual do trabalho a linguagem a nível conceitual não se encontra totalmente finalizada. 
-Existem tópicos relativos a validação de escopo, como no caso do tratamento de referências cruzadas indesejadas, e outras restrições inerentes ao modelo \ac{ER} que devem ser analisadas e então implementadas. 
+Existem tópicos relativos a validação de escopo, como no caso do tratamento de referências cruzadas indesejadas e outras restrições inerentes ao modelo \ac{ER} que devem ser analisadas e então implementadas. 
 A definição da \ac{DSL} criada é exibida na \autoref{fig:DSLvs1}.
 
+\lstset{basicstyle=\scriptsiz}
 \begin{figure}
     \centering
-    \caption{Implementação da 1º versão da DSL.}
+    \caption{Implementação da 1\degree versão da DSL.}
     \label{fig:DSLvs1}
     \begin{scriptsize}
     \begin{lstlisting}[language = Xtext , frame = trbl]
@@ -185,8 +189,8 @@ enum CardinalityType:
 \end{figure}
 
 
-O comando \texttt{grammar} especifica o nome da \ac{DSL}, enquanto que a instrução \texttt{with} declara uma herança de outra linguagem. 
-No caso da gramática proposta, será utilizado uma gramática padrão do Xtext, chamada \texttt{Terminals}, a qual fornece algumas regras predefinidas como, por exemplo, a regra \texttt{ID} para identificadores ou \texttt{INT} para inteiros. 
+O comando \texttt{grammar} especifica o nome da \ac{DSL}, enquanto a instrução \texttt{with} declara uma herança de outra linguagem. 
+No caso da gramática proposta, será utilizada uma gramática padrão do Xtext, chamada \texttt{Terminals}, que fornece algumas regras predefinidas como, por exemplo, a regra \texttt{ID} para identificadores ou \texttt{INT} para inteiros. 
 O comando \texttt{generate} é a instrução que produz a \ac{AST} da linguagem.
 
 A primeira regra, chamada de regra de entrada, define como é a estrutura geral da linguagem. 
@@ -197,7 +201,7 @@ Ele é um objeto que pode conter outros objetos, no caso um ou mais \texttt{Enti
 É estabelecido que cada arquivo da \ac{DSL} deve também ser composto de um \texttt{Domain} (domínio) e zero ou mais \texttt{Relation} (relações). 
 
 Para melhor entendimento, deve-se deixar claro que a multiplicidade é indicada por \texttt{*} (zero ou muitos), \texttt{+} (um ou muitos) ou \texttt{?} (zero ou um). 
-Ao não se colocar nenhum desses operadores, implicitamente se espera então apenas uma ocorrência. 
+Ao não se colocar nenhum desses operadores, implicitamente espera-se então apenas uma ocorrência. 
 Em relação às atribuições, quando apenas um \texttt{=} for especificado significa que o objeto da esquerda espera apenas um registro. 
 Logo, para \texttt{+=} espera-se então zero, uma ou mais ocorrências. 
 
@@ -225,11 +229,12 @@ Na direita está a palavra reservada que é usada na linguagem.
 O símbolo condicional \texttt{|} significa o operador lógico \textit{OR} (ou) e serve para separar cada definição \texttt{<chave> = <valor>} como uma opção dentro da lista. 
 Das três cardinalidades possíveis, duas estão definidas em outra lista enumerada chamada \texttt{CardinalityType}. 
 Na \autoref{fig:DSLvs2} exibe a principal mudança entre as versões da \ac{DSL} proposta, a qual diz respeito a cardinalidade explícita. 
-A \autoref{fig:ERDSLSyntax} e a \autoref{fig:ERDSL2Syntax} apresentam uma representação gráfica das sintaxes de ambas as gramáticas.
+% A \autoref{fig:ERDSLSyntax} apresenta uma representação gráfica da sintaxe da primeira versão da gramática.
 
+\lstset{basicstyle=\scriptsize}
 \begin{figure}[!htb]
     \centering
-    \caption{Fragmento de implementação da 2º versão da DSL.}
+    \caption{Fragmento de implementação da 2\degree versão da DSL.}
     \label{fig:DSLvs2}
     \begin{footnotesize}
 \begin{lstlisting}[language = Xtext , frame = trbl]
@@ -246,34 +251,36 @@ RelationSide:
     \fonte{O autor}
 \end{figure}
 
-\begin{figure}[!htb]
-    \centering
-    \caption{Representação da sintaxe da 1º versão da DSL.}
-    \label{fig:ERDSLSyntax}
-    \includegraphics[width=\textwidth]{img/ERDSLSyntaxGraph.png}
-    \fonte{O autor.}
-\end{figure}
+% \begin{figure}[!htb]
+%     \centering
+%     \caption{Representação da sintaxe da 1\degree versão da \ac{DSL}.}
+%     \label{fig:ERDSLSyntax}
+%     \includegraphics[width=0.9\textwidth]{img/ERDSLSyntaxGraph.png}
+%     \fonte{O autor.}
+% \end{figure}
 
-\begin{figure} [!htb]
-    \centering
-    \caption{Representação da sintaxe da 2º versão da DSL.}
-    \label{fig:ERDSL2Syntax}
-    \includegraphics[width=\textwidth]{img/ERDSL2SyntaxGraph.png}
-    \fonte{O autor.}
-\end{figure}
+% \begin{figure} [!htb]
+%     \centering
+%     \caption{Representação da sintaxe da 2\degree versão da \ac{DSL}.}
+%     \label{fig:ERDSL2Syntax}
+%     \includegraphics[width=\textwidth]{img/ERDSL2SyntaxGraph.png}
+%     \fonte{O autor.}
+% \end{figure}
 
 Na \autoref{fig:DSLvs1Uso} mostra-se um exemplo de uso com um pequeno modelo que aborda uma universidade como domínio. 
-Neste protótipo já se pode observar a modelagem de generalização/especialização, auto-relacionamento e relacionamento ternário.
+Neste protótipo pode-se observar a modelagem de generalização/especialização, auto-relacionamento e relacionamento ternário.
 
 % Para essa transformação existem regras que podem ser aplicadas, sendo que em alguns casos existem inclusive mais de uma opção. 
 % Nestes casos estão sendo analisadas a melhores estratégias possíveis, uma vez que durante o processo de transformação será necessário se assumir algumas premissas.
-Domain University;
+\lstset{basicstyle=\scriptsize}
 \begin{figure}[!htb]
 \centering
-\caption{Exemplo de uso da 1º versão da DSL no RCP do Eclipse.}
+\caption{Exemplo de uso da 1\degree versão da DSL no RCP do Eclipse.}
 \label{fig:DSLvs1Uso}
 \begin{scriptsize}
 \begin{lstlisting}[language = ERDSL, frame = trbl]
+Domain University;
+
 Entities{
 	Person{ 
 		PID: int isIdentifier, 
@@ -286,7 +293,7 @@ Entities{
 	Student isA Person{ 
 		Course: string
 	} 	
-	OutsrcEmployee isA Person{
+	OutSrcEmployee isA Person{
 	    Company: string
 	}
 	Class{
@@ -299,100 +306,281 @@ Entities{
 		Capacity: int
 	}
 };
-\end{lstlisting}
-\end{scriptsize}
-    \fonte{O autor.}
-\end{figure}
 
-\begin{figure}[!htb]
-\centering
-\caption{Exemplo de uso da 1º versão da DSL no RCP do Eclipse.}
-\label{fig:DSLvs1Uso}
-\begin{scriptsize}
-\begin{lstlisting}[language = ERDSL, frame = trbl]
 Relationships{	 
 	[many Student isRelatedWith many Class]
 	TeacherClass [many Teacher isRelatedWith many Class]
 	ClassSchedule [many TeacherClass isRelatedWith many ClassRoom]
 	        {CSID: int isIdentifier, DayOfWeek: datetime, Discipline: string}
-	Supervisor [one OutsrcEmployee isRelatedWith many OutsrcEmployee]
+	Supervisor [one OutSrcEmployee isRelatedWith many OutSrcEmployee]
 };
 \end{lstlisting}
 \end{scriptsize}
     \fonte{O autor.}
 \end{figure}
 É importante destacar que neste exemplo são modeladas seis entidades e quatro relacionamentos. 
-Contudo, no processo de transformação para o modelo lógico espera-se que seja gerado um esquema textual com mais três entidades, inferindo-se isso através de, por exemplo, relacionamentos \textit{muitos para muitos}. 
+Não obstante, no processo de transformação para o modelo lógico espera-se que seja gerado um esquema textual com mais três entidades, inferindo-se isso por meio de, por exemplo, relacionamentos \textit{muitos para muitos}. 
 Isso ocorreria, nesta amostra, no relacionamento sem identificação, atribuindo automaticamente a nova entidade o nome resultante da concatenação das duas entidades que se relacionam no conceitual. 
 Também seriam criadas novas entidades a partir da derivação dos relacionamentos nomeados \texttt{TeacherClass} e \texttt{ClassShedule}, sendo que o último carateriza um relacionamento ternário.
-Por fim, o auto-relacionamento \texttt{Supervisor} de \texttt{OutsrcEmployee} implicaria na adição de um novo atributo na entidade no novo modelo.
+Por fim, o auto-relacionamento \texttt{Supervisor} de \texttt{OutSrcEmployee} implicaria na adição de um novo atributo na entidade no novo modelo.
 
-Com base nos modelos \textit{Ecore} gerados em tempo real, como o gerado a partir do modelo descrito anteriormente e exibido na \autoref{fig:EcoreRealTime}, já está sendo implementada a transformação do modelo conceitual para o lógico. 
-A implementação desta transformação está sendo realizada utilizando-se a Xtend, uma \ac{GPL} baseada em Java.
+Com base nos modelos \textit{Ecore} gerados em tempo real, começou-se a implementar a transformação preliminar do modelo conceitual para o lógico. 
+A implementação desta transformação foi realizada utilizando-se a Xtend, uma \ac{GPL} baseada em Java.
 
-\begin{figure} [!htb]
+% \begin{figure} [!htb]
+%     \centering
+%     \caption{Fragmento do modelo \textit{Ecore} gerado em tempo de execução.}
+%     \label{fig:EcoreRealTime}
+%     \includegraphics[width=0.9\textwidth]{img/EcoreTempoReal.png}
+%     \fonte{O autor.}
+% \end{figure}
+
+
+%#################################################################
+\section{Avaliação Preliminar da Gramática} \label{sec:AvalPrelGram}
+%#################################################################
+Esta seção descreve a avaliação preliminar conduzida para analisar as duas alternativas de gramática propostas, visando assim o seu aperfeiçoamento em uma versão final na solução. 
+
+Para tanto, foi estabelecido a utilização de um grupo focal, um método de pesquisa qualitativa que objetiva gerar \textit{feedback} de um conjunto de pessoas em relação a um tema específico. 
+Essa abordagem é muito utilizada como uma atividade para pesquisa de mercado em diversas áreas, uma vez que pode cumprir papel importante apoiando pesquisas exploratórias.
+
+O processo executado nesta etapa, expressado na \autoref{fig:focusGroup}, teve como base as diretrizes estabelecidas no trabalho de \citeonline{Kontio:2008}, as quais cobrem a aplicação desse método no contexto da \ac{ES}. 
+
+\begin{figure}[!htb]
     \centering
-    \caption{Fragmento do modelo \textit{Ecore} gerado em tempo de execução.}
-    \label{fig:EcoreRealTime}
-    \includegraphics[width=\textwidth]{img/EcoreTempoReal.png}
+    \caption{Processo do Grupo Focal.}
+    \label{fig:focusGroup}
+    \include{TiKz/FocusGroup}
     \fonte{O autor.}
 \end{figure}
 
-
-%#################################################################
-\section{Avaliação Preliminar da Gramática} \label{sec:reqDSL}
-%#################################################################
-Esta seção descreve a avaliação preliminar conduzida para analisar as duas alternativas de gramática propostas, visando assim o seu aperfeiçoamento em uma versão final na solução. 
-Para tanto, foi estabelecido a utilização de um grupo focal, um método de pesquisa qualitativa que objetiva gerar \textit{feedback} de um conjunto de pessoas em relação a um tema específico. 
-O protocolo executado nesta etapa teve como base as diretrizes estabelecidas no trabalho de \citeonline{Kontio:2008}, que cobre a aplicação desse método no contexto da \ac{ES}. 
-
-\subsection{Planejamento do Grupo Focal}
+\subsection{Planejamento}
 
 Durante o planejamento foi definido um protocolo que deveria ser seguido.
-Neste protocolo, motivado pelo problema que era gerar uma versão definitiva da gramática da \ac{DSL} proposta, foram criados os documentos necessários para sua execução: \textbf{(I)} Termo de Consentimento Livre e Esclarecido; \textbf{(II)} Glossário de Termos; \textbf{(III)} Questionário de Perfil; \textbf{(IV)} Instrumentos da Discussão 1, 2 e 3; \textbf{(V)} Modelos das Gramáticas Avaliadas; \textbf{(VI)} Roteiro de Apresentação. 
+Neste protocolo, motivado pelo problema que era gerar uma versão definitiva da gramática da \ac{DSL} proposta, foram criados os documentos necessários para sua execução: \textbf{(i)} \ac{TCLE}; \textbf{(ii)} Glossário de Termos; \textbf{(iii)} Questionário de Perfil; \textbf{(iv)} Instrumentos da Discussão 1, 2 e 3; \textbf{(v)} Modelos das Gramáticas Avaliadas; \textbf{(vi)} Roteiro de Apresentação. 
 Todos os modelos dos documentos produzidos estão incluídos no \autoref{ap:GRUPOFOCAL}.
 
-\subsubsection{Definição do Participantes}
+\subsubsection{Preparação}
 
 Tipicamente as avaliações que utilizam grupos focais devem ser constituídas de quatro (4) a seis (6) grupos focais individuais para que o rigor científico seja considerado verdadeiramente alto. 
 O tamanho de cada grupo focal pode variar de três (3) a até doze (12) elementos, sendo mais comum esse número ficar entre quatro (4) e oito (8) participantes \cite{Kontio:2008}. 
 
-Por questões de viabilidade de tempo e recursos humanos, para o presente estudo foi possível ser realizado apenas um grupo focal. 
+Por questões de viabilidade de tempo e recursos humanos, para o presente estudo foi possível ser executado um (1) grupo focal. 
 Após a realização do convite houve a colaboração de treze (13) participantes, todos da área da \ac{ES}. 
 Desse total, três (3) participantes eram alunos de graduação, nove (9) eram mestrandos e um (1) doutorando. 
 
-Foi então aplicado o Questionário de Perfil, onde foi possível identificar que havia um nível equilibrado de conhecimento entre os participantes. 
+Foi então aplicado o Questionário de Perfil, em que foi possível identificar que havia um nível equilibrado de conhecimento entre os participantes. 
 Isso foi constatado pois todos já possuíam contato com \acp{DSL}, tendo utilizado esse tipo de linguagem, ao menos, durante a graduação.
+Ainda foi informado que todo o processo seria gravado em áudio, fato com o qual todos concordaram.
 
-\subsection{Execução do Grupo Focal}
+\subsection{Execução}
 
 O grupo focal foi realizado em 08/2019, nas dependências da UNIPAMPA, e teve duração de duas (2) horas. 
-Iniciando com a exposição do roteiro que deveria ser seguido, onde houve a apresentação do objetivo do grupo focal e os conceitos básicos envolvidos, aconteceu o pedido para que os participantes realizassem a leitura e assinatura do Termo de Consentimento Livre e Esclarecido. 
+Iniciando com a exposição do roteiro que deveria ser seguido, onde houve a apresentação do objetivo do grupo focal e os conceitos básicos envolvidos, aconteceu o pedido para que os participantes realizassem a leitura e assinatura do \ac{TCLE}. 
 Com o documento preenchido, foi dado continuidade ao roteiro previsto, 
 
 A cada Instrumento de Discussão disponibilizado esperou-se até que os participantes respondessem de forma individual. 
 Após, aconteceu uma discussão em grupo sobre o tema levantado. 
-Todo o processo foi gravado em áudio e teve o suporte dos pesquisadores envolvidos neste estudo. 
-Foi realizado também a transcrição das observações levantadas pelo debate que se seguiu, caracterizando assim as práticas de \textit{brainstorming}\footnote{Brainstorming é uma técnica utilizada para propor soluções a um problema específico. Consiste em uma reunião também chamada de tempestade de ideias, na qual os participantes devem ter liberdade de expor suas sugestões e debater sobre as contribuições dos colegas.} previstas em grupos focais. 
+Todo o processo foi gravado em áudio e teve o suporte dos três (3) pesquisadores envolvidos neste estudo. 
+Foi realizada também a transcrição das observações levantadas pelo debate que se seguiu, caracterizando assim as práticas de \textit{brainstorming}\footnote{\textit{Brainstorming} é uma técnica utilizada para propor soluções a um problema específico. Consiste em uma reunião, também chamada de tempestade de ideias, na qual os participantes devem ter liberdade de expor suas sugestões e debater sobre as contribuições dos colegas.} previstas em grupos focais. 
 
-\subsection{Resultados do Grupo Focal}
+\subsection{Análise dos Resultados}
+
+Segundo \citeonline{Kontio:2008}, a fase de análise e interpretação dos dados gerados constitui parte importante da pesquisa qualitativa, considerando o contexto, o comportamento e a percepção dos sujeitos. 
+Para a fase de análise dos dados, o áudio foi analisado paralelamente as anotações realizadas.
+De posse destes materiais e das respostas dos participantes para cada instrumento de discussão, foi possível avaliar os resultados do grupo focal executado.
+
+\subsubsection{Discussões}
+
+Após a apresentação do roteiro preparado para o grupo focal, deu-se início as discussões dos três (3) instrumentos criados para a dinâmica.
+O primeiro instrumento continha a seguinte afirmação associada a uma escala Likert composta de níveis de concordância dispostos de um (1) a cinco (5):
+
+\textit{\textbf{``Linguagens específicas de domínio com abordagem textual podem ser aplicadas na modelagem conceitual posto que conseguem descrever de forma rápida e concisa determinadas propriedades.
+Sendo assim, essas soluções podem ser utilizadas ou mesmo adaptadas de uma forma efetiva no que diz respeito a representação do domínio que modelam.}}''
+
+Após todos os participantes responderem o instrumento, foi aberto um momento de discussão entre todos. 
+Por não terem visto o modelo proposto de \ac{DSL}, algumas dúvidas surgiram e os pesquisadores envolvidos procuraram sanar todas de forma a não influenciar as discussões seguintes.
+
+O debate prosseguiu com os participantes levantando possíveis vantagens de um modelo textual.
+Alguns citaram acreditar que essa abordagem poderia ser de mais fácil entendimento, porém que isso dependeria do usuário.
+Esta suposição incluiu dois prováveis tipos de perfis: analistas e desenvolvedores.
+
+O grupo chegou a conclusão que a abordagem poderia ser vista como mais produtiva por usuários de perfil desenvolvedor, mas menos proveitosa por aqueles que tivessem um viés mais analista em razão do seu nível de abstração em relação às abordagens gráficas.
+A \autoref{fig:disc1GPfocalGrafico} exibe a distribuição das respostas dos participantes para a primeira discussão.
+
+\begin{figure}[!htb]
+    \centering
+    \caption{Resultados da Discussão 1 - Grupo Focal.}
+    \label{fig:disc1GPfocalGrafico}
+    % \includegraphics[width=0.8\textwidth]{img/QP1GrupoFocalGrafico.png}
+    \include{TiKz/PieChartInst1}
+    \fonte{O autor.}
+\end{figure}
+
+Após, passou-se para a execução da discussão do segundo instrumento.
+O atividade era composta da seguinte pergunta:
+
+\textit{\textbf{``Considerando que um modelo conceitual de banco de dados deve definir ao menos as entidades de domínio, seus atributos e o número de ocorrências (cardinalidade) possíveis de associações (relacionamento), como você definiria uma gramática básica (DSL) para a sua representação?''}}
+
+Foi informado que os participantes poderiam conversar livremente durante toda a realização deste exercício.
+Após cada um sugerir a sua sintaxe, houve debate e troca de informações sobre como estruturar melhor as informações. 
+A discussão foi focada principalmente em como representar as relações do modelo \ac{ER} em uma sintaxe textual. 
+
+A maior dificuldade se mostrou em como definir uma ordem. 
+Outro ponto que merece destaque foi quanto à cardinalidade, onde no geral seguiu-se a nomenclatura utilizada no diagrama original de Chen (\textit{e.g.} 0,1). 
+Entretanto, ao fim do instrumento houveram opiniões muito divergentes em relação à representação ideal. 
+Aparentemente, cada um teve uma visão distinta, alguns optando por incluir as relações dentro das entidades, e outros fora. 
+
+Aconteceram também sugestões quanto às palavras-chave possíveis, como \texttt{Element}, \texttt{ElementFather}, \texttt{ElementSource}, \texttt{Type}, e \texttt{Referential}.
+Ainda, seis (6) participantes sugeriram o uso de ponto e vírgula (;) para separação das declarações de elementos, e todos os treze (13) preconizaram a utilização de símbolos como parênteses, colchetes e/ou chaves para agrupar conjuntos similares de elementos.				
+
+Finalizada a dinâmica proposta, chegou-se ao último instrumento do grupo focal.
+Este artefato era composto de um exemplo de cada versão da gramática (Apêndice \ref{ap:ModelosGP}) produzida preliminarmente para este trabalho.
+De posse das versões, foi pedido que os participantes realizassem a escolha entre as opções, apontando assim qual avaliavam como mais viável para modelagem \ac{ER}.
+Também foi solicitado que fossem indicados os pontos positivos e negativos observados em cada modelo.
+
+O segundo modelo acabou por ser escolhido pela maioria, como pode ser observado na \autoref{fig:disc3GPfocalGrafico}.
+Porém, ao final das discussões obteve-se um consenso de que a forma de definição de entidades do primeiro modelo e a disposição dos relacionamentos do segundo, em especial o uso das convenções nas cardinalidades, eram os mais adequado para a aplicação no ensino, indicando assim a necessidade de uma fusão de ambas as versões.
+
+\begin{figure}[!htb]
+    \centering
+    \caption{Resultados da Discussão 3 - Grupo Focal.}
+    \label{fig:disc3GPfocalGrafico}
+    % \includegraphics[width=0.8\textwidth]{img/QP3GrupoFocalGrafico.png}
+    \include{TiKz/PieChartInst3}
+    \fonte{O autor.}
+\end{figure}
+
+%Levantou-se como uma possível vantagem a possibilidade de os clientes poderem representar um modelo ER textualmente, estando em aderência com as práticas do DevOps que necessita dessa interação frequente com stakeholders não técnicos. Levantou-se novamente a necessidade de integrar a representação textual com a de Chen e as cores dos diferentes comandos.
+
+%#################################################################
+\section{A Ferramenta ERText} \label{sec:ERTEXTFinal}
+%#################################################################
+
+Esta seção apresenta a ferramenta com o \textit{plugin} final da solução proposta. 
+Este \textit{plugin} pode tanto ser integrado com a \ac{RCP} Eclipse, como pode ser insumo para um aplicativo independente (\textit{standalone application}).
+
+A diferença é que quando usado como um \textit{plugin} do Eclipse o editor pode fornecer, além das funcionalidades da gramática, suporte a outras linguagens \textit{e.g.} Java, PHP. 
+Um produto independente, por outro lado, fornece toda a infraestrutura voltada unicamente a linguagem desenvolvida, e pode ser distribuído como uma ferramenta livre desde que seguidas as diretrizes da licença de software EPL-2.0\footnote{https://www.eclipse.org/legal/epl-2.0/}.
+
+\subsection{Operação da ERText}
+
+Como dito anteriormente, a versão final da gramática resultou da fusão entre os duas versões previamente definidas e avaliadas com a execução do grupo focal.
+As principais mudanças foram as modificações das palavras reservadas \texttt{isA} e \texttt{isRelatedWith} por \texttt{is} e \texttt{relates}, respectivamente, além da adoção da convenção \texttt{(0:1) (1:1) (0:N) (1:N)} para as cardinalidades.
+
+% \begin{figure}
+%     \centering
+%     \caption{Versão final da \ac{DSL}.}
+%     \label{fig:DSLFINAL}
+%     \begin{scriptsize}
+%     \begin{lstlisting}[language = Xtext , frame = trbl]
+% grammar org.xtext.unipampa.erdsl.ErDsl with org.eclipse.xtext.common.Terminals
+
+% generate erDsl "http://www.xtext.org/unipampa/erdsl/ErDsl"
+
+% ERModel:
+% 	domain=Domain ';'
+% 	('Entities' '{') entities+=Entity+ ('}' ';')
+% 	('Relationships' '{') relations+=Relation* ('}' ';');
+	
+% Domain:
+% 	'Domain' name=ID;
+
+% Attribute:
+%         name=ID type=DataType (isKey?='isIdentifier')?;
+
+% enum DataType:
+%         INT='int' | DOUBLE='double' |
+%         MONEY='money' | STRING='string' | 
+%         BOOLEAN='boolean' | DATETIME='datetime' | BLOB='file';
+
+% Entity:
+% 	name=ID ('is' is+=[Entity])*
+% 	('{' attributes+=Attribute (',' attributes+=Attribute)* '}')?;
+
+% Relation:
+% 	(name=ID)? ('[' leftEnding=RelationSide 
+% 	'relates' rightEnding=RelationSide ']') 
+% 	('{'attributes+=Attribute (',' attributes+=Attribute)* '}')*;
 
 
-
-\subsubsection{Discussão 1}
-
-% \rowcolors{0}{}{}
-% \begin{figure}[!htb]
-% \centering
-% \caption{Teste TiKZ.}
-% \include{TiKz/Inst1GrupoFocal}
-% \fonte{O autor.}
-% \label{fig:Teste}
+% RelationSide:
+% 	Cardinality=('(0:1)' | '(1:1)' | '(0:N)' | '(1:N)') 
+% 	target=[Entity] | target=[Relation];
+    
+%     \end{lstlisting}
+%     \end{scriptsize}    
+%     \fonte{O autor.}
 % \end{figure}
 
-\subsubsection{Discussão 2}
+Após o \textit{plugin} ser integrado no \ac{RCP}, é possível verificar sua instalação no ambiente conforme exposto na \autoref{fig:pluginInstalado}.
 
-\subsubsection{Discussão 3}
+\begin{figure}[!htb]
+    \centering
+    \caption{Fragmento do \textit{plugin} da solução instalado.}
+    \label{fig:pluginInstalado}
+    \includegraphics[width=\textwidth]{img/PluginInstalado}
+    \fonte{O autor.}
+\end{figure}
+
+A \autoref{fig:ERTextUso} apresenta a ferramenta em funcionamento, onde é possível ser feita a criação de arquivos de modelagem utilizando a \ac{DSL}. 
+Neste exemplo há a modelagem de sete (7) entidades e seis (6) relacionamentos, incluindo um autorelacionamento e um relacionamento ternário.
+
+A modelagem na ferramenta ganha validação em tempo real,  \textit{syntax highlighting}, que indica erros de sintaxe em tempo de escrita, autocomplemento de código e \textit{hovering}, uma funcionalidade que exibe informações sobre um item quando o cursor do \textit{mouse} é colocado sobre ele.
+
+Se sabe que a definição dos tipos de dados não é prevista no modelo conceitual clássico mas, por questões relacionados a pretensão futura de realizar a geração de instruções \ac{SQL}, foi decido pela manutenção dessa escolha de projeto. 
+
+\begin{figure}[!htb]
+    \centering
+    \caption{Fragmento da solução sendo utilizada.}
+    \label{fig:ERTextUso}
+    \includegraphics[width=0.95\textwidth]{img/ERTextUso}
+    \fonte{O autor.}
+\end{figure}
+
+A função para o mapeamento e geração do modelo lógico é executada automaticamente toda a vez que uma modelo é salvo.
+Na figura anterior pode-se observar os arquivos \textit{.html} na estrutura de diretórios na guia da esquerda, dentro da pasta \textit{src-gen}.
+Foram gerados arquivos com esse formato para uma melhor visualização a partir de marcações no texto.
+
+Estas marcações podem ser renderizadas por qualquer navegador de Internet, ou mesmo dentro do próprio ambiente, aumentando o poder de compreensão por parte do usuário.
+O modelo lógico derivado pelo gerador que mapeia o modelo conceitual é apresentado na \autoref{fig:modeloLogico}.
+
+\begin{figure}[!htb]
+    \centering
+    \caption{Exemplo de modelo lógico gerado.}
+    \label{fig:modeloLogico}
+    \includegraphics[width=0.95\textwidth]{img/ModeloLogico}
+    \fonte{O autor.}
+\end{figure}
+
+Mediante as premissas assumidas para a realização da transformação, o modelo original resulta em um novo modelo composto de nove (9) entidades, e também já possuindo suas integridade referenciais inferidas, ou seja, os registros que apontam para outros registros já são estabelecidos. 
+
+É importante salientar que as premissas foram escolhidas previamente com base no livro referência de \citeonline{Heuser:2009}.
+A \autoref{fig:Premissas} expõe as alternativas de mapeamento entre os modelos, sendo que as assinaladas são as que foram implementadas até o momento da entrega deste estudo.
+Em relação ao conceito de generalização/especialização, também foi necessário assumir uma ideia inicial que teria que ser tomada como verdade.
+
+% \begin{figure}[!htb]
+%     \centering
+%     \caption{Fragmento do gerador desenvolvido para o mapeamento lógico.}
+%     \label{fig:GeradorXtend}
+%     \includegraphics[width=\textwidth]{img/GeradorXtend}
+%     \fonte{O autor.}
+% \end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \caption{Premissas adotadas para a transformação entre os modelos.}
+    \label{fig:Premissas}
+    \includegraphics[width=0.5\textwidth]{img/EPS/TabelaMapeamentoRelacionamentos}
+    \fonte{\citeonline{Heuser:2009}.}
+\end{figure}
+
+Segundo \citeonline{Heuser:2009}, para estes casos existe duas alternativas passíveis de serem derivadas. 
+A primeira recomenda o uso de uma única tabela para toda a hierarquia de entidades, ou seja, recomenda a fusão das tabelas.
+A segunda recomenda o uso de uma tabela por entidade modelada, desde que respeitado a integridade referencial, ou seja, as chaves primárias das entidades filhas devem apontar necessariamente para a chave primária da entidade pai. 
+No caso da ferramenta resultante neste trabalho, optou-se pela segunda alternativa. 
+
+O gerador do modelo lógico foi desenvolvido com a \ac{GPL} Xtend, e atualmente conta com cerca de quatrocentas linhas de código para realizar a transformação do modelo conceitual para o modelo lógico. 
 
 
 
@@ -402,11 +590,16 @@ Foi realizado também a transcrição das observações levantadas pelo debate q
 \section{Lições do Capítulo} \label{sec:licDSL}
 %#################################################################
 
-Neste capítulo foram expostos os requisitos, as decisões de projeto e a arquitetura da \ac{DSL} proposta. 
-Também foi demonstrado como o protótipo da versão preliminar da linguagem foi definido, bem como um exemplo de uso.
+Neste capítulo foram expostos os requisitos, as decisões de projeto e a arquitetura da \ac{DSL} proposta para a solução desenvolvida. 
+Também foi demonstrado como o protótipo da versão preliminar da linguagem foi definido, um exemplo de uso e o grupo focal conduzido para a avaliação preliminar.
 
-Até o momento o Xtext mostrou-se uma \ac{LW} capaz de suprir as necessidades iniciais do projeto, fornecendo suporte completo para a criação de gramáticas com notação \ac{BNF}, uma meta-sintaxe amplamente usada para expressar gramáticas livres de contexto como nas estruturas de linguagens de programação no geral. 
-Além de prover a validação da gramática criada, foi gerado um \textit{plugin} tornando assim possível a realização do teste do protótipo em um \ac{RCP} Eclipse. 
+Com base nos resultados do grupo focal, foi possível chegar na versão final da \ac{DSL} proposta, realizando então a sua implementação como um \textit{plugin} integrado em um \ac{RCP} Eclipse, gerando assim a ferramenta ERText.
+Desta forma o processo de modelagem com a nova linguagem criada ganhou recursos nativos como autocomplemento de código, formatação, validação com base nas restrições descritas na gramática e \textit{syntax highlighting}.
 
-%Assim, por meio disso o processo de modelagem com a nova linguagem criada ganhou recursos nativos como formatação, validação com base nas restrições descritas na gramática e \textit{syntax highlighting}. 
+Por fim, o projeto desta solução está disponível publicamente, sob a licença EPL-2.0, no \textit{ProjetoDSL}\footnote{Repositório ERDSL: \url{https://github.com/ProjetoDSL/ERDSL}}, pertencente ao grupo de pesquisa \textit{Laboratory of Empirical Studies in Software Engineering} (LESSE) da UNIPAMPA.
+
+% Até o momento o Xtext mostrou-se uma \ac{LW} capaz de suprir as necessidades iniciais do projeto, fornecendo suporte completo para a criação de gramáticas com notação \ac{BNF}, uma meta-sintaxe amplamente usada para expressar gramáticas livres de contexto como nas estruturas de linguagens de programação no geral. 
+% Além de prover a validação da gramática criada, foi gerado um \textit{plugin} tornando assim possível a realização do teste do protótipo em um \ac{RCP} Eclipse. 
+
+% Assim, por meio disso o processo de modelagem com a nova linguagem criada ganhou recursos nativos como formatação, validação com base nas restrições descritas na gramática e \textit{syntax highlighting}. 
 %É importante ressaltar que o \textit{plugin} somente pôde ser testado devido a integração nativa fornecida pelo Xtext com o \ac{EMF}, um conjunto de recursos do Eclipse para representar modelos e gerar código equivalente. 

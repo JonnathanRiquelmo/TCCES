@@ -1,0 +1,188 @@
+\pgfplotsset{testbar/.style={
+            xbar stacked,
+            legend cell align=left,
+            legend style={
+                legend columns=6,
+                font=\footnotesize,
+                at={(xticklabel cs:1.0)},
+                anchor=north east,
+                draw=none
+                },
+            width=10cm,
+            axis y line*= none, 
+            axis x line*= bottom,
+            xmajorgrids = false,
+            xmin=0,xmax=27,
+            ytick = data,
+            yticklabels = {
+                Conformidade  (ERText),
+                Conformidade (BrModelo),
+                Inteligibilidade (ERText),
+                Inteligibilidade (BrModelo),
+                Apreensibilidade (ERText),
+                Apreensibilidade (BrModelo),
+                Operacionalidade (ERText),
+                Operacionalidade (BrModelo),
+                Qualidade em uso (ERText),
+                Qualidade em uso (BrModelo),
+                Produtividade (ERText),
+                Produtividade (BrModelo),
+                Satisfabilidade (ERText),
+                Satisfabilidade (BrModelo)
+            },
+            tick align = outside, xtick pos = left,
+            bar width=7mm, y=10mm,
+            enlarge y limits={abs=0.625},% 0.5 + 0.5*(y - bar width)/y [TeX.sx #47995]
+            nodes near coords,
+            nodes near coords align=center,%Move values in bar
+            every node near coord/.append style={
+                black,
+                font=\footnotesize,
+                text opacity=1,
+                fill=white,
+                fill opacity=0.7,
+                outer sep=\pgflinewidth
+            }
+        }}
+    \begin{tikzpicture}
+    \begin{axis}[testbar] 
+    \addplot[pattern color=red,pattern=north east lines] coordinates
+        {(0,14)(0,13)(0,12)(0,11)(0,10)(0,9)(0,8)(2,7)(0,6)(0,5)(0,4)(1,3)(0,2)(1,1)};
+    \addplot[pattern color=teal,pattern=vertical lines] coordinates
+        {(0,14)(0,13)(0,12)(0,11)(0,10)(1,9)(0,8)(2,7)(0,6)(1,5)(0,4)(2,3)(0,2)(3,1)};
+    \addplot[pattern color=gray, pattern=grid] coordinates
+       {(1,14)(0,13)(0,12)(2,11)(2,10)(1,9)(0,8)(2,7)(0,6)(0,5)(2,4)(1,3)(1,2)(1,1)};
+    \addplot[pattern color=magenta, pattern=north west lines] coordinates
+       {(3,14)(2,13)(2,12)(1,11)(6,10)(4,9)(3,8)(5,7)(5,6)(2,5)(4,4)(6,3)(2,2)(6,1)};
+    \addplot[pattern color=blue, pattern=horizontal lines] coordinates
+       {(10,14)(3,13)(7,12)(4,11)(10,10)(16,9)(9,8)(8,7)(10,6)(7,5)(13,4)(10,3)(9,2)(7,1)};
+    \addplot[pattern color=green, pattern=crosshatch dots] coordinates
+       {(13,14)(22,13)(18,12)(20,11)(9,10)(5,9)(15,8)(8,7)(12,6)(17,5)(8,4)(7,3)(15,2)(9,1)};
+    \legend{1-Discorda, 2, 3, 4, 5, 6-Concorda}
+    \end{axis}
+    \end{tikzpicture}
+    
+% \begin{tikzpicture}
+% \begin{axis}[
+%     xbar stacked,
+%     legend cell align=center,
+%     legend style={
+%     legend columns=5,
+%         at={(xticklabel cs:1.0)},
+%         anchor=north east,
+%         draw=none
+%     },
+%     ytick=data,
+%     axis y line*=none,
+%     axis x line*=bottom,
+%     tick label style={font=\small},
+%     legend style={font=\small},
+%     label style={font=\small},
+%     xtick={0,3,6},
+%     xticklabel= {},
+%     bar width=5mm,
+%     ylabel={Questions},
+%     yticklabels={P-Q1, T-Q1, P-Q2, T-Q2, P-Q3, T-Q3, P-Q4, T-Q4,P-Q5, T-Q5,P-Q6, T-Q6, P-Q7, T-Q7},
+%     xmin=0,
+%     xmax=6,
+%     area legend,
+%     y=6.5mm,
+%     enlarge y limits={abs=0.625},
+%     nodes near coords,
+%     nodes near coords align=center,
+%     every node near coord/.append style={
+%         black,
+%         font=\small,
+%         text opacity=.65,
+%         fill=white,
+%         fill opacity=0.75,
+%         outer sep=\pgflinewidth
+%     }
+% ]
+% \addplot[pattern color=red,pattern=horizontal lines] coordinates
+% {(0,14)(0,13)(0,12)(0,11) (3,10)(0,9)(0,8) (0,7) (0,6)(0,5)(0,4) (0,3) (0,2) (0,1)};   
+% \addplot[pattern color=orange,pattern=grid] coordinates
+% {(3,14) (0,13)(0,12)(0,11)(2,10) (1,9)(1,8)(0,7)(3,6)(0,5)(0,4)(3,3) (4,2) (0,1) };  
+% \addplot[pattern color = green, pattern=crosshatch dots] coordinates
+% {(0,14) (0,13) (3,12)(2,11)(1,10) (3,9)(4,8)(1,7)(3,6)(1,5)(3,4)(2,3)(2,2) (2,1) };   
+% \addplot[pattern color=blue, pattern =vertical lines ] coordinates
+% {(2,14) (3,13) (2,12)(3,11)(0,10)(2,9)(1,8)(4,7)(0,6)(3,5) (3,4)(1,3)(0,2)(4,1)};   
+% \addplot[pattern color=gray, pattern = dots] coordinates
+% {(1,14)(3,13)(1,12)(1,11)(0,10)(0,9)(0,8)(1,7) (0,6)(2,5) (0,4)(0,3)(0,2)(0,1) };   
+% \legend{1-Disagree, 2, 3, 4, 5-Agree}
+
+% \end{axis}
+% \end{tikzpicture}
+% \footnotesize
+% T-Thoth answers; P-Parsifal answers;
+
+
+
+
+
+
+% \begin{tikzpicture}
+% \begin{axis}[
+%     xbar stacked,
+%     legend cell align=left,
+%     legend style={
+%     legend columns=2,
+%         at={(xticklabel cs:1.0)},
+%         anchor=north east,
+%         draw=none
+%     },
+%     ytick=data,
+%     axis y line*=none,
+%     axis x line*=bottom,
+%     tick label style={font=\scriptsize},
+%     legend style={font=\scriptsize},
+%     %legend style={font=\scriptsize,row sep=-0.1cm,/tikz/every odd column/.append style={column sep=0.01cm}},
+%     label style={font=\scriptsize},
+%     xtick={0,10,...,100},
+%     width=\columnwidth,
+%     bar width=3.5mm,
+%     % xlabel={Frequencia em \%},
+%     yticklabels={
+%     {Q1 - OC},
+%     {Q2 - TD},
+%     {Q3 - OC},
+%     {Q4 - TD},
+%     {Q5 - OC},
+%     {Q6 - TD},
+%     {Q7 - OC},
+%     {Q8 - TD},
+%     {Q9 - OC},
+%     {Q10 - TD},
+%     {Q11 - OC},
+%     {Q12 - TD}},
+%     xmin=0,
+%     xmax=100,
+%     area legend,
+%     y=5mm,
+%     enlarge y limits={abs=0.625},
+%     nodes near coords,
+%     nodes near coords={\pgfmathprintnumber\pgfplotspointmeta\%},
+%     nodes near coords align=center,%Move values in bar
+%     every node near coord/.append style={
+%         black,
+%         font=\footnotesize,
+%         text opacity=1,
+%         fill=white,
+%         fill opacity=0.7,
+%         outer sep=\pgflinewidth
+%     }
+% ]
+% \addplot[pattern color=blue,pattern=dots] coordinates
+% {(0,0)(0,1)(0,2)(0,3)(0,4)(0,5)(0,6)(0,7)(0,8)(0,9)(0,10)(0,11)};
+% \addplot[pattern color=red, pattern=vertical lines] coordinates
+% {(4,0)(32,1)(0,2)(9,3)(13,4)(18,5)(0,6)(9,7)(5,8)(5,9)(0,10)(14,11)};
+% \addplot[pattern color=cyan, pattern=grid] coordinates
+% {(27,0)(9,1)(4,2)(5,3)(23,4)(27,5)(36,6)(23,7)(27,8)(41,9)(46,10)(45,11)};
+% \addplot[pattern color=green, pattern=horizontal lines] coordinates
+% {(55,0)(32,1)(55,2)(68,3)(41,4)(50,5)(46,6)(64,7)(64,8)(45,9)(36,10)(27,11)};
+% \addplot[pattern color=orange, pattern=crosshatch dots] coordinates
+% {(14,0)(27,1)(41,2)(18,3)(23,4)(5,5)(18,6)(4,7)(4,8)(9,9)(18,10)(14,11)};
+% \legend{Strongly disagree,Disagree,Neither agree nor disagree,Agree,Strongly agree}; 
+
+% \end{axis}  
+% \end{tikzpicture}d
